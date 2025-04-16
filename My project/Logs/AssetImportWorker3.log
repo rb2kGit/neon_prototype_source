@@ -15,7 +15,7 @@ C:/Users/RB_2k/Development/neon_prototype/neon_prototype_source/My project
 -logFile
 Logs/AssetImportWorker3.log
 -srvPort
-59842
+62112
 -job-worker-count
 9
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/RB_2k/Development/neon_prototype/neon_prototype_source/My project
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [25880]  Target information:
+Player connection [4492]  Target information:
 
-Player connection [25880]  * "[IP] 192.168.2.148 [Port] 0 [Flags] 2 [Guid] 3897870201 [EditorId] 3897870201 [Version] 1048832 [Id] WindowsEditor(7,rb2kDesktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [4492]  * "[IP] 192.168.2.148 [Port] 0 [Flags] 2 [Guid] 2870200396 [EditorId] 2870200396 [Version] 1048832 [Id] WindowsEditor(7,rb2kDesktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [25880] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [25880] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [4492] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [4492] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 1.34 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.38 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.46f1 (fb93bc360d3a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/Resources/UnitySubsystems
@@ -92,45 +92,45 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56904
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56060
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.46f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002021 seconds.
-- Loaded All Assemblies, in  0.257 seconds
+Registered in 0.002067 seconds.
+- Loaded All Assemblies, in  0.256 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.250 seconds
-Domain Reload Profiling: 506ms
-	BeginReloadAssembly (84ms)
+- Finished resetting the current domain, in  0.258 seconds
+Domain Reload Profiling: 513ms
+	BeginReloadAssembly (83ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (25ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (24ms)
 	RebuildNativeTypeToScriptingClass (8ms)
 	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (104ms)
-		LoadAssemblies (83ms)
+	LoadAllAssembliesAndSetupDomain (105ms)
+		LoadAssemblies (81ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (102ms)
+		AnalyzeDomain (103ms)
 			TypeCache.Refresh (101ms)
-				TypeCache.ScanAssembly (92ms)
+				TypeCache.ScanAssembly (93ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (251ms)
+	FinalizeReload (259ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (221ms)
+		SetupLoadedEditorAssemblies (229ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (15ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (42ms)
-			ProcessInitializeOnLoadAttributes (114ms)
-			ProcessInitializeOnLoadMethodAttributes (46ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (47ms)
+			ProcessInitializeOnLoadAttributes (128ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -139,83 +139,1628 @@ Domain Reload Profiling: 506ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.538 seconds
-Refreshing native plugins compatible for Editor in 0.80 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.530 seconds
+Refreshing native plugins compatible for Editor in 0.81 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.535 seconds
-Domain Reload Profiling: 1070ms
-	BeginReloadAssembly (111ms)
+- Finished resetting the current domain, in  0.541 seconds
+Domain Reload Profiling: 1068ms
+	BeginReloadAssembly (112ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (24ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (26ms)
-	LoadAllAssembliesAndSetupDomain (367ms)
-		LoadAssemblies (253ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (358ms)
+		LoadAssemblies (243ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (180ms)
-			TypeCache.Refresh (127ms)
-				TypeCache.ScanAssembly (115ms)
+		AnalyzeDomain (178ms)
+			TypeCache.Refresh (124ms)
+				TypeCache.ScanAssembly (113ms)
 			BuildScriptInfoCaches (43ms)
 			ResolveRequiredComponents (7ms)
-	FinalizeReload (535ms)
+	FinalizeReload (541ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (436ms)
+		SetupLoadedEditorAssemblies (442ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
+			InitializePlatformSupportModulesInManaged (3ms)
 			SetLoadedEditorAssemblies (2ms)
-			BeforeProcessingInitializeOnLoad (82ms)
-			ProcessInitializeOnLoadAttributes (266ms)
-			ProcessInitializeOnLoadMethodAttributes (78ms)
-			AfterProcessingInitializeOnLoad (5ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (260ms)
+			ProcessInitializeOnLoadMethodAttributes (73ms)
+			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.47 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 206 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6585 unused Assets / (6.2 MB). Loaded Objects now: 7229.
-Memory consumption went from 178.6 MB to 172.5 MB.
-Total: 8.615200 ms (FindLiveObjects: 0.495300 ms CreateObjectMapping: 0.528200 ms MarkObjects: 4.575400 ms  DeleteObjects: 3.014600 ms)
+Unloading 209 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6585 unused Assets / (6.3 MB). Loaded Objects now: 7247.
+Memory consumption went from 189.3 MB to 183.0 MB.
+Total: 9.204900 ms (FindLiveObjects: 0.675500 ms CreateObjectMapping: 0.667800 ms MarkObjects: 4.978600 ms  DeleteObjects: 2.881700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1989918.544593 seconds.
-  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpatialMappingOcclusion.mat
-  artifactKey: Guid(b51db210fe78df745a372851b3db949e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpatialMappingOcclusion.mat using Guid(b51db210fe78df745a372851b3db949e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7a27cf4fb36f71e825422d6732a72341') in 0.44215 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 2067134.868384 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfSquare_5.png
+  artifactKey: Guid(52b43f1cad024c547934146d68e44e1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfSquare_5.png using Guid(52b43f1cad024c547934146d68e44e1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a4169a33750b71169ecbf95ab5ed5946') in 0.127239 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Decal.mat
-  artifactKey: Guid(31d0dcc6f2dd4e4408d18036a2c93862) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/Decal.mat using Guid(31d0dcc6f2dd4e4408d18036a2c93862) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c055b26035578cd3de9626038566d516') in 0.0073325 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 0.000018 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_2.png
+  artifactKey: Guid(744da26a146757848ade0a7685848fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_2.png using Guid(744da26a146757848ade0a7685848fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e78faf49a14e668be53622525caa07fd') in 0.0178152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Aztec-Tech Blocks/block_23.png
+  artifactKey: Guid(ad8aa3ac68769414380d5e7407bdf5c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_23.png using Guid(ad8aa3ac68769414380d5e7407bdf5c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '855491918e1325aad1892e2ec0b325b4') in 0.0135962 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Aztec-Tech Blocks/block_13.png
+  artifactKey: Guid(fede3a5a0b41aa645a7a6ee36ae3b77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_13.png using Guid(fede3a5a0b41aa645a7a6ee36ae3b77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '334b74fa77969f5db7bb472f6068c622') in 0.0140149 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_9.png
+  artifactKey: Guid(c7b88e60af387454782afbe23c371396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_9.png using Guid(c7b88e60af387454782afbe23c371396) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30e21e3f72fd8395a9a6e32439456664') in 0.0156626 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_1.png
+  artifactKey: Guid(2be23cbf96281344081010e1faa296f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_1.png using Guid(2be23cbf96281344081010e1faa296f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e89a71a0f9a5b5cef034e86ac3fbda9') in 0.0150114 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/block_26.png
+  artifactKey: Guid(d9dca9aa495af394fb2c384910244647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_26.png using Guid(d9dca9aa495af394fb2c384910244647) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35b05b8fa749a1bb397bc7953c92411c') in 0.0148343 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000028 seconds.
-  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpriteMask-Default.mat
-  artifactKey: Guid(15d0c3709176029428a0da2f8cecf0b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpriteMask-Default.mat using Guid(15d0c3709176029428a0da2f8cecf0b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'feeb03e5b2f5c5c850bf08e316738404') in 0.0391411 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  path: Assets/Aztec-Tech Blocks/cornerBlock_5.png
+  artifactKey: Guid(96f683add3b2ba64cbab9977a65deae7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_5.png using Guid(96f683add3b2ba64cbab9977a65deae7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b511c8f1ec7a4af713fd4d9afc92af67') in 0.0131019 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/block_5.png
+  artifactKey: Guid(2d5c0b91be0060f4f9490a5386c1139e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_5.png using Guid(2d5c0b91be0060f4f9490a5386c1139e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a9edfdf3bbad4828b3778fc6f61294a3') in 0.0145605 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_5.png
+  artifactKey: Guid(e7b7e950e4d65ce4d9306e657002201a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_5.png using Guid(e7b7e950e4d65ce4d9306e657002201a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a1ee4bdb5e5f5428e2e8e8e5d02d72f') in 0.0150388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/block_22.png
+  artifactKey: Guid(495c3e93f876a954ca693dcd87280a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_22.png using Guid(495c3e93f876a954ca693dcd87280a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'de46a5ea33bc96889b13cb967e5c155c') in 0.0138288 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_4.png
+  artifactKey: Guid(48071b9aa7ad9b247bc4991d2f6bc5d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_4.png using Guid(48071b9aa7ad9b247bc4991d2f6bc5d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a52a6de0dc7089e3afb20e391c2b4dfd') in 0.0146703 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfSquare_2.png
+  artifactKey: Guid(687d7e0ee70607b48a8927d1991c3185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfSquare_2.png using Guid(687d7e0ee70607b48a8927d1991c3185) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '77a7502427e6455581344859b7c33b45') in 0.0133298 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/circleDestroyed_3.png
+  artifactKey: Guid(dace654274631f1409a0d15ea327a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circleDestroyed_3.png using Guid(dace654274631f1409a0d15ea327a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '897df9ab8f553b71df5ad4b338757009') in 0.0141484 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/circleDestroyed_1.png
+  artifactKey: Guid(460544ec6e1243c4eb78449528ddfaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circleDestroyed_1.png using Guid(460544ec6e1243c4eb78449528ddfaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3445650b2c4217885ad11a52dffbc0ab') in 0.014956 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_1.png
+  artifactKey: Guid(4a271c6d603497346874fd03e394fc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_1.png using Guid(4a271c6d603497346874fd03e394fc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '39b6cf660dfcf5c883d9d32ee1c18fb2') in 0.0134008 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 103.619376 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_1.png
+  artifactKey: Guid(f0e3c55473a98fd4aaab5a88ecd3c0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_1.png using Guid(f0e3c55473a98fd4aaab5a88ecd3c0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0d6345053758375447577c47534eade5') in 0.0172388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_7.png
+  artifactKey: Guid(921d395159c6dd84bb1770b9a59605ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_7.png using Guid(921d395159c6dd84bb1770b9a59605ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '02ce810bce2c1de00017ba9f99f464b4') in 0.0310932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_6.png
+  artifactKey: Guid(da088e742a6258e46929b72b7585a07b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_6.png using Guid(da088e742a6258e46929b72b7585a07b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a1821b957342f02f4ee1bd1874d2571c') in 0.0387392 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_8.png
+  artifactKey: Guid(9029b629e7a13c8499b50a775729dac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_8.png using Guid(9029b629e7a13c8499b50a775729dac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4969248988b60dc4c637fcdbb929b1ab') in 0.0658138 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_7.png
+  artifactKey: Guid(f0d9b55d1fe55a246adb3a21bf634891) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_7.png using Guid(f0d9b55d1fe55a246adb3a21bf634891) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c3067f7be2a31062f23bb08a7291e0e5') in 0.034655 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_10.png
+  artifactKey: Guid(a9d7c5cf4f4ea8647bbc07fd62e9856d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_10.png using Guid(a9d7c5cf4f4ea8647bbc07fd62e9856d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c824fc61496651f8ace8a76dca569f28') in 0.0133238 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_5.png
+  artifactKey: Guid(cc95a7fadc16fe143be751d17f53e307) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_5.png using Guid(cc95a7fadc16fe143be751d17f53e307) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a34d3a35c111924b762439c469e70d9f') in 0.0145656 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_1.png
+  artifactKey: Guid(3a12d3b87fd7d4c47b0d8a8bb8b29b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_1.png using Guid(3a12d3b87fd7d4c47b0d8a8bb8b29b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a951275fef32569f8ff29b7d061404d0') in 0.0155592 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_3.png
+  artifactKey: Guid(f09976502b70bd4439192ab037a241db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_3.png using Guid(f09976502b70bd4439192ab037a241db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e96cf71dcb16296841a1fa32feb37006') in 0.0141598 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_5.png
+  artifactKey: Guid(ce9085a039e7d2a40a86bb8ba1d12657) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_5.png using Guid(ce9085a039e7d2a40a86bb8ba1d12657) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0dbc9c28c343f9471a34d280f0a3065b') in 0.0156145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_3.png
+  artifactKey: Guid(245af2a4785cb314ab76ab73f0de935d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_3.png using Guid(245af2a4785cb314ab76ab73f0de935d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2cbb964f5c1307a92229977a4422a6e9') in 0.0148044 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.158918 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_3.png
+  artifactKey: Guid(485391ecd6c723b4780b77de97ae2b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_3.png using Guid(485391ecd6c723b4780b77de97ae2b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ff5c3192ef056e78732c6154738c08c6') in 0.0156518 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_4.png
+  artifactKey: Guid(6b19448e580ecbc46b2b00865b6e0e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_4.png using Guid(6b19448e580ecbc46b2b00865b6e0e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe5db0fdc3752c10b5880381c2c39678') in 0.0119562 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/tri_5.png
+  artifactKey: Guid(20c07a50d36bff54c9549006e0c387da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/tri_5.png using Guid(20c07a50d36bff54c9549006e0c387da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ca3043446e417b4ed1c4357baad7788d') in 0.016499 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_5.png
+  artifactKey: Guid(38bb59a87d93dd443a3452bc97af411f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_5.png using Guid(38bb59a87d93dd443a3452bc97af411f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9922540e9f65808266e5441868ee8c38') in 0.0157912 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/tri_1.png
+  artifactKey: Guid(8fe1c26e67808f645827628c16228841) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/tri_1.png using Guid(8fe1c26e67808f645827628c16228841) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bcc12c10090d0a0d78e4c71dd5915937') in 0.0161511 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 875.802985 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerDestroyed_3.png
+  artifactKey: Guid(2bf88b40aed1a224786517b3f502145a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerDestroyed_3.png using Guid(2bf88b40aed1a224786517b3f502145a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '066c93e463c3b99da07cd568bfe13bdf') in 0.0248615 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfSquare_5.png
+  artifactKey: Guid(52b43f1cad024c547934146d68e44e1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfSquare_5.png using Guid(52b43f1cad024c547934146d68e44e1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e21fdf404987b64168383dcd50676bd') in 0.0442779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_6.png
+  artifactKey: Guid(da088e742a6258e46929b72b7585a07b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_6.png using Guid(da088e742a6258e46929b72b7585a07b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b17fc5917c7ab6f90b6bd39c318d4997') in 0.0283908 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHex_4.png
+  artifactKey: Guid(3f4e4b3a39a380144bb4ef25708ad118) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHex_4.png using Guid(3f4e4b3a39a380144bb4ef25708ad118) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '400e1512ca016e21bbc71fa98f412ad1') in 0.0267841 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHex_5.png
+  artifactKey: Guid(13c54ea4c48bc5b4698f7fc4e60fa112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHex_5.png using Guid(13c54ea4c48bc5b4698f7fc4e60fa112) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ceec8377135a92791bc7e35bf09f291') in 0.0200439 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerDestroyed_4.png
+  artifactKey: Guid(81e2881a5eeb3b247ae7608a1c05d884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerDestroyed_4.png using Guid(81e2881a5eeb3b247ae7608a1c05d884) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '11276453748266b052bc571a9e484287') in 0.0118138 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_6.png
+  artifactKey: Guid(459f82c0fa1f4f045a043a2c151fa1a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_6.png using Guid(459f82c0fa1f4f045a043a2c151fa1a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f6cdeb0b9b6d2c0adf565b842d409359') in 0.0136602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/tri_4.png
+  artifactKey: Guid(9b37b921549c89d45b1c50623a9331b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/tri_4.png using Guid(9b37b921549c89d45b1c50623a9331b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a1e7bb03855a6d6d54795a2ee389a5a') in 0.0136968 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfCircle_3.png
+  artifactKey: Guid(944a2bcddd3dbde488772810e4c66b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfCircle_3.png using Guid(944a2bcddd3dbde488772810e4c66b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '529340576e1a32af266a76bf07b57f8c') in 0.0188984 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_4.png
+  artifactKey: Guid(6b19448e580ecbc46b2b00865b6e0e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_4.png using Guid(6b19448e580ecbc46b2b00865b6e0e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf93d9282e1a24ff820c3ceb11a3e576') in 0.0128132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_10.png
+  artifactKey: Guid(9248ae7234d299d4cadb75bd49f653c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_10.png using Guid(9248ae7234d299d4cadb75bd49f653c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59267e39e0c1810913e33c3ecc832e31') in 0.0160917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHex_3.png
+  artifactKey: Guid(a6f27ba62633abf47bfbfcc08a3fd9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHex_3.png using Guid(a6f27ba62633abf47bfbfcc08a3fd9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '093e4dbd63a470252a510497ba909ac6') in 0.0172592 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfCircle_2.png
+  artifactKey: Guid(8bd00f07764741343958c23f8b206c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfCircle_2.png using Guid(8bd00f07764741343958c23f8b206c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dfcaaf2f0e39da70c1713d2f97ab1d7b') in 0.0134212 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_9.png
+  artifactKey: Guid(6a870d213b88c164d91adf7e8f1ca13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_9.png using Guid(6a870d213b88c164d91adf7e8f1ca13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ced8e2486306b5b90a0d4b8ad8d7871d') in 0.0165689 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedTri_4.png
+  artifactKey: Guid(130541f8da7880e4da5f8f03e04c2d72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedTri_4.png using Guid(130541f8da7880e4da5f8f03e04c2d72) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f16b0bcac6f2b032fe382b897230dd6d') in 0.0166308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_2.png
+  artifactKey: Guid(4e0ab053f57d55a4fa659d6d9c32af95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_2.png using Guid(4e0ab053f57d55a4fa659d6d9c32af95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a692c576b65c05aea22f462595df672b') in 0.0190628 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_1.png
+  artifactKey: Guid(3a12d3b87fd7d4c47b0d8a8bb8b29b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_1.png using Guid(3a12d3b87fd7d4c47b0d8a8bb8b29b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b890b1b9033e1d109cb8bbee93abb5a7') in 0.0167653 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfSquare_3.png
+  artifactKey: Guid(b24f833761a6ce7429c83836635b1b3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfSquare_3.png using Guid(b24f833761a6ce7429c83836635b1b3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a9be804dbcba00d6e0e0d90ed832021') in 0.0167067 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_1.png
+  artifactKey: Guid(f0e3c55473a98fd4aaab5a88ecd3c0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_1.png using Guid(f0e3c55473a98fd4aaab5a88ecd3c0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4f19de2e5a0d727b36b3941fa5ddf9b5') in 0.0123266 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerDestroyed_5.png
+  artifactKey: Guid(cadb7d169d8a6fd4cb320ba6ab866957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerDestroyed_5.png using Guid(cadb7d169d8a6fd4cb320ba6ab866957) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44c5c6f3bbb8c76b6b9993a4ccea9159') in 0.0175299 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedTri_3.png
+  artifactKey: Guid(db3ba6521f7c1614bb755e19e32e4e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedTri_3.png using Guid(db3ba6521f7c1614bb755e19e32e4e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b336b59790f756f0d30611bea6f263dd') in 0.013405 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHex_1.png
+  artifactKey: Guid(f5e4920728f5b97418747e2f38f6ef08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHex_1.png using Guid(f5e4920728f5b97418747e2f38f6ef08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '92b76a9e805a6b31967ebb816e7cfc70') in 0.0149704 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_5.png
+  artifactKey: Guid(38bb59a87d93dd443a3452bc97af411f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_5.png using Guid(38bb59a87d93dd443a3452bc97af411f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35ad6de72d35fc438d819d53fa722918') in 0.0127719 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/halfCircle_5.png
+  artifactKey: Guid(ce9085a039e7d2a40a86bb8ba1d12657) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfCircle_5.png using Guid(ce9085a039e7d2a40a86bb8ba1d12657) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2527ca0ca7a09e54bc1ebd6779e2afa2') in 0.0137471 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/destroyedHalfSquare_1.png
+  artifactKey: Guid(44d9cc8433967614fbcf0a211f29d98c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/destroyedHalfSquare_1.png using Guid(44d9cc8433967614fbcf0a211f29d98c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e6a1919b074809f079da32ae49f46973') in 0.0154503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/halfBlock_4.png
+  artifactKey: Guid(42011e7ba5067f445ba38e6c2e61fe18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/halfBlock_4.png using Guid(42011e7ba5067f445ba38e6c2e61fe18) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e41a7295910974bbe0595fb2deb7ebc9') in 0.016319 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/hex_1.png
+  artifactKey: Guid(dc45cc61152ab2b459f5150ec68cbdd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/hex_1.png using Guid(dc45cc61152ab2b459f5150ec68cbdd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f51d42c2de8a0a3214e5166df285e3f9') in 0.0146141 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.346983 seconds.
+  path: Assets/Aztec-Tech Blocks/circle_1.png
+  artifactKey: Guid(6bbb887481206404488755715e3879cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circle_1.png using Guid(6bbb887481206404488755715e3879cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '642f0034a0b30f39b6e7328e4a813883') in 0.0120684 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_8.png
+  artifactKey: Guid(bbed85eb938971f428e1718d01a85e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_8.png using Guid(bbed85eb938971f428e1718d01a85e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eeb563ac113fd8beff0f2731a26d8bff') in 0.0151962 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_6.png
+  artifactKey: Guid(8f231e38f35649d4c8319989cc7fd6d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_6.png using Guid(8f231e38f35649d4c8319989cc7fd6d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '958172ff3cba56370069b4ceb9ee2cc0') in 0.0146267 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_10.png
+  artifactKey: Guid(2acd22f9be6d01742b4b9c5d9541917d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_10.png using Guid(2acd22f9be6d01742b4b9c5d9541917d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '084c5e978252e39111163efa272075bd') in 0.0149515 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Aztec-Tech Blocks/block_4.png
+  artifactKey: Guid(d72fedf6c9a10de42af496abfc220478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_4.png using Guid(d72fedf6c9a10de42af496abfc220478) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21e32aa6030947f397e734c580a84935') in 0.0154142 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/block_20.png
+  artifactKey: Guid(598d7b03a7a4f1b4f97bd31a3ed8922e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_20.png using Guid(598d7b03a7a4f1b4f97bd31a3ed8922e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '312a8a9c96c71ba8398b413fa6f3d462') in 0.0138961 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/block_2.png
+  artifactKey: Guid(a849cc68420f5be4e865c48e42ed8c0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_2.png using Guid(a849cc68420f5be4e865c48e42ed8c0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5922574c645e182513da00a04a8b4575') in 0.0135653 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/block_17.png
+  artifactKey: Guid(84f1f76d64d32a7489b88405bebe7f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_17.png using Guid(84f1f76d64d32a7489b88405bebe7f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '871d1a24adcf5dc3ac38a1a106c909eb') in 0.0134315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Aztec-Tech Blocks/block_21.png
+  artifactKey: Guid(f38338c1d463a4145942b71cae69b597) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_21.png using Guid(f38338c1d463a4145942b71cae69b597) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c46b6a7b88a1898c46153c926eea701') in 0.0142995 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Aztec-Tech Blocks/block_9.png
+  artifactKey: Guid(789496cc96ca8eb4f9f9f0aca162db0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_9.png using Guid(789496cc96ca8eb4f9f9f0aca162db0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '743569e61a2a1a390045a90d7d36e17a') in 0.0170323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/circleDestroyed_4.png
+  artifactKey: Guid(131ab8e3ab4ecee4c988b083cc7a94ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circleDestroyed_4.png using Guid(131ab8e3ab4ecee4c988b083cc7a94ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b372c46eb6fc177a0018ba05244b82f2') in 0.0156676 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000017 seconds.
-  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat
-  artifactKey: Guid(31321ba15b8f8eb4c954353edc038b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat using Guid(31321ba15b8f8eb4c954353edc038b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '61203b768414b19bb7462c71b213f993') in 0.0151835 seconds
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_9.png
+  artifactKey: Guid(c7b88e60af387454782afbe23c371396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_9.png using Guid(c7b88e60af387454782afbe23c371396) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0eae435be07ad516351fd6d1eaff9654') in 0.0112666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_9.png
+  artifactKey: Guid(11de3524bd479164889bed8d42aebaa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_9.png using Guid(11de3524bd479164889bed8d42aebaa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '007aedeb1f6a0b7d61f85c2db598249f') in 0.0161031 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/blockDestroyed_6.png
+  artifactKey: Guid(07ca9789967f5b24891bfa781c99137b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/blockDestroyed_6.png using Guid(07ca9789967f5b24891bfa781c99137b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8a82a6b3b21f088301e9e5d09dbd0c91') in 0.0129822 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/block_26.png
+  artifactKey: Guid(d9dca9aa495af394fb2c384910244647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_26.png using Guid(d9dca9aa495af394fb2c384910244647) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e84fb83a2f298d9c5c8f62354b04c0a') in 0.0121309 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/block_25.png
+  artifactKey: Guid(3fcc72072c0da724d8438e70d979c960) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_25.png using Guid(3fcc72072c0da724d8438e70d979c960) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '733ab6bf55b797c41ac5d70d6e791528') in 0.0146308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Aztec-Tech Blocks/block_15.png
+  artifactKey: Guid(adcd483d15d4f044590b550bdc035985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_15.png using Guid(adcd483d15d4f044590b550bdc035985) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1e13e5d8d4a1d541865eda5479441230') in 0.0115254 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Aztec-Tech Blocks/block_10.png
+  artifactKey: Guid(a0a3eb04d19804b4cb1d9a25344018a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_10.png using Guid(a0a3eb04d19804b4cb1d9a25344018a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd167368dcd2b3f31707693fcb552b906') in 0.0112086 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Aztec-Tech Blocks/block_5.png
+  artifactKey: Guid(2d5c0b91be0060f4f9490a5386c1139e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_5.png using Guid(2d5c0b91be0060f4f9490a5386c1139e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da4371bdd8b3d1f6b0a329408aaabac1') in 0.0135718 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Aztec-Tech Blocks/block_8.png
+  artifactKey: Guid(0ad36ca86d2345240a6c3eccf3e40ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_8.png using Guid(0ad36ca86d2345240a6c3eccf3e40ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd4ea03e989f7029e75e43db52859a4a7') in 0.0221075 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_3.png
+  artifactKey: Guid(c706286bf0885ef46ae67916543ff14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_3.png using Guid(c706286bf0885ef46ae67916543ff14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f6433a24d6b7a06a070c3537ca03737e') in 0.0122014 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Aztec-Tech Blocks/block_1.png
+  artifactKey: Guid(12b50ff71b228be41b1f355ddfa1d2ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_1.png using Guid(12b50ff71b228be41b1f355ddfa1d2ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '700c65270c53624d8ad1143865cbc9d5') in 0.01102 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/block_22.png
+  artifactKey: Guid(495c3e93f876a954ca693dcd87280a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_22.png using Guid(495c3e93f876a954ca693dcd87280a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e66a8c9cb60dc5506971970e89fb8eb') in 0.0161365 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_7.png
+  artifactKey: Guid(cdd3f31d9b501384a87be7590cdf3a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_7.png using Guid(cdd3f31d9b501384a87be7590cdf3a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7422ae6ac7e5990a447ac3fbdfe86c0b') in 0.0136743 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_4.png
+  artifactKey: Guid(48071b9aa7ad9b247bc4991d2f6bc5d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_4.png using Guid(48071b9aa7ad9b247bc4991d2f6bc5d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '60c78e91cb2518f476a01d29701bb797') in 0.0150896 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/circleDestroyed_2.png
+  artifactKey: Guid(002ae46bea90dea41bcfc0a051063afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circleDestroyed_2.png using Guid(002ae46bea90dea41bcfc0a051063afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b554abe46dd98ef325c3691793d0a08') in 0.0148333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Aztec-Tech Blocks/block_3.png
+  artifactKey: Guid(5d14b5672befc5b4391f05961eb2b425) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_3.png using Guid(5d14b5672befc5b4391f05961eb2b425) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5acd4350a8ecafa94f01dce1d4c83345') in 0.0188503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Aztec-Tech Blocks/circleDestroyed_3.png
+  artifactKey: Guid(dace654274631f1409a0d15ea327a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circleDestroyed_3.png using Guid(dace654274631f1409a0d15ea327a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7dbe8a24176b7d3ff424a6c2d41edcc1') in 0.0146623 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Aztec-Tech Blocks/block_29.png
+  artifactKey: Guid(d8073666551943645892911cf3de35c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_29.png using Guid(d8073666551943645892911cf3de35c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dbe635665675cf808811acd4601f56b1') in 0.0157493 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Aztec-Tech Blocks/circle_4.png
+  artifactKey: Guid(1050ca7347eca514eb7a9c5ce24ce25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circle_4.png using Guid(1050ca7347eca514eb7a9c5ce24ce25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7eb6cca978bef891f875142b7bf8b621') in 0.0135855 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Aztec-Tech Blocks/circle_2.png
+  artifactKey: Guid(f69ddea406178d9448b86a0c1d3f90ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/circle_2.png using Guid(f69ddea406178d9448b86a0c1d3f90ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '97bd14dbbad3afaa4f8e83989e720a2c') in 0.010914 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Aztec-Tech Blocks/cornerBlock_1.png
+  artifactKey: Guid(4a271c6d603497346874fd03e394fc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/cornerBlock_1.png using Guid(4a271c6d603497346874fd03e394fc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '41a07bf6d324ca33ee8006cabe7595ce') in 0.0130785 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Aztec-Tech Blocks/block_7.png
+  artifactKey: Guid(9a54463e8c36335409045dc2dabdb382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Aztec-Tech Blocks/block_7.png using Guid(9a54463e8c36335409045dc2dabdb382) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e46ba62dc2f9614866e3b9e786252bb2') in 0.0160275 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1178.748006 seconds.
+  path: Assets/Settings/Lit2DSceneTemplate.scenetemplate
+  artifactKey: Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings/Lit2DSceneTemplate.scenetemplate using Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '05916363aecc207023dda6006c825dde') in 0.0464928 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Settings/Renderer2D.asset
+  artifactKey: Guid(424799608f7334c24bf367e4bbfa7f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings/Renderer2D.asset using Guid(424799608f7334c24bf367e4bbfa7f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '403a0a9c0aeae1e5730532c1b4a28511') in 0.0010185 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.487 seconds
+Refreshing native plugins compatible for Editor in 0.82 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.519 seconds
+Domain Reload Profiling: 1007ms
+	BeginReloadAssembly (140ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (221ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (139ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (121ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (520ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (390ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (73ms)
+			ProcessInitializeOnLoadAttributes (262ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 1.58 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.7 MB). Loaded Objects now: 7259.
+Memory consumption went from 170.3 MB to 163.6 MB.
+Total: 9.413900 ms (FindLiveObjects: 0.507500 ms CreateObjectMapping: 0.498100 ms MarkObjects: 4.897900 ms  DeleteObjects: 3.509000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.495 seconds
+Refreshing native plugins compatible for Editor in 1.01 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.573 seconds
+Domain Reload Profiling: 1068ms
+	BeginReloadAssembly (144ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (20ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (229ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (135ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (119ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (573ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (435ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (285ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.65 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.7 MB). Loaded Objects now: 7261.
+Memory consumption went from 170.3 MB to 163.6 MB.
+Total: 9.602400 ms (FindLiveObjects: 0.613300 ms CreateObjectMapping: 0.471600 ms MarkObjects: 4.820700 ms  DeleteObjects: 3.694900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.493 seconds
+Refreshing native plugins compatible for Editor in 0.84 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.541 seconds
+Domain Reload Profiling: 1034ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (18ms)
+	LoadAllAssembliesAndSetupDomain (306ms)
+		LoadAssemblies (232ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (136ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (119ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (541ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (410ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (74ms)
+			ProcessInitializeOnLoadAttributes (280ms)
+			ProcessInitializeOnLoadMethodAttributes (49ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.59 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.3 MB). Loaded Objects now: 7263.
+Memory consumption went from 170.3 MB to 164.0 MB.
+Total: 9.133900 ms (FindLiveObjects: 0.520100 ms CreateObjectMapping: 0.563300 ms MarkObjects: 4.885100 ms  DeleteObjects: 3.163800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.481 seconds
+Refreshing native plugins compatible for Editor in 0.87 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.545 seconds
+Domain Reload Profiling: 1027ms
+	BeginReloadAssembly (136ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (296ms)
+		LoadAssemblies (220ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (137ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (120ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (546ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (416ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (74ms)
+			ProcessInitializeOnLoadAttributes (289ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 1.53 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.4 MB). Loaded Objects now: 7265.
+Memory consumption went from 170.3 MB to 163.9 MB.
+Total: 8.922600 ms (FindLiveObjects: 0.598600 ms CreateObjectMapping: 0.515300 ms MarkObjects: 4.597300 ms  DeleteObjects: 3.210000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.482 seconds
+Refreshing native plugins compatible for Editor in 0.82 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.554 seconds
+Domain Reload Profiling: 1037ms
+	BeginReloadAssembly (134ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (226ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (116ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (555ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (421ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (83ms)
+			ProcessInitializeOnLoadAttributes (281ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.47 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.4 MB). Loaded Objects now: 7267.
+Memory consumption went from 170.2 MB to 163.9 MB.
+Total: 9.126100 ms (FindLiveObjects: 0.717200 ms CreateObjectMapping: 0.470900 ms MarkObjects: 4.698100 ms  DeleteObjects: 3.237600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.481 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.564 seconds
+Domain Reload Profiling: 1046ms
+	BeginReloadAssembly (136ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (297ms)
+		LoadAssemblies (226ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (133ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (116ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (564ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (434ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (290ms)
+			ProcessInitializeOnLoadMethodAttributes (49ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.50 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.6 MB). Loaded Objects now: 7269.
+Memory consumption went from 170.3 MB to 163.7 MB.
+Total: 9.347600 ms (FindLiveObjects: 0.544200 ms CreateObjectMapping: 0.511800 ms MarkObjects: 4.916600 ms  DeleteObjects: 3.373700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.473 seconds
+Refreshing native plugins compatible for Editor in 0.86 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.533 seconds
+Domain Reload Profiling: 1007ms
+	BeginReloadAssembly (131ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (294ms)
+		LoadAssemblies (223ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (117ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (533ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (403ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (79ms)
+			ProcessInitializeOnLoadAttributes (270ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.76 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.6 MB). Loaded Objects now: 7271.
+Memory consumption went from 170.3 MB to 163.7 MB.
+Total: 9.163900 ms (FindLiveObjects: 0.548700 ms CreateObjectMapping: 0.468500 ms MarkObjects: 4.828900 ms  DeleteObjects: 3.316600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.470 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.525 seconds
+Domain Reload Profiling: 995ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (290ms)
+		LoadAssemblies (217ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (133ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (117ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (525ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (400ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (72ms)
+			ProcessInitializeOnLoadAttributes (275ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 1.85 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.4 MB). Loaded Objects now: 7273.
+Memory consumption went from 170.3 MB to 163.9 MB.
+Total: 9.122300 ms (FindLiveObjects: 0.530200 ms CreateObjectMapping: 0.537500 ms MarkObjects: 4.895700 ms  DeleteObjects: 3.157500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.480 seconds
+Refreshing native plugins compatible for Editor in 0.86 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.563 seconds
+Domain Reload Profiling: 1044ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (223ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (137ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (121ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (563ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (430ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (282ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 2.10 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6583 unused Assets / (6.4 MB). Loaded Objects now: 7275.
+Memory consumption went from 170.3 MB to 163.9 MB.
+Total: 9.472900 ms (FindLiveObjects: 0.634400 ms CreateObjectMapping: 0.430200 ms MarkObjects: 5.089700 ms  DeleteObjects: 3.317600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 2276.720147 seconds.
+  path: Assets/Tiles/Ground Tiles/block_2.asset
+  artifactKey: Guid(993b7b50999b28244a7fd6a8576501dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_2.asset using Guid(993b7b50999b28244a7fd6a8576501dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd0e1fb16809c4ba23cd4914920701e0') in 0.0945932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Tiles/Ground Tiles/block_18.asset
+  artifactKey: Guid(444e22e23d875e84884fa7379e996a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_18.asset using Guid(444e22e23d875e84884fa7379e996a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5882bad73b129c46f5dc8d443f185b42') in 0.0113669 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/block_12.asset
+  artifactKey: Guid(2b6c3386c96ac3f40bda761c85557973) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_12.asset using Guid(2b6c3386c96ac3f40bda761c85557973) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a1446b831b09a4ffe4d44bddd1f0d32') in 0.0116465 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/circleDestroyed_3.asset
+  artifactKey: Guid(c4b0cb5160191d648a23487743fe4e26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/circleDestroyed_3.asset using Guid(c4b0cb5160191d648a23487743fe4e26) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '26cd3c04fc692617dca5564858206213') in 0.0113408 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tiles/Ground Tiles/circleDestroyed_2.asset
+  artifactKey: Guid(4727b7bebe18eca4da3677e9b9ba7ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/circleDestroyed_2.asset using Guid(4727b7bebe18eca4da3677e9b9ba7ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f85212c5efc50380c6e266ca7e175919') in 0.0110974 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_10.asset
+  artifactKey: Guid(c751f37aca8cfba4283c4e6751dd828e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_10.asset using Guid(c751f37aca8cfba4283c4e6751dd828e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '88e939907451a522fe857b1170ee1ba5') in 0.0119952 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfCircle_4.asset
+  artifactKey: Guid(9649d1717aee97b49845dce9efaa4725) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfCircle_4.asset using Guid(9649d1717aee97b49845dce9efaa4725) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9bfa5d6b103db2ce35ad7abeb811f31b') in 0.0119353 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_29.asset
+  artifactKey: Guid(2d37b80073f1e8c44b94caf08fcee7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_29.asset using Guid(2d37b80073f1e8c44b94caf08fcee7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '29c8974a4e43c6c658d102a7934020bb') in 0.0125425 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Tiles/Ground Tiles/cornerBlock_1.asset
+  artifactKey: Guid(586cc9360eaceaf4f8f02bf4dbc0da02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/cornerBlock_1.asset using Guid(586cc9360eaceaf4f8f02bf4dbc0da02) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '78ea81caff30c900659f85b516f480e7') in 0.0109374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Tiles/Ground Tiles/block_9.asset
+  artifactKey: Guid(26ba17c8dba4c0a479e71bc76b44ab6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_9.asset using Guid(26ba17c8dba4c0a479e71bc76b44ab6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a13fb6b0c4330488e4cac9f9fdac904d') in 0.0105809 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfSquare_1.asset
+  artifactKey: Guid(0b82d762ed824ca4190a32c716b0f598) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfSquare_1.asset using Guid(0b82d762ed824ca4190a32c716b0f598) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a9d2c2a35f14eacebef71edb357c611d') in 0.0133153 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_10.asset
+  artifactKey: Guid(d381b8f8b2459734aa7fcb0f350bbe6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_10.asset using Guid(d381b8f8b2459734aa7fcb0f350bbe6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7a62a364fa76838c588f1e7ab5c1e5b5') in 0.0121409 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_11.asset
+  artifactKey: Guid(450df23b7755d0e45a68535086d0feca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_11.asset using Guid(450df23b7755d0e45a68535086d0feca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '899d2d3a585a3cb2fbf2baf737ac1190') in 0.0132977 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_13.asset
+  artifactKey: Guid(8b810dae99f43aa4885680b1541f85d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_13.asset using Guid(8b810dae99f43aa4885680b1541f85d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6dd9e1513ea8d2010b936fa108ce781e') in 0.012798 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Tiles/Ground Tiles/block_28.asset
+  artifactKey: Guid(b4d0cb8dfb7caa049942afbe95fd6e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_28.asset using Guid(b4d0cb8dfb7caa049942afbe95fd6e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'de1f2f8a462b327f065ec1fff8e80527') in 0.0126361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_4.asset
+  artifactKey: Guid(2765230615841af4eac1a40badeda26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_4.asset using Guid(2765230615841af4eac1a40badeda26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '288a1ec696177c2ab6555a07179a6d89') in 0.0119932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_17.asset
+  artifactKey: Guid(7bf773c4ea263cf48a6fc5b1a6786d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_17.asset using Guid(7bf773c4ea263cf48a6fc5b1a6786d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'acc89978d67019ce4d34ff872d629588') in 0.0122964 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tiles/Ground Tiles/cornerBlock_7.asset
+  artifactKey: Guid(1c84229818b09d041861e0c6f2b47457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/cornerBlock_7.asset using Guid(1c84229818b09d041861e0c6f2b47457) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e10f0af204121da99043b8853bf0d9a1') in 0.0126255 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/block_4.asset
+  artifactKey: Guid(6e42215be9c11ec4cb3bdf8720f53839) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_4.asset using Guid(6e42215be9c11ec4cb3bdf8720f53839) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '890d49e9a5f970cb9751210ef872c97e') in 0.0136996 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_7.asset
+  artifactKey: Guid(87f3f2839037aa3419bc175ce4867d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_7.asset using Guid(87f3f2839037aa3419bc175ce4867d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f5e28a42d0c55016fc554f1a7c83ab29') in 0.0127427 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_16.asset
+  artifactKey: Guid(79ab8403404060f43834d46e08e40c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_16.asset using Guid(79ab8403404060f43834d46e08e40c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd1e498b30aea76a93a3bfccb7ad6fb1f') in 0.0133795 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfSquare_4.asset
+  artifactKey: Guid(ce6ffa82ffb7e2049b3e54912e05b733) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfSquare_4.asset using Guid(ce6ffa82ffb7e2049b3e54912e05b733) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '461b37ac3a86a52b1c59d3f888e8a8a2') in 0.0132087 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedTri_4.asset
+  artifactKey: Guid(964e4575878d3084c9818dff89bc8bee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedTri_4.asset using Guid(964e4575878d3084c9818dff89bc8bee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '61d4e9a6b4da47b77548a0fb5b872005') in 0.0128123 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_15.asset
+  artifactKey: Guid(6a307e3a98a699348a1c2db4f98e69ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_15.asset using Guid(6a307e3a98a699348a1c2db4f98e69ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8d4260bb0e8da1824d39b5d03e1e8440') in 0.0121145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfCircle_3.asset
+  artifactKey: Guid(45dad06a35227e749a5116ec47b6ffa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfCircle_3.asset using Guid(45dad06a35227e749a5116ec47b6ffa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c79522350a29f42c88d348f759703c7e') in 0.0121232 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedTri_3.asset
+  artifactKey: Guid(dcbac039abe883244aca7bf27246f8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedTri_3.asset using Guid(dcbac039abe883244aca7bf27246f8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '60d9f00deb16827724479a3a75737b8d') in 0.0133462 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Tiles/Ground Tiles/block_23.asset
+  artifactKey: Guid(f585928f97515204293850837d07f884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_23.asset using Guid(f585928f97515204293850837d07f884) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28a67c74cddb439f3b753089b196ac84') in 0.012775 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Tiles/Ground Tiles/cornerBlock_2.asset
+  artifactKey: Guid(07b06e104cf62b74fbf62e26aea76b39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/cornerBlock_2.asset using Guid(07b06e104cf62b74fbf62e26aea76b39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0fab68399464abee5341ea42c43f4c98') in 0.0109659 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tiles/Ground Tiles/cornerDestroyed_4.asset
+  artifactKey: Guid(b70b5bb46ec20294f9dffce6df5eff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/cornerDestroyed_4.asset using Guid(b70b5bb46ec20294f9dffce6df5eff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd22923231136f5e2fa6db7a49e751c6') in 0.0132759 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Tiles/Ground Tiles/block_6.asset
+  artifactKey: Guid(0532bd197f2fb364f96c0755a70c1ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_6.asset using Guid(0532bd197f2fb364f96c0755a70c1ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '99939c147c3d857990e6da03cab2a066') in 0.0156696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Tiles/Ground Tiles/block_14.asset
+  artifactKey: Guid(4284b27e86f02574dae40ea0a3689374) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_14.asset using Guid(4284b27e86f02574dae40ea0a3689374) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9b113050629042d98c5336faada6f7d') in 0.0138286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfCircle_5.asset
+  artifactKey: Guid(022b3e73fdb34c04f9a0e500293b888d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfCircle_5.asset using Guid(022b3e73fdb34c04f9a0e500293b888d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6593a005f83a4f58adcf9b18aefdaad7') in 0.011684 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_1.asset
+  artifactKey: Guid(f7ae000e391cb9e4bb05b9c06556059c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_1.asset using Guid(f7ae000e391cb9e4bb05b9c06556059c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf97aa402ee58d71ced3b573a5b7814c') in 0.0129692 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedTri_2.asset
+  artifactKey: Guid(d96264bf842acd648aac6c8a1b628cad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedTri_2.asset using Guid(d96264bf842acd648aac6c8a1b628cad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e30fb4890ca526f908a104178b75cbcd') in 0.0108974 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_6.asset
+  artifactKey: Guid(cfe57c5dbc5234b409c7b4dbe6eb30b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_6.asset using Guid(cfe57c5dbc5234b409c7b4dbe6eb30b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8913b2987d6995a689dd626f972d8744') in 0.0124574 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/circle_2.asset
+  artifactKey: Guid(274d20501e888ba4dac7d6182f844ebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/circle_2.asset using Guid(274d20501e888ba4dac7d6182f844ebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ab873a74c674506a5fdc612769bf0c8') in 0.0121621 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfCircle_2.asset
+  artifactKey: Guid(3cd9832b2524276498314a52c112d5c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfCircle_2.asset using Guid(3cd9832b2524276498314a52c112d5c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b97c3655d257bbba2552f5e52348acb') in 0.0103977 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Tiles/Ground Tiles/destroyedHalfSquare_2.asset
+  artifactKey: Guid(55c9ea57c02351541be20f554528d712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/destroyedHalfSquare_2.asset using Guid(55c9ea57c02351541be20f554528d712) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8432bc6a7d0e1cbca3cb7c3aebad3829') in 0.0151113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/circle_1.asset
+  artifactKey: Guid(0790627b34ccbb74f93325957a28095d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/circle_1.asset using Guid(0790627b34ccbb74f93325957a28095d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '95342306ed765ecfa45ad6bb3c68124a') in 0.0114348 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_2.asset
+  artifactKey: Guid(65993b4de40d165439b3e74224596eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_2.asset using Guid(65993b4de40d165439b3e74224596eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5fc993572b6eaa5f6dace01d979deb86') in 0.0090876 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/block_21.asset
+  artifactKey: Guid(e795911665f3af94bbba9d558ec817e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_21.asset using Guid(e795911665f3af94bbba9d558ec817e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '366219280a74b282bfba717db76bed6e') in 0.0150545 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Tiles/Ground Tiles/block_26.asset
+  artifactKey: Guid(d756a5c364b03bd46a85c730e2f7800c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_26.asset using Guid(d756a5c364b03bd46a85c730e2f7800c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd9fbe79884a53421e006e7bad5532277') in 0.0148558 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Tiles/Ground Tiles/blockDestroyed_8.asset
+  artifactKey: Guid(c5535d5275a2aa04d8f8c2ffac09c7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/blockDestroyed_8.asset using Guid(c5535d5275a2aa04d8f8c2ffac09c7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6bd55cd8958a35fd48603b609ae52b81') in 0.0113365 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Tiles/Ground Tiles/block_8.asset
+  artifactKey: Guid(165d1b25f537c864db4e182756c9c65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Ground Tiles/block_8.asset using Guid(165d1b25f537c864db4e182756c9c65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3300a97e71abb34a72649700ceb33979') in 0.0106629 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 892.277884 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Capsule.png
+  artifactKey: Guid(207ee8102dd4143d288186ef0be518ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Capsule.png using Guid(207ee8102dd4143d288186ef0be518ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2471bfa48255be3c4a01c36eb6a28d73') in 0.0259001 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/HexagonFlatTop.png
+  artifactKey: Guid(b670ab75dde984907b8570040daa08c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/HexagonFlatTop.png using Guid(b670ab75dde984907b8570040daa08c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '619f1a4133f700e81529db4f15d995ae') in 0.0133315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Triangle.png
+  artifactKey: Guid(75f5f34dc1b5347e0b8351032682f224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Triangle.png using Guid(75f5f34dc1b5347e0b8351032682f224) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0f561db4617bb41eec856a104332bf50') in 0.0162104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Circle.png
+  artifactKey: Guid(a86470a33a6bf42c4b3595704624658b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Circle.png using Guid(a86470a33a6bf42c4b3595704624658b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b81303c37e428ae934aae9b5cfb7044e') in 0.0166442 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
