@@ -2153,9 +2153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 1063813319}
-  moveSpeed: 10
+  moveSpeed: 15
   jumpSpeed: 20
-  airControlSpeed: 0.9
+  accelSpeed: 75
+  decelSpeed: 50
+  jumpMemory: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
