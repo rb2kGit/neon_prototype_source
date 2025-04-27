@@ -2157,10 +2157,14 @@ MonoBehaviour:
   jumpSpeed: 20
   accelSpeed: 75
   decelSpeed: 50
+  groundMemory: 0.15
   jumpMemory: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 512
   boxCastSize: {x: 1, y: 0.25}
   boxCastDistance: 1
 --- !u!1 &1069033132
@@ -2175,7 +2179,7 @@ GameObject:
   - component: {fileID: 1069033135}
   - component: {fileID: 1069033134}
   - component: {fileID: 1069033136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform_tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
