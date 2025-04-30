@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class playerController : MonoBehaviour
 {
@@ -8,15 +9,26 @@ public class playerController : MonoBehaviour
     public float jumpSpeed;
     public float accelSpeed;
     public float decelSpeed;
-
-    [SerializeField]
+    public float downForce;
     private float groundMemory;
+    public Transform firePoint;
+
+    [SerializeField] private float dashTime;
+    private bool isDashing;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashCooldown;
+    private bool canDash;
     
     //Input Variables
     private float xInput;
     private float xInputMemory;
+    private float directionalMemory;
     private bool jumpInput;
-    [SerializeField] private float jumpMemory;
+    private bool jumpCut;
+    private bool dashInput;
+    private bool downForceInput;
+    private float jumpMemory;
+    private bool fire;
 
     //Level Variables
     public LayerMask groundLayer;
@@ -35,7 +47,9 @@ public class playerController : MonoBehaviour
     
     void Start()
     {
-    
+        //Initialize variables that need a value at the start of the game.
+        directionalMemory = 1;
+        canDash = true;
     }
 
     // Update is called once per frame
@@ -51,6 +65,13 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate() //Called a fixed amount of times per second.
     {
+        //Return out of FixedUpdate immedately if the character is dashing to disable movement while dashing.
+        if(isDashing) 
+        {
+            return;
+        }
+
+        dashHandler(); //Method to execute a dash.
         moveHandler(); //Method to execute movement.
         jumpHandler(); //Method to execute jumps.
         
@@ -60,10 +81,32 @@ public class playerController : MonoBehaviour
     {
         xInput = UnityEngine.Input.GetAxisRaw("Horizontal"); //Record the left, center, and right inputs into a variable. Recorded as either -1, 0, 1;
 
+        //Capture jump input.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
             jumpMemory = 0.15f; //Set the jump memory timer.
+        }
+        else if(Input.GetKeyUp(KeyCode.Space)) //Capture jump cut.
+        {
+            jumpCut = true;
+        }
+
+        //Capture dash input.
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            dashInput = true;
+        }
+
+        //Capture down force input.
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            downForceInput = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            attackHandler();
         }
         
     }
@@ -77,14 +120,14 @@ public class playerController : MonoBehaviour
         float airDampening = (accelSpeed * 0.5f) * Time.fixedDeltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
         float stillAirDampening = (accelSpeed * 0.1f) * Time.fixedDeltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
 
-        if(groundedCheck() && xInput != 0) //When the player is not pressing left or right on the ground.
+        if(groundedCheck() && xInput != 0) //When the player is pressing left or right on the ground.
         {
             
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, xInput * moveSpeed, accelerationCap ), rig.linearVelocity.y);
             xInputMemory = xInput;
-            
+            directionalMemory = xInput;
         }
-        else if(groundedCheck()) //When the player is pressing left or right on the ground.
+        else if(groundedCheck()) //When the player is not pressing left or right on the ground.
         {
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, 0, deccelerationCap ), rig.linearVelocity.y);
             xInputMemory = xInput;
@@ -99,17 +142,19 @@ public class playerController : MonoBehaviour
         {
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, xInputMemory * moveSpeed, stillAirDampening ), rig.linearVelocity.y);
             xInputMemory = xInput;
+            directionalMemory = xInput;
 
         }
         else //When the player is in the air.
         {
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, xInput * moveSpeed, airDampening ), rig.linearVelocity.y);
             xInputMemory = xInput;
+            directionalMemory = xInput;
         }
         
     }
 
-    private void jumpHandler()
+    private void jumpHandler() //<------------- LLO add jump cutting and downward jump forcing. 
     {
         //The jump will only be executed when the user is grounded, if the jump input has been pressed, within the remaining amount of jump memory time.
        if(jumpInput && jumpMemory > 0 && groundMemory > 0)
@@ -119,7 +164,35 @@ public class playerController : MonoBehaviour
             jumpMemory = 0;
             groundMemory = 0;
        }
+       else if(jumpCut && rig.linearVelocity.y > 0 && !groundedCheck()) //Apply jump cut velocity if space is not pressed and the y velocity is positive.
+       {
+            rig.linearVelocity = new Vector2(rig.linearVelocity.x, rig.linearVelocity.y * 0.70f);
+            jumpCut = false;
+       }
+       else if(downForceInput && rig.linearVelocity.y <= 0 && !groundedCheck()) //Apply downforce when the player is at the peak of the jump or falling.
+       {
+            rig.AddForce(transform.up * -downForce);
+       }
+       else
+       {
+            downForceInput = false; //Reset the downforce input before the player hits the ground.
+       }
 
+    }
+
+    private void dashHandler() 
+    {
+        
+        if(dashInput && canDash) //Start Coroutine if the player has pressed the dash button this frame AND if dash is not on cooldown in a prevous coroutine.
+        {
+            StartCoroutine(Dash());
+        }
+        else
+        {
+            dashInput = false; 
+            //In the case that the If statement fails it means that either there is no dash input or dash is on cooldown.
+            //This means that if dash is on cooldown, the dash input will fail. The player will have to use the key again.
+        }
     }
 
     public bool groundedCheck()
@@ -127,7 +200,6 @@ public class playerController : MonoBehaviour
         //Raycast a box to detect a collision with the ground layer. 
         if(Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, groundLayer, 0, 0 ) || Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, platformLayer, 0, 0 ))
         {
-            Debug.Log("Grounded");
             return true;
         }
         else
@@ -152,13 +224,48 @@ public class playerController : MonoBehaviour
         //Decrement the grounded memory timer by time.delta time.
         if(!groundedCheck() && groundMemory > 0)
         {
-            groundMemory = Mathf.Clamp(groundMemory, 0f, 0.15f) - Time.deltaTime;
+            groundMemory = Mathf.Clamp(groundMemory, 0f, 0.15f) - Time.deltaTime; //Mathf.Clamp will stop the ground memeory valye to drop less than 0.
         }
         else if(groundedCheck() && groundMemory <= 0)
         { 
-            groundMemory = 0.15f;
+            groundMemory = 0.15f; //Reset the groundMemory if the player is grounded when the timer is also 0;
         }
-        Debug.Log(groundMemory);
+        
+    }
+
+    private IEnumerator Dash()
+    {
+        //Initialize routine varaibles.
+        float originalGravity = rig.gravityScale;
+        Vector2 originalVelocity = new Vector2(directionalMemory * moveSpeed, 0f); //Capture the current x velocity.
+
+        //Set tracking variables.
+        canDash = false;
+        isDashing = true;
+        
+        //Set dash variables.
+        rig.gravityScale = 0f;
+        rig.linearVelocity = new Vector2(directionalMemory * dashSpeed, 0f); //Dash according to the last known direction.
+
+        //Wait for a certain amount of seconds.
+        yield return new WaitForSeconds(dashTime);
+
+        //Reset dash and tracking variables.
+        rig.gravityScale = originalGravity;
+        rig.linearVelocity = originalVelocity; //return the characters velocity to what it was pre-dash.
+        isDashing = false;
+        dashInput = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+
+        //Reset tracking variables.
+        canDash = true;
+    }
+
+    public void attackHandler()
+    {
+        basicProjectileShoot shootScript = GetComponent<basicProjectileShoot>();
+        shootScript.fireBasicProjectile();
     }
 
     private void OnDrawGizmos()

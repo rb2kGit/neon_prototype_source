@@ -1986,6 +1986,37 @@ Transform:
   - {fileID: 1069033133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &988425134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 988425135}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &988425135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988425134}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.51, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1063813318}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063813316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2030,7 @@ GameObject:
   - component: {fileID: 1063813320}
   - component: {fileID: 1063813319}
   - component: {fileID: 1063813321}
+  - component: {fileID: 1063813322}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2055,7 +2087,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 988425135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1063813319
@@ -2154,11 +2187,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rig: {fileID: 1063813319}
   moveSpeed: 15
-  jumpSpeed: 20
+  jumpSpeed: 22
   accelSpeed: 75
   decelSpeed: 50
-  groundMemory: 0.15
-  jumpMemory: 0
+  downForce: 75
+  firePoint: {fileID: 988425135}
+  dashTime: 0.175
+  dashSpeed: 25
+  dashCooldown: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2167,6 +2203,21 @@ MonoBehaviour:
     m_Bits: 512
   boxCastSize: {x: 1, y: 0.25}
   boxCastDistance: 1
+--- !u!114 &1063813322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e086a5382e7c04142ac9393602e3664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObject: {fileID: 1063813316}
+  projectilePrefab: {fileID: 2600922054443241601, guid: 135c2d1336b5a8641b4169ac83fdeaaf, type: 3}
+  firePoint: {fileID: 988425135}
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0
