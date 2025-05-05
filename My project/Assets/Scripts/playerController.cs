@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     public float downForce;
     private float groundMemory;
     public Transform firePoint;
+    private bool facingRight;
 
     [SerializeField] private float dashTime;
     private bool isDashing;
@@ -28,7 +29,9 @@ public class playerController : MonoBehaviour
     private bool dashInput;
     private bool downForceInput;
     private float jumpMemory;
-    private bool fire;
+
+    //Attack Variables
+    public float battackTimer; 
 
     //Level Variables
     public LayerMask groundLayer;
@@ -48,6 +51,7 @@ public class playerController : MonoBehaviour
     void Start()
     {
         //Initialize variables that need a value at the start of the game.
+        facingRight = true;
         directionalMemory = 1;
         canDash = true;
     }
@@ -79,7 +83,17 @@ public class playerController : MonoBehaviour
 
     private void checkInput()
     {
+
+        //Capture horizontal input.
         xInput = UnityEngine.Input.GetAxisRaw("Horizontal"); //Record the left, center, and right inputs into a variable. Recorded as either -1, 0, 1;
+        if(Input.GetKeyDown(KeyCode.A) && facingRight)
+        {
+            flipHandler();
+        }
+        else if(Input.GetKeyDown(KeyCode.D) && !facingRight)
+        {
+            flipHandler();
+        }
 
         //Capture jump input.
         if(Input.GetKeyDown(KeyCode.Space))
@@ -104,7 +118,7 @@ public class playerController : MonoBehaviour
             downForceInput = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse0))
         {
             attackHandler();
         }
@@ -120,12 +134,14 @@ public class playerController : MonoBehaviour
         float airDampening = (accelSpeed * 0.5f) * Time.fixedDeltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
         float stillAirDampening = (accelSpeed * 0.1f) * Time.fixedDeltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
 
+
         if(groundedCheck() && xInput != 0) //When the player is pressing left or right on the ground.
         {
             
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, xInput * moveSpeed, accelerationCap ), rig.linearVelocity.y);
             xInputMemory = xInput;
             directionalMemory = xInput;
+
         }
         else if(groundedCheck()) //When the player is not pressing left or right on the ground.
         {
@@ -150,11 +166,12 @@ public class playerController : MonoBehaviour
             rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, xInput * moveSpeed, airDampening ), rig.linearVelocity.y);
             xInputMemory = xInput;
             directionalMemory = xInput;
+
         }
         
     }
 
-    private void jumpHandler() //<------------- LLO add jump cutting and downward jump forcing. 
+    private void jumpHandler() //<------------- LLO fix jump and jump cutting.
     {
         //The jump will only be executed when the user is grounded, if the jump input has been pressed, within the remaining amount of jump memory time.
        if(jumpInput && jumpMemory > 0 && groundMemory > 0)
@@ -224,11 +241,17 @@ public class playerController : MonoBehaviour
         //Decrement the grounded memory timer by time.delta time.
         if(!groundedCheck() && groundMemory > 0)
         {
-            groundMemory = Mathf.Clamp(groundMemory, 0f, 0.15f) - Time.deltaTime; //Mathf.Clamp will stop the ground memeory valye to drop less than 0.
+            groundMemory = Mathf.Clamp(groundMemory, 0f, 0.15f) - Time.deltaTime; //Mathf.Clamp will stop the ground memory value to drop less than 0.
         }
         else if(groundedCheck() && groundMemory <= 0)
         { 
             groundMemory = 0.15f; //Reset the groundMemory if the player is grounded when the timer is also 0;
+        }
+
+        //Decrement the basic attack timer.
+        if(battackTimer > 0)
+        {
+            battackTimer -= Time.deltaTime;
         }
         
     }
@@ -264,8 +287,18 @@ public class playerController : MonoBehaviour
 
     public void attackHandler()
     {
-        basicProjectileShoot shootScript = GetComponent<basicProjectileShoot>();
-        shootScript.fireBasicProjectile();
+        if(battackTimer <= 0)
+        {
+            basicProjectileShoot shootScript = GetComponent<basicProjectileShoot>();
+            shootScript.fireBasicProjectile();
+            battackTimer = 0.5f;
+        }
+    }
+
+    private void flipHandler()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
     }
 
     private void OnDrawGizmos()

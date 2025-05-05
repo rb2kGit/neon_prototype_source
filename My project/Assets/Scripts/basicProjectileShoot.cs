@@ -20,7 +20,7 @@ public class basicProjectileShoot : MonoBehaviour
 
     public void fireBasicProjectile()
     {
-        Instantiate(projectilePrefab, firePoint.position, transform.rotation);
-        Debug.Log("Shoot");
+        Vector3 spawnPos = new Vector3(firePoint.position.x, firePoint.position.y, -1f);
+        Instantiate(projectilePrefab, spawnPos, transform.rotation);
     }
 }
