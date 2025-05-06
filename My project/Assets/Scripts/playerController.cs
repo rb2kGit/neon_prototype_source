@@ -24,11 +24,7 @@ public class playerController : MonoBehaviour
     private float xInput;
     private float xInputMemory;
     private float directionalMemory;
-    private bool jumpInput;
-    private bool jumpCut;
     private bool dashInput;
-    private bool downForceInput;
-    private float jumpMemory;
 
     //Attack Variables
     public float battackTimer; 
@@ -41,11 +37,14 @@ public class playerController : MonoBehaviour
     public Vector2 boxCastSize;
     public float boxCastDistance;
 
+    //Reference Scripts
+    timerManager timerScript;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        
+        timerScript = GetComponent<timerManager>();
     }
     
     void Start()
@@ -62,7 +61,7 @@ public class playerController : MonoBehaviour
         //Check the movement input as of this frame.
         checkInput();
         
-        //Update input memory timers as of this frame.
+        //Update input memory timers= as of this frame.
         updateTimers();
 
     }
@@ -77,7 +76,7 @@ public class playerController : MonoBehaviour
 
         dashHandler(); //Method to execute a dash.
         moveHandler(); //Method to execute movement.
-        jumpHandler(); //Method to execute jumps.
+        //jumpHandler(); //Method to execute jumps.
         
     }
 
@@ -95,16 +94,16 @@ public class playerController : MonoBehaviour
             flipHandler();
         }
 
-        //Capture jump input.
+        /*//Capture jump input.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
-            jumpMemory = 0.15f; //Set the jump memory timer.
+            timerScript.startJMemoryTimer(); //Start the jump memory timer in the timer manager script.
         }
         else if(Input.GetKeyUp(KeyCode.Space)) //Capture jump cut.
         {
             jumpCut = true;
-        }
+        }*/
 
         //Capture dash input.
         if(Input.GetKeyDown(KeyCode.Mouse1))
@@ -112,11 +111,11 @@ public class playerController : MonoBehaviour
             dashInput = true;
         }
 
-        //Capture down force input.
+        /*//Capture down force input.
         if(Input.GetKeyDown(KeyCode.S))
         {
             downForceInput = true;
-        }
+        }*/
 
         if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse0))
         {
@@ -171,19 +170,19 @@ public class playerController : MonoBehaviour
         
     }
 
-    private void jumpHandler() //<------------- LLO fix jump and jump cutting.
+    private void jumpHandler()
     {
-        //The jump will only be executed when the user is grounded, if the jump input has been pressed, within the remaining amount of jump memory time.
-       if(jumpInput && jumpMemory > 0 && groundMemory > 0)
+        
+        /*//The jump will only be executed when the user is grounded, if the jump input has been pressed, within the remaining amount of jump memory time.
+       if(jumpInput && timerScript.checkJumpMemory() && timerScript.checkGroundMemory())
        {
             rig.linearVelocity = new Vector2(rig.linearVelocity.x, jumpSpeed);
             jumpInput = false;
-            jumpMemory = 0;
-            groundMemory = 0;
+            jumpCut = false;
        }
        else if(jumpCut && rig.linearVelocity.y > 0 && !groundedCheck()) //Apply jump cut velocity if space is not pressed and the y velocity is positive.
        {
-            rig.linearVelocity = new Vector2(rig.linearVelocity.x, rig.linearVelocity.y * 0.70f);
+            rig.linearVelocity = new Vector2(rig.linearVelocity.x, rig.linearVelocity.y * 0.50f);
             jumpCut = false;
        }
        else if(downForceInput && rig.linearVelocity.y <= 0 && !groundedCheck()) //Apply downforce when the player is at the peak of the jump or falling.
@@ -193,7 +192,7 @@ public class playerController : MonoBehaviour
        else
        {
             downForceInput = false; //Reset the downforce input before the player hits the ground.
-       }
+       }*/
 
     }
 
@@ -217,6 +216,8 @@ public class playerController : MonoBehaviour
         //Raycast a box to detect a collision with the ground layer. 
         if(Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, groundLayer, 0, 0 ) || Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, platformLayer, 0, 0 ))
         {
+            timerScript.resetGMemoryTimer();
+
             return true;
         }
         else
@@ -228,25 +229,6 @@ public class playerController : MonoBehaviour
 
     private void updateTimers()
     {
-        //Decrement the jump input memory timer by time.delta time. If jump memory is 0, jumpInput becomes false.
-        if(jumpMemory > 0)
-        {
-            jumpMemory -= Time.deltaTime;
-        }
-        else
-        {
-            jumpInput = false; //When the jump memory timer runs out. Set jump input to false.
-        }
-
-        //Decrement the grounded memory timer by time.delta time.
-        if(!groundedCheck() && groundMemory > 0)
-        {
-            groundMemory = Mathf.Clamp(groundMemory, 0f, 0.15f) - Time.deltaTime; //Mathf.Clamp will stop the ground memory value to drop less than 0.
-        }
-        else if(groundedCheck() && groundMemory <= 0)
-        { 
-            groundMemory = 0.15f; //Reset the groundMemory if the player is grounded when the timer is also 0;
-        }
 
         //Decrement the basic attack timer.
         if(battackTimer > 0)
@@ -309,5 +291,15 @@ public class playerController : MonoBehaviour
         //Draw a wire square that matches the location and size of the boxCast used for grounded checking.
         Gizmos.DrawWireCube(transform.position - transform.up * boxCastDistance, boxCastSize);
     }
+
+    /*public void falsifyJumpInput()
+    {
+        jumpInput = false;
+    }
+
+    public void falsifyJumpCut()
+    {
+        jumpCut = false;
+    }*/
 
 }

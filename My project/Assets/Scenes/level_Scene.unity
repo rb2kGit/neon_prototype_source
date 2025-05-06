@@ -2031,6 +2031,8 @@ GameObject:
   - component: {fileID: 1063813319}
   - component: {fileID: 1063813321}
   - component: {fileID: 1063813322}
+  - component: {fileID: 1063813323}
+  - component: {fileID: 1063813324}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2114,7 +2116,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -2195,7 +2197,7 @@ MonoBehaviour:
   dashTime: 0.175
   dashSpeed: 25
   dashCooldown: 2
-  battackTimer: 0.5
+  battackTimer: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2219,6 +2221,35 @@ MonoBehaviour:
   playerObject: {fileID: 1063813316}
   projectilePrefab: {fileID: 2600922054443241601, guid: 135c2d1336b5a8641b4169ac83fdeaaf, type: 3}
   firePoint: {fileID: 988425135}
+--- !u!114 &1063813323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476b1acc57077d84fb9f8e15d96e772c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMemoryJump: 0
+  canCoyoteJump: 0
+--- !u!114 &1063813324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a36e2b260d3b94c9905bf8956f08d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRig: {fileID: 1063813319}
+  jumpSpeed: 22
+  downForce: 75
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0
