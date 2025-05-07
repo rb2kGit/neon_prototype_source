@@ -3,6 +3,13 @@ using System.Collections;
 
 public class playerController : MonoBehaviour
 {
+
+    //State variables.
+    State state;
+    public IdleState idleState;
+    public RunState runState;
+    public AirbourneState airbourneState;
+
     //Player object variables.
     public Rigidbody2D rig;
     public float moveSpeed;
@@ -21,7 +28,7 @@ public class playerController : MonoBehaviour
     private bool canDash;
     
     //Input Variables
-    private float xInput;
+    public float xInput { get; private set; } //xInput will be a property to allow the states to use it.
     private float xInputMemory;
     private float directionalMemory;
     private bool dashInput;
@@ -49,6 +56,12 @@ public class playerController : MonoBehaviour
     
     void Start()
     {
+        //Initialize reference variables that we are sending the states. We are passing "this" which means passing in this script, that will be used by the state to read player inputs.
+        idleState.Setup(rig, this);
+        runState.Setup(rig, this);
+        airbourneState.Setup(rig, this);
+        state = idleState;
+
         //Initialize variables that need a value at the start of the game.
         facingRight = true;
         directionalMemory = 1;
@@ -60,9 +73,21 @@ public class playerController : MonoBehaviour
     {
         //Check the movement input as of this frame.
         checkInput();
+
+        //Update the current state.
+        //stateUpdate();
         
         //Update input memory timers= as of this frame.
         updateTimers();
+
+        //Check if the state flag is marked as complete and select a new state.
+        if(state.stateComplete)
+        {
+            stateSelect();
+        }
+
+        //Once a state has been selected or if the state is not yet complete. Use the update function of the state.
+        state.stateUpdate();
 
     }
 
@@ -281,6 +306,28 @@ public class playerController : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+    }
+
+    //State management functions.
+    private void stateSelect()
+    {
+        //Statement to select and assign the state to state;
+        if(groundedCheck() && xInput == 0)
+        {
+            state = idleState;
+        }
+        else if(groundedCheck() && xInput != 0)
+        {
+            state = runState;
+        }
+        else
+        {
+            state = airbourneState;
+        }
+
+        //Once a state has been selected call the enter function of that state after initializing the state timer and complete variables.
+        state.initStateVar();
+        state.Enter();
     }
 
     private void OnDrawGizmos()

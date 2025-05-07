@@ -446,6 +446,10 @@
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/projectileBehavior.cs"
 "Assets/Scripts/timerManager.cs"
+"Assets/Statemachine/AirbourneState.cs"
+"Assets/Statemachine/IdleState.cs"
+"Assets/Statemachine/RunState.cs"
+"Assets/Statemachine/State.cs"
 -langversion:9.0
 /deterministic
 /optimize+
