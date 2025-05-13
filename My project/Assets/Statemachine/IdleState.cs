@@ -18,6 +18,23 @@ public class IdleState : State
         {
             stateComplete = true;
         }
+        else
+        {
+            idleHandler();
+        }
+    }
+
+    private void idleHandler()
+    {
+        float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
+        float deccelerationCap = playerInput.decelSpeed * Time.fixedDeltaTime; //This varable will use the decceleration speed to create an decceleration cap in Mathf.MoveTowards, when combined with time.delta time.
+
+
+        if(playerInput.groundedCheck()) //When the player is not pressing left or right on the ground.
+        {
+            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, 0, deccelerationCap ), rig.linearVelocity.y);
+            playerInput.xInputMemory = playerInput.xInput;
+        }
     }
 
     public override void Exit()

@@ -33,7 +33,7 @@ public abstract class State : MonoBehaviour
     public void Setup(Rigidbody2D rBody, playerController playerController)
     {
         rig = rBody; //The rigidbody from the player controller.
-        playerInput = playerController; //We are passing the player controller script, but we will be using it to read the input.
+        playerInput = playerController; //We are passing the player controller script in order to read the player input and the player variables.
     }
 
     //Method to initialize and reset the is completeState variable and timer.

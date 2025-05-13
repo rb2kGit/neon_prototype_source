@@ -6,7 +6,7 @@ public class timerManager : MonoBehaviour
 {
     //Reference script variables.
     //playerController pControllerScript;
-    jumpController jControllerScript;
+    playerController playerScript;
 
     //Timer variables.
     private float jumpMemory; //Jump memory timer.
@@ -17,7 +17,7 @@ public class timerManager : MonoBehaviour
     void Awake()
     {
         //pControllerScript = GetComponent<playerController>();
-        jControllerScript = GetComponent<jumpController>();
+        playerScript = GetComponent<playerController>();
 
         jumpMemory = 0f;
         groundMemory = 0f;
@@ -47,13 +47,13 @@ public class timerManager : MonoBehaviour
         {
             jumpMemory = 0;
             canMemoryJump = false;
-            jControllerScript.falsifyJumpInput();
+            playerScript.falsifyJumpInput();
         }
     }
 
     public void startJMemoryTimer()
     {
-        jumpMemory = 0.2f;
+        jumpMemory = 0.25f;
         canMemoryJump = true;
     }
 

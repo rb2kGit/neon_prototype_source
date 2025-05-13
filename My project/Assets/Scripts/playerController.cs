@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
 public class playerController : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class playerController : MonoBehaviour
     private float groundMemory;
     public Transform firePoint;
     private bool facingRight;
+    
+    //Jump variables.
+    public bool jumpInput;
+    public bool jumpCut;
+    public bool downForceInput;
 
     [SerializeField] private float dashTime;
     private bool isDashing;
@@ -29,8 +35,8 @@ public class playerController : MonoBehaviour
     
     //Input Variables
     public float xInput { get; private set; } //xInput will be a property to allow the states to use it.
-    private float xInputMemory;
-    private float directionalMemory;
+    public float xInputMemory;
+    public float directionalMemory;
     private bool dashInput;
 
     //Attack Variables
@@ -45,7 +51,7 @@ public class playerController : MonoBehaviour
     public float boxCastDistance;
 
     //Reference Scripts
-    timerManager timerScript;
+    public timerManager timerScript;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,19 +79,12 @@ public class playerController : MonoBehaviour
     {
         //Check the movement input as of this frame.
         checkInput();
-
-        //Update the current state.
-        //stateUpdate();
         
         //Update input memory timers= as of this frame.
         updateTimers();
 
-        //Check if the state flag is marked as complete and select a new state.
-        if(state.stateComplete)
-        {
-            stateSelect();
-        }
-
+        //Determine if a new state should be selected in state selection function. Override the current state if necessary.
+        stateSelect();
         //Once a state has been selected or if the state is not yet complete. Use the update function of the state.
         state.stateUpdate();
 
@@ -100,7 +99,7 @@ public class playerController : MonoBehaviour
         }
 
         dashHandler(); //Method to execute a dash.
-        moveHandler(); //Method to execute movement.
+        //moveHandler(); //Method to execute movement.
         //jumpHandler(); //Method to execute jumps.
         
     }
@@ -119,28 +118,28 @@ public class playerController : MonoBehaviour
             flipHandler();
         }
 
-        /*//Capture jump input.
+        //Capture jump input.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
             timerScript.startJMemoryTimer(); //Start the jump memory timer in the timer manager script.
         }
-        else if(Input.GetKeyUp(KeyCode.Space)) //Capture jump cut.
+        else if(Input.GetKeyUp(KeyCode.Space) && !groundedCheck()) //Capture jump cut.
         {
             jumpCut = true;
-        }*/
+        }
+
+        //Capture down force input.
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            downForceInput = true;
+        }
 
         //Capture dash input.
         if(Input.GetKeyDown(KeyCode.Mouse1))
         {
             dashInput = true;
         }
-
-        /*//Capture down force input.
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            downForceInput = true;
-        }*/
 
         if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse0))
         {
@@ -149,7 +148,7 @@ public class playerController : MonoBehaviour
         
     }
 
-    private void moveHandler()
+    /*private void moveHandler()
     {
         //Initialize local variables.
         float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
@@ -193,7 +192,7 @@ public class playerController : MonoBehaviour
 
         }
         
-    }
+    }*/
 
     private void jumpHandler()
     {
@@ -311,23 +310,34 @@ public class playerController : MonoBehaviour
     //State management functions.
     private void stateSelect()
     {
+        State prevState = state; //Store the last state to enter stateSelect.
+
         //Statement to select and assign the state to state;
-        if(groundedCheck() && xInput == 0)
-        {
-            state = idleState;
-        }
-        else if(groundedCheck() && xInput != 0)
-        {
-            state = runState;
-        }
-        else
+        
+        if(jumpInput || !groundedCheck())
         {
             state = airbourneState;
         }
+        else if(groundedCheck() && xInput != 0 && !timerScript.checkJumpMemory())
+        {
+            state = runState;
+        }
+        else if(groundedCheck() && xInput == 0 && !timerScript.checkJumpMemory())
+        {
+            state = idleState;
+        }
 
-        //Once a state has been selected call the enter function of that state after initializing the state timer and complete variables.
-        state.initStateVar();
-        state.Enter();
+        //Check if the current State has changed since we entered this function. If it has override the previous state with the new one.
+        if(prevState != state || prevState.stateComplete)
+        {
+            //Exit the previous state.
+            prevState.Exit();
+            
+            //Initialize varaiables and eneter the new state.
+            state.initStateVar();
+            state.Enter();
+        }
+
     }
 
     private void OnDrawGizmos()
@@ -339,12 +349,12 @@ public class playerController : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * boxCastDistance, boxCastSize);
     }
 
-    /*public void falsifyJumpInput()
+    public void falsifyJumpInput()
     {
         jumpInput = false;
     }
 
-    public void falsifyJumpCut()
+    /*public void falsifyJumpCut()
     {
         jumpCut = false;
     }*/

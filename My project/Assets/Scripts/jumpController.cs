@@ -10,12 +10,12 @@ public class jumpController : MonoBehaviour
     //Player object variables.
     public Rigidbody2D playerRig;
 
-    //Jump variables.
+    /*//Jump variables.
     public float jumpSpeed;
     public float downForce;
     private bool jumpInput;
     private bool jumpCut;
-    private bool downForceInput;
+    private bool downForceInput;*/
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -32,7 +32,7 @@ public class jumpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Capture jump input.
+        /*//Capture jump input.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
@@ -47,12 +47,12 @@ public class jumpController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S))
         {
             downForceInput = true;
-        }
+        }*/
     }
 
     void FixedUpdate()
     {
-        jumpHandler();
+        //jumpHandler();
 
         /* The jump will only be executed when the user is grounded, if the jump input has been pressed, within the remaining amount of jump memory time.
        if(jumpInput && timerScript.checkJumpMemory() && groundMemory > 0)
@@ -76,8 +76,7 @@ public class jumpController : MonoBehaviour
        }*/
     }
 
-    private void jumpHandler()
-    {
+   /*private void jumpHandler()
         if(jumpInput && timerScript.checkJumpMemory() && timerScript.checkGroundMemory())
        {
             playerRig.linearVelocity = new Vector2(playerRig.linearVelocity.x, jumpSpeed);
@@ -102,5 +101,5 @@ public class jumpController : MonoBehaviour
     public void falsifyJumpInput()
     {
         jumpInput = false;
-    }
+    }*/
 }

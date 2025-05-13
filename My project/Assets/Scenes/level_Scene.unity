@@ -2192,15 +2192,20 @@ MonoBehaviour:
   runState: {fileID: 1957230170}
   airbourneState: {fileID: 2121142782}
   rig: {fileID: 1063813319}
-  moveSpeed: 15
+  moveSpeed: 12
   jumpSpeed: 22
   accelSpeed: 75
   decelSpeed: 50
-  downForce: 75
+  downForce: 3
   firePoint: {fileID: 988425135}
+  jumpInput: 0
+  jumpCut: 0
+  downForceInput: 0
   dashTime: 0.175
   dashSpeed: 25
   dashCooldown: 2
+  xInputMemory: 0
+  directionalMemory: 0
   battackTimer: 0.25
   groundLayer:
     serializedVersion: 2
@@ -2210,6 +2215,7 @@ MonoBehaviour:
     m_Bits: 512
   boxCastSize: {x: 1, y: 0.25}
   boxCastDistance: 1
+  timerScript: {fileID: 0}
 --- !u!114 &1063813322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,8 +2258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRig: {fileID: 1063813319}
-  jumpSpeed: 22
-  downForce: 75
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,7 +3324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9f10136fbb0fb46b45d51e6df11776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 0
 --- !u!4 &2121142783
 Transform:
   m_ObjectHideFlags: 0
