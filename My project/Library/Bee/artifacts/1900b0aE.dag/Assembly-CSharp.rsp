@@ -447,6 +447,7 @@
 "Assets/Scripts/projectileBehavior.cs"
 "Assets/Scripts/timerManager.cs"
 "Assets/Statemachine/AirbourneState.cs"
+"Assets/Statemachine/DashState.cs"
 "Assets/Statemachine/IdleState.cs"
 "Assets/Statemachine/RunState.cs"
 "Assets/Statemachine/State.cs"

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 94
+  controlID: 39
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -873,8 +873,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 64af0000
-      m_LastClickedID: 44900
+      m_SelectedIDs: 508fffff
+      m_LastClickedID: -28848
       m_ExpandedIDs: 0cfbffff64af000080af000090af0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 1045
-    width: 2030
+    width: 2016
     height: 301
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -965,8 +965,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: feb10000
-    m_LastClickedID: 45566
+    m_SelectedIDs: 1ab20000
+    m_LastClickedID: 45594
     m_ExpandedIDs: 000000001cb000001eb0000020b0000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1022,9 +1022,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 52630000
-    m_LastClickedInstanceID: 25426
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 508fffff
+    m_LastClickedInstanceID: -28848
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000ecb7000034bf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

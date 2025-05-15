@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IdleState : State
@@ -29,11 +30,17 @@ public class IdleState : State
         float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
         float deccelerationCap = playerInput.decelSpeed * Time.fixedDeltaTime; //This varable will use the decceleration speed to create an decceleration cap in Mathf.MoveTowards, when combined with time.delta time.
 
-
-        if(playerInput.groundedCheck()) //When the player is not pressing left or right on the ground.
+        //When the player is not presing left or right on the ground.
+        if(playerInput.groundedCheck())
         {
-            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, 0, deccelerationCap ), rig.linearVelocity.y);
+            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, 0, deccelerationCap ), rig.linearVelocity.y); //Add deceleration to stop the player from moving.
             playerInput.xInputMemory = playerInput.xInput;
+        }
+
+        //When the jump input is pressed while on the ground.
+        if(playerInput.jumpInput && playerInput.groundedCheck())
+        {
+            jumpController.jumpHandler();
         }
     }
 

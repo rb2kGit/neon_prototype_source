@@ -1986,6 +1986,50 @@ Transform:
   - {fileID: 1069033133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &957751130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957751131}
+  - component: {fileID: 957751132}
+  m_Layer: 0
+  m_Name: Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957751131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957751130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1639770339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957751132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957751130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8afc05e7b7ac9e438a3b990bd7e624a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &988425134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,6 +2235,7 @@ MonoBehaviour:
   idleState: {fileID: 1626075488}
   runState: {fileID: 1957230170}
   airbourneState: {fileID: 2121142782}
+  dashState: {fileID: 957751132}
   rig: {fileID: 1063813319}
   moveSpeed: 12
   jumpSpeed: 22
@@ -2202,10 +2247,13 @@ MonoBehaviour:
   jumpCut: 0
   downForceInput: 0
   dashTime: 0.175
+  isDashing: 0
   dashSpeed: 25
   dashCooldown: 2
+  canDash: 0
   xInputMemory: 0
   directionalMemory: 0
+  dashInput: 0
   battackTimer: 0.25
   groundLayer:
     serializedVersion: 2
@@ -2215,7 +2263,8 @@ MonoBehaviour:
     m_Bits: 512
   boxCastSize: {x: 1, y: 0.25}
   boxCastDistance: 1
-  timerScript: {fileID: 0}
+  timerScript: {fileID: 1063813323}
+  jumpController: {fileID: 1063813324}
 --- !u!114 &1063813322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,6 +2307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRig: {fileID: 1063813319}
+  jumpSpeed: 22
+  downForce: 0
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,6 +3300,7 @@ Transform:
   - {fileID: 1626075487}
   - {fileID: 1957230169}
   - {fileID: 2121142783}
+  - {fileID: 957751131}
   m_Father: {fileID: 1063813318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957230168

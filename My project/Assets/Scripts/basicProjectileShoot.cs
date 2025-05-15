@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class basicProjectileShoot : MonoBehaviour
 {
-    public GameObject playerObject;
     public GameObject projectilePrefab;
     public Transform firePoint;
 
