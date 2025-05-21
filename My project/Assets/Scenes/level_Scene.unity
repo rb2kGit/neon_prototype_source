@@ -2077,6 +2077,8 @@ GameObject:
   - component: {fileID: 1063813322}
   - component: {fileID: 1063813323}
   - component: {fileID: 1063813324}
+  - component: {fileID: 1063813325}
+  - component: {fileID: 1063813326}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2238,11 +2240,9 @@ MonoBehaviour:
   dashState: {fileID: 957751132}
   rig: {fileID: 1063813319}
   moveSpeed: 12
-  jumpSpeed: 22
   accelSpeed: 75
   decelSpeed: 50
   downForce: 3
-  firePoint: {fileID: 988425135}
   jumpInput: 0
   jumpCut: 0
   downForceInput: 0
@@ -2277,7 +2277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e086a5382e7c04142ac9393602e3664b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 1063813316}
   projectilePrefab: {fileID: 2600922054443241601, guid: 135c2d1336b5a8641b4169ac83fdeaaf, type: 3}
   firePoint: {fileID: 988425135}
 --- !u!114 &1063813323
@@ -2309,6 +2308,34 @@ MonoBehaviour:
   playerRig: {fileID: 1063813319}
   jumpSpeed: 22
   downForce: 0
+--- !u!114 &1063813325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0d5ca00a5b8b24aa3ffdc2f6b28a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: f3e5cad6588372646b9cf607413a0491, type: 2}
+  playerController: {fileID: 1063813321}
+--- !u!114 &1063813326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afbfad3b8fe306479684873ddd04f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1063813321}
+  rig: {fileID: 1063813319}
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0

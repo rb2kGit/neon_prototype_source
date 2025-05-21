@@ -7,7 +7,7 @@ public class AirbourneState : State
 
     public override void Enter()
     {
-        Debug.Log("Enter Airbourne");
+        
     }
 
     public override void stateUpdate()

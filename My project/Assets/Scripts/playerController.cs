@@ -20,16 +20,7 @@ public class playerController : MonoBehaviour
     public float decelSpeed;
     public float downForce;
     private bool facingRight;
-    
-    //Jump variables.
-    public bool jumpInput;
-    public bool jumpCut;
-    public bool downForceInput;
-
-    [SerializeField] public float dashTime;
     public bool isDashing;
-    [SerializeField] public float dashSpeed;
-    [SerializeField] public float dashCooldown;
     public bool canDash;
     
     //Input Variables
@@ -37,6 +28,9 @@ public class playerController : MonoBehaviour
     public float xInputMemory;
     public float directionalMemory;
     public bool dashInput;
+    public bool jumpInput;
+    public bool jumpCut;
+    public bool downForceInput;
 
     //Attack Variables
     public float battackTimer; 
@@ -82,7 +76,7 @@ public class playerController : MonoBehaviour
         updateTimers();
 
         //Return out of Update if the character is dashing to disable inputs and state seelction while dashing.
-        if(isDashing) 
+        if (isDashing)
         {
             return;
         }
@@ -145,8 +139,9 @@ public class playerController : MonoBehaviour
         
 
         //Capture dash input.
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if(Input.GetKeyDown(KeyCode.W))
         {
+            Debug.Log("W");
             dashInput = true;
         }
 
@@ -206,20 +201,20 @@ public class playerController : MonoBehaviour
         State prevState = state; //Store the last state to enter stateSelect.
 
         //Statement to select and assign the state to state;
-        
-        if(dashInput && canDash)
+
+        if (isDashing)
         {
             state = dashState;
         }
-        else if(!groundedCheck())
+        else if (!groundedCheck())
         {
             state = airbourneState;
         }
-        else if(groundedCheck() && xInput != 0)
+        else if (groundedCheck() && xInput != 0)
         {
             state = runState;
         }
-        else if(groundedCheck() && xInput == 0)
+        else if (groundedCheck() && xInput == 0)
         {
             state = idleState;
         }

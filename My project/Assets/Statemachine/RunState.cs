@@ -5,7 +5,7 @@ public class RunState : State
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Enter()
     {
-        Debug.Log("Enter Run");
+        
     }
 
     public override void stateUpdate()
