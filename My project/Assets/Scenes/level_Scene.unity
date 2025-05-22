@@ -1837,7 +1837,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2079,6 +2079,8 @@ GameObject:
   - component: {fileID: 1063813324}
   - component: {fileID: 1063813325}
   - component: {fileID: 1063813326}
+  - component: {fileID: 1063813327}
+  - component: {fileID: 1063813328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2102,7 +2104,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2239,21 +2241,21 @@ MonoBehaviour:
   airbourneState: {fileID: 2121142782}
   dashState: {fileID: 957751132}
   rig: {fileID: 1063813319}
-  moveSpeed: 12
+  moveSpeed: 14
   accelSpeed: 75
   decelSpeed: 50
   downForce: 3
-  jumpInput: 0
-  jumpCut: 0
-  downForceInput: 0
-  dashTime: 0.175
   isDashing: 0
-  dashSpeed: 25
-  dashCooldown: 2
   canDash: 0
   xInputMemory: 0
   directionalMemory: 0
   dashInput: 0
+  jumpInput: 0
+  jumpCut: 0
+  downForceInput: 0
+  ability1Input: 0
+  ability2Input: 0
+  ability3Input: 0
   battackTimer: 0.25
   groundLayer:
     serializedVersion: 2
@@ -2336,6 +2338,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1063813321}
   rig: {fileID: 1063813319}
+--- !u!114 &1063813327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbedbaba1e75db04fa5153ffcc676e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 381684754a8c02c45944c49c2ae64457, type: 2}
+  playerController: {fileID: 1063813321}
+--- !u!114 &1063813328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b12ad0550305a428d7a5d02193f73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 645637b3813e2d74da3d70a845985830, type: 2}
+  playerController: {fileID: 1063813321}
 --- !u!1 &1069033132
 GameObject:
   m_ObjectHideFlags: 0

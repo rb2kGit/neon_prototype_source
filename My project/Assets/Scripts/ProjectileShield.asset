@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472670e70464c374882b0a6a058edd62, type: 3}
+  m_Name: ProjectileShield
+  m_EditorClassIdentifier: 
+  abilityName: Projectile Shield
+  cooldownTime: 6
+  activeTime: 5
+  pShieldPrefab: {fileID: 3255585548542403334, guid: 7a5e5b2236a7c624384f45590b008a86, type: 3}
+  spawnPoint: {fileID: 0}

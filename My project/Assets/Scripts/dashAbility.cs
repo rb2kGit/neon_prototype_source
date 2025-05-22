@@ -18,6 +18,7 @@ public class dashAbility : abilityBase
         coroutines.startDash(activeTime, dashSpeed);
     }
 
+    //Old dash coroutine.
     /*private IEnumerator Dash()
     {
         Debug.Log("Start Dash");

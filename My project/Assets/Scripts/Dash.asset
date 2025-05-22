@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Dash
   cooldownTime: 2
-  activeTime: 0.25
-  dashSpeed: 35
+  activeTime: 0.15
+  dashSpeed: 45

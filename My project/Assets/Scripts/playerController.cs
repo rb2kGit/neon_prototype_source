@@ -31,6 +31,9 @@ public class playerController : MonoBehaviour
     public bool jumpInput;
     public bool jumpCut;
     public bool downForceInput;
+    public bool ability1Input;
+    public bool ability2Input;
+    public bool ability3Input;
 
     //Attack Variables
     public float battackTimer; 
@@ -73,16 +76,12 @@ public class playerController : MonoBehaviour
     void Update()
     {
         //Update input memory timers= as of this frame.
-        updateTimers();
+        //updateTimers();
 
         //Return out of Update if the character is dashing to disable inputs and state seelction while dashing.
         if (isDashing)
         {
             return;
-        }
-        else
-        {
-            dashInput = false;
         }
 
         //Check the movement input as of this frame.
@@ -101,24 +100,24 @@ public class playerController : MonoBehaviour
 
         //Capture horizontal input.
         xInput = UnityEngine.Input.GetAxisRaw("Horizontal"); //Record the left, center, and right inputs into a variable. Recorded as either -1, 0, 1;
-        if(Input.GetKeyDown(KeyCode.A) && facingRight)
+        if (Input.GetKeyDown(KeyCode.A) && facingRight)
         {
             flipHandler();
         }
-        else if(Input.GetKeyDown(KeyCode.D) && !facingRight)
+        else if (Input.GetKeyDown(KeyCode.D) && !facingRight)
         {
             flipHandler();
         }
 
         //Capture jump input.
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
             timerScript.startJMemoryTimer(); //Start the jump memory timer in the timer manager script.
         }
 
         //Capture jump cut.
-        if(Input.GetKeyUp(KeyCode.Space) && !groundedCheck()) //Capture jump cut.
+        if (Input.GetKeyUp(KeyCode.Space) && !groundedCheck()) //Capture jump cut.
         {
             jumpCut = true;
         }
@@ -128,26 +127,38 @@ public class playerController : MonoBehaviour
         }
 
         //Capture down force input.
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             downForceInput = true;
         }
-        else if(Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S))
         {
             downForceInput = false;
         }
-        
+
 
         //Capture dash input.
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("W");
-            dashInput = true;
+            ability1Input = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            attackHandler();
+            ability2Input = true;
+        }
+        else
+        {
+            ability2Input = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ability3Input = true;
+        }
+        else
+        {
+            ability3Input = false;
         }
         
     }
@@ -168,7 +179,7 @@ public class playerController : MonoBehaviour
 
     }
 
-    private void updateTimers()
+    /*private void updateTimers()
     {
 
         //Decrement the basic attack timer.
@@ -177,9 +188,9 @@ public class playerController : MonoBehaviour
             battackTimer -= Time.deltaTime;
         }
         
-    }
+    }*/
 
-    public void attackHandler()
+    /*public void attackHandler()
     {
         if(battackTimer <= 0)
         {
@@ -187,7 +198,7 @@ public class playerController : MonoBehaviour
             shootScript.fireBasicProjectile();
             battackTimer = 0.5f;
         }
-    }
+    }*/
 
     private void flipHandler()
     {

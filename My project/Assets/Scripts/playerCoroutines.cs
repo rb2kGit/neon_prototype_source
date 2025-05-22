@@ -45,7 +45,7 @@ public class playerCoroutines : MonoBehaviour
         rig.gravityScale = originalGravity;
         rig.linearVelocity = originalVelocity; //return the characters velocity to what it was pre-dash.
         playerController.isDashing = false;
-        playerController.dashInput = false;
+        playerController.ability1Input = false;
         playerController.canDash = true;
     }
 }

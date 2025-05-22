@@ -30,7 +30,7 @@ public class abilityHolder1 : MonoBehaviour
         switch (state)
         {
             case AbilityState.ready: //state = AbilityState.ready if the user presses the hotkey, call the activate function in the ability, move to the next state, otherwise do nothing.
-                if (playerController.dashInput && playerController.canDash)
+                if (playerController.ability1Input && playerController.canDash)
                 {
                     Debug.Log("Dash acivated.");
                     ability.Activate(gameObject);
@@ -59,6 +59,7 @@ public class abilityHolder1 : MonoBehaviour
                 else
                 {
                     cooldownTime = ability.cooldownTime;
+                    playerController.ability1Input = false;
                     state = AbilityState.ready;
                 }
                 break;

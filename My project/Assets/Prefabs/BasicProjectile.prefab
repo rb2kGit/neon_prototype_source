@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 182342222524011008}
   - component: {fileID: 6694063737960044023}
   - component: {fileID: 8696441692374770659}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BasicProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1032
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6933228679067536225}
   - component: {fileID: 4469883222643455165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
