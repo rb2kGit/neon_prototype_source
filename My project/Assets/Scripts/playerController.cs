@@ -34,6 +34,7 @@ public class playerController : MonoBehaviour
     public bool ability1Input;
     public bool ability2Input;
     public bool ability3Input;
+    public bool ability4Input;
 
     //Attack Variables
     public float battackTimer; 
@@ -159,6 +160,15 @@ public class playerController : MonoBehaviour
         else
         {
             ability3Input = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ability4Input = true;
+        }
+        else
+        {
+            ability4Input = false;
         }
         
     }

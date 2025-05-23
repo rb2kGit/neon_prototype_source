@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.AI;
+using Vector2 = UnityEngine.Vector2;
 
 public class playerCoroutines : MonoBehaviour
 {
@@ -28,7 +31,7 @@ public class playerCoroutines : MonoBehaviour
     {
         //Initialize routine varaibles.
         float originalGravity = rig.gravityScale;
-        Vector2 originalVelocity = new Vector2(playerController.directionalMemory * playerController.moveSpeed, 0f); //Capture the current x velocity.
+        UnityEngine.Vector2 originalVelocity = new Vector2(playerController.directionalMemory * playerController.moveSpeed, 0f); //Capture the current x velocity.
 
         //Set tracking variables.
         playerController.canDash = false;
@@ -47,5 +50,22 @@ public class playerCoroutines : MonoBehaviour
         playerController.isDashing = false;
         playerController.ability1Input = false;
         playerController.canDash = true;
+    }
+
+    public IEnumerator bullCharge(Rigidbody2D bullRig, float direction, float bullSpeed, float chargeTime, GameObject bullObject)
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        bullRig.gravityScale = 0f;
+        bullRig.linearVelocity = new Vector2(direction * bullSpeed, 0f);
+
+        yield return new WaitForSeconds(chargeTime);
+
+        bullRig.linearVelocity = new Vector2(0f, 0f);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(bullObject);
+
     }
 }

@@ -2074,13 +2074,13 @@ GameObject:
   - component: {fileID: 1063813320}
   - component: {fileID: 1063813319}
   - component: {fileID: 1063813321}
-  - component: {fileID: 1063813322}
   - component: {fileID: 1063813323}
   - component: {fileID: 1063813324}
   - component: {fileID: 1063813325}
   - component: {fileID: 1063813326}
   - component: {fileID: 1063813327}
   - component: {fileID: 1063813328}
+  - component: {fileID: 1063813329}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2256,6 +2256,7 @@ MonoBehaviour:
   ability1Input: 0
   ability2Input: 0
   ability3Input: 0
+  ability4Input: 0
   battackTimer: 0.25
   groundLayer:
     serializedVersion: 2
@@ -2267,20 +2268,6 @@ MonoBehaviour:
   boxCastDistance: 1
   timerScript: {fileID: 1063813323}
   jumpController: {fileID: 1063813324}
---- !u!114 &1063813322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063813316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e086a5382e7c04142ac9393602e3664b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2600922054443241601, guid: 135c2d1336b5a8641b4169ac83fdeaaf, type: 3}
-  firePoint: {fileID: 988425135}
 --- !u!114 &1063813323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,6 +2352,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 645637b3813e2d74da3d70a845985830, type: 2}
+  playerController: {fileID: 1063813321}
+--- !u!114 &1063813329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063813316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e413a8278048f4344986c0c8af7bec3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 58c936e9198a519428c0df5b164b9ba3, type: 2}
   playerController: {fileID: 1063813321}
 --- !u!1 &1069033132
 GameObject:

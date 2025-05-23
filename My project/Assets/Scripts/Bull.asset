@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f06c49db2990284cb9de3fdb5917fe8, type: 3}
+  m_Name: Bull
+  m_EditorClassIdentifier: 
+  abilityName: Bull Summon
+  cooldownTime: 5
+  activeTime: 5
+  bullPrefab: {fileID: 5130823342065809737, guid: eb05fccce4c042043baf59a54efc9823, type: 3}
+  firePoint: {fileID: 0}
