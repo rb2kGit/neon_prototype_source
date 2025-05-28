@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5fe2ff93f804ad24c83fc29cd995869a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shelfPrefab: {fileID: 8975295083841348930, guid: 8bee0b2853a943341a75b79858a7848d, type: 3}
+  - firePoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

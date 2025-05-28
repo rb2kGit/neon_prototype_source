@@ -15,6 +15,7 @@ public class bullAbility : abilityBase
         Instantiate(bullPrefab, spawnPos, firePoint.transform.rotation);
     }
 
+
     //Old dash coroutine.
     /*private IEnumerator Dash()
     {

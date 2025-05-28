@@ -22,6 +22,7 @@ public class playerCoroutines : MonoBehaviour
 
     }
 
+    //Start function for the dash coroutines.
     public void startDash(float dashTime, float dashSpeed)
     {
         StartCoroutine(Dash(dashTime, dashSpeed));

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Basic Projectile
   cooldownTime: 0.5
-  activeTime: 5
+  activeTime: 0
   projectilePrefab: {fileID: 2600922054443241601, guid: 135c2d1336b5a8641b4169ac83fdeaaf, type: 3}
   firePoint: {fileID: 0}

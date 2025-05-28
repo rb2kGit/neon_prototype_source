@@ -35,6 +35,8 @@ public class playerController : MonoBehaviour
     public bool ability2Input;
     public bool ability3Input;
     public bool ability4Input;
+    public bool ability5Input;
+    public bool ability6Input;
 
     //Attack Variables
     public float battackTimer; 
@@ -138,7 +140,7 @@ public class playerController : MonoBehaviour
         }
 
 
-        //Capture dash input.
+        //Capture ability inputs.
         if (Input.GetKeyDown(KeyCode.W))
         {
             ability1Input = true;
@@ -170,12 +172,30 @@ public class playerController : MonoBehaviour
         {
             ability4Input = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ability5Input = true;
+        }
+        else
+        {
+            ability5Input = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ability6Input = true;
+        }
+        else
+        {
+            ability6Input = false;
+        }
         
     }
 
     public bool groundedCheck()
     {
-        //Raycast a box to detect a collision with the ground layer. 
+        //Raycast a box to detect a collision with the ground or platform layer. 
         if(Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, groundLayer, 0, 0 ) || Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, platformLayer, 0, 0 ))
         {
             timerScript.resetGMemoryTimer();
