@@ -37,7 +37,7 @@ public class mirrorAbility : abilityBase
             originalMoveSpeed = playerController.moveSpeed;
             originalJumpSpeed = jumpController.jumpSpeed;
             playerController.moveSpeed = playerController.moveSpeed * 0.5f;
-            jumpController.jumpSpeed = jumpController.jumpSpeed * 0.5f;
+            jumpController.jumpSpeed = jumpController.jumpSpeed * 0.75f;
         }
         else
         {

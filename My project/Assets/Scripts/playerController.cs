@@ -145,6 +145,10 @@ public class playerController : MonoBehaviour
         {
             ability1Input = true;
         }
+        else
+        {
+            ability1Input = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

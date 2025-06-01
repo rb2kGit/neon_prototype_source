@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 1054d0a2eb726f24cb0de773a8988f73, type: 3}
   m_Name: Mirror
   m_EditorClassIdentifier: Assembly-CSharp::mirrorAbility
   abilityName: Mirror
-  cooldownTime: 5
+  cooldownTime: 3
   activeTime: 3
   mirrorPrefab: {fileID: 649944247487207804, guid: 1f8196b2f2136ff46a90dcf85e1cab89, type: 3}
   firePoint: {fileID: 0}

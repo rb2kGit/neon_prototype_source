@@ -15,10 +15,10 @@ public class shelfBehavior : MonoBehaviour
         playerObject = GameObject.Find("Player");
         playerController = playerObject.GetComponent<playerController>();
         direction = playerController.directionalMemory;
-        //thisObject.transform.Rotate(0, 180, 0);
+        //thisObject.transform.Rotate(0, 180, -1);
         //rig.gravityScale = 0f;
 
-        this.transform.position = new Vector3(playerObject.transform.position.x + (playerController.directionalMemory * 2f), playerObject.transform.position.y - 2f, 0f);
+        this.transform.position = new Vector3(playerObject.transform.position.x + (playerController.directionalMemory * 2f), playerObject.transform.position.y - 2f, playerObject.transform.position.z);
     }
 
     // Update is called once per frame

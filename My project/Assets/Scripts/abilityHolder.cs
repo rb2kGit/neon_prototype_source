@@ -90,6 +90,7 @@ public abstract class abilityHolder : MonoBehaviour
                 }
                 else
                 {
+                    ability.Deactivate(gameObject);
                     activeTime = ability.activeTime;
                     cooldownTime = ability.cooldownTime;
                     state = AbilityState.cooldown;
