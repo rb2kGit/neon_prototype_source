@@ -141,32 +141,32 @@ public class playerController : MonoBehaviour
 
 
         //Capture ability inputs.
-        if (Input.GetKeyDown(KeyCode.W))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             ability1Input = true;
         }
         else
         {
             ability1Input = false;
-        }
+        }*/
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.W) && canDash)
         {
             ability2Input = true;
         }
         else
         {
             ability2Input = false;
-        }
+        }*/
 
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             ability3Input = true;
         }
         else
         {
             ability3Input = false;
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.R))
         {

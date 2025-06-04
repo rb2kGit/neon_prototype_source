@@ -11,7 +11,6 @@ public class dashAbility : abilityBase
 
     public override void Activate(GameObject parent)
     {
-        Debug.Log(parent);
         coroutines = parent.GetComponentInParent<playerCoroutines>();
 
         coroutines.startDash(activeTime, dashSpeed);

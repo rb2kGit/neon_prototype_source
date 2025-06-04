@@ -10,18 +10,6 @@ public class playerCoroutines : MonoBehaviour
     public playerController playerController;
     public Rigidbody2D rig;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     //Start function for the dash coroutines.
     public void startDash(float dashTime, float dashSpeed)
     {
@@ -49,7 +37,7 @@ public class playerCoroutines : MonoBehaviour
         rig.gravityScale = originalGravity;
         rig.linearVelocity = originalVelocity; //return the characters velocity to what it was pre-dash.
         playerController.isDashing = false;
-        playerController.ability1Input = false;
+        playerController.ability2Input = false;
         playerController.canDash = true;
     }
 
