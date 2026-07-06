@@ -3,7 +3,7 @@ using UnityEngine;
 public class cameraController : MonoBehaviour
 {
     //Initialize camera variables.
-    private Vector3 offset = new Vector3(0f, 0f, -10f); //Offset the z of the camera to ensure that it rencders.
+    private Vector3 offset = new Vector3(0f, 2.75f, -10f); //Offset the z of the camera to ensure that it rencders.
     private Vector3 velocity = Vector3.zero;//Camera's velocity.
     private float smoothTime = 0.25f; //The time it takes for the camera to "catch up" to the player.
 

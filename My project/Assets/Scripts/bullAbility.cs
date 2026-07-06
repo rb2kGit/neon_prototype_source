@@ -6,8 +6,6 @@ using UnityEngine;
 public class bullAbility : abilityBase
 {
     public GameObject bullPrefab;
-    public GameObject firePoint;
-
     public override void Activate(GameObject parent)
     {
         firePoint = GameObject.Find("FirePoint");

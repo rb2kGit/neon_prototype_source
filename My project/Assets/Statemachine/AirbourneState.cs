@@ -41,7 +41,7 @@ public class AirbourneState : State
         //Apply jump cut velocity if space is not pressed and the y velocity is positive.
         if(playerInput.jumpCut && rig.linearVelocity.y > 0 && !playerInput.groundedCheck())
        {
-            rig.linearVelocity = new Vector2(rig.linearVelocity.x, rig.linearVelocity.y * 0.60f);
+            rig.linearVelocity = new Vector2(rig.linearVelocity.x, rig.linearVelocity.y * 0.50f);
             playerInput.jumpCut = false;
        }
         else if(playerInput.downForceInput && rig.linearVelocity.y <= 0 && !playerInput.groundedCheck()) //Apply downforce when the player is at the peak of the jump or falling.

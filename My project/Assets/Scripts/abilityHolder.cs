@@ -1,15 +1,28 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
+
+//using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class abilityHolder : MonoBehaviour
 {
     public abilityBase ability;
-    float cooldownTime;
+    public float cooldownTime;
+    float maxCooldown;
     float activeTime;
     public playerController playerController;
     protected bool abilityInput;
 
     public abilityInputManager inputManager;
+    public GameObject abilityImageObject;
+    public Image abilityImage;
+
+    [SerializeField]
+    private bool prepped = false;
+    [SerializeField] public uiAbility abilityUI;
 
     //Create a variable group that will help manage the state of the ability in this ability holder.
     public enum AbilityState
@@ -27,12 +40,14 @@ public abstract class abilityHolder : MonoBehaviour
         switch (state)
         {
             case AbilityState.ready: //state = AbilityState.ready if the user presses the hotkey, call the activate function in the ability, move to the next state, otherwise do nothing.
+
                 if (abilityInput)
                 {
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
                     abilityInput = false;
+                    
                 }
 
                 break;
@@ -41,12 +56,14 @@ public abstract class abilityHolder : MonoBehaviour
                 if (activeTime > 0)
                 {
                     activeTime -= Time.deltaTime;
+                    abilityImage.fillAmount = 0f;
                 }
                 else
                 {
                     ability.Deactivate(gameObject);
                     activeTime = ability.activeTime;
                     cooldownTime = ability.cooldownTime;
+                    maxCooldown = ability.cooldownTime;
                     state = AbilityState.cooldown;
                 }
 
@@ -55,6 +72,7 @@ public abstract class abilityHolder : MonoBehaviour
                 if (cooldownTime > 0)
                 {
                     cooldownTime -= Time.deltaTime;
+                    abilityImage.fillAmount = 1f - (cooldownTime / maxCooldown);
                 }
                 else
                 {
@@ -71,5 +89,62 @@ public abstract class abilityHolder : MonoBehaviour
         abilityInput = false;
         return abilityInput;
     }
+
+    public void prep()
+    {
+        prepped = true;
+    }
+
+    public void free()
+    {
+        prepped = false;
+
+        if (cooldownTime < maxCooldown)
+        {
+            ability.Deactivate(gameObject);
+            state = AbilityState.cooldown;
+        }
+    }
+
+    public void putOnCooldown()
+    {
+        ability.Deactivate(gameObject);
+        activeTime = ability.activeTime;
+        cooldownTime = ability.cooldownTime;
+        maxCooldown = ability.cooldownTime;
+        state = AbilityState.cooldown;
+    }
+
+    public bool checkPrep()
+    {
+        return prepped;
+    }
+
+    public bool checkActive()
+    {
+        if (state == AbilityState.active)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool checkReady()
+    {
+        if (state == AbilityState.ready)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public virtual void setCombinerInput(){}
+    public virtual void resetCombinerInput(){}
 
 }

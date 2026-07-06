@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f14c824875ecf146b4711e317e9a227, type: 3}
+  m_Name: yy
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 0
+  activeTime: 1
+  color: 2
+  redCount: 0
+  yellowCount: 2
+  blueCount: 0
+  tieredAbilityCode: 22
+  playerObject: {fileID: 0}
+  firePoint: {fileID: 0}
+  abilityAmmo: 0
+  maxAbilityAmmo: 0
+  spriteCode: 6
+  uiSpriteCode: 3

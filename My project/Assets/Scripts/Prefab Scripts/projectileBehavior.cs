@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
 public class projectileBehavior : MonoBehaviour
 {
     public Rigidbody2D rig;
     public GameObject playerObj;
     public Vector3 playerRight;
+    public Vector3 mousePosition;
+    public Vector3 direction;
+    public Camera cam;
     public float projectileSpeed;
     public float lifeSpan;
     public Vector2 initialVelocity;
@@ -15,9 +19,14 @@ public class projectileBehavior : MonoBehaviour
     {
         playerObj = GameObject.Find("Player");
         playerRight = playerObj.transform.right;
+        
+        cam = Camera.main;
+        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        direction = mousePosition - transform.position;
 
-        Rigidbody2D playerRig = playerObj.GetComponent<Rigidbody2D>();
-        initialVelocity = new Vector2(playerRig.linearVelocity.x + projectileSpeed, 0);
+        
+        //initialVelocity = new Vector2(playerRig.linearVelocity.x - mousePosition.x + projectileSpeed, mousePosition.y + projectileSpeed);
+        initialVelocity = new Vector2(direction.x, direction.y).normalized * projectileSpeed;
 
     }
 
@@ -31,7 +40,8 @@ public class projectileBehavior : MonoBehaviour
             Destroy(gameObject);
         }
         
-        rig.linearVelocity = playerRight * Time.fixedDeltaTime * initialVelocity;
+        //rig.linearVelocity = playerRight * Time.fixedDeltaTime * initialVelocity;
+        rig.linearVelocity = initialVelocity * Time.fixedDeltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

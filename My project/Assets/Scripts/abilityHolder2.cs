@@ -11,4 +11,16 @@ public class abilityHolder2 : abilityHolder
 
         inputManager.setAbility2Input(returnInput());
     }
+
+    public override void setCombinerInput()
+    {
+        base.setCombinerInput();
+        inputManager.setCombinerInput2();
+    }
+
+    public override void resetCombinerInput()
+    {
+        base.resetCombinerInput();
+        inputManager.resetCombinerInput2();
+    }
 }

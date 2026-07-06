@@ -138,63 +138,6 @@ public class playerController : MonoBehaviour
         {
             downForceInput = false;
         }
-
-
-        //Capture ability inputs.
-        /*if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ability1Input = true;
-        }
-        else
-        {
-            ability1Input = false;
-        }*/
-
-        /*if (Input.GetKeyDown(KeyCode.W) && canDash)
-        {
-            ability2Input = true;
-        }
-        else
-        {
-            ability2Input = false;
-        }*/
-
-        /*if (Input.GetKeyDown(KeyCode.E))
-        {
-            ability3Input = true;
-        }
-        else
-        {
-            ability3Input = false;
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ability4Input = true;
-        }
-        else
-        {
-            ability4Input = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ability5Input = true;
-        }
-        else
-        {
-            ability5Input = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ability6Input = true;
-        }
-        else
-        {
-            ability6Input = false;
-        }
-        
     }
 
     public bool groundedCheck()
@@ -234,10 +177,15 @@ public class playerController : MonoBehaviour
         }
     }*/
 
-    private void flipHandler()
+    public void flipHandler()
     {
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+    }
+
+    public bool getFacingRight()
+    {
+        return facingRight;
     }
 
     //State management functions.
@@ -290,6 +238,5 @@ public class playerController : MonoBehaviour
     {
         jumpInput = false;
     }
-
 
 }

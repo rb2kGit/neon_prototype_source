@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,7 +6,6 @@ using UnityEngine;
 public class basicProjectileAbility : abilityBase
 {
     public GameObject projectilePrefab;
-    public GameObject firePoint;
 
     public override void Activate(GameObject parent)
     {

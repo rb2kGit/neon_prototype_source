@@ -4,8 +4,6 @@ using UnityEngine;
 public class mirrorAbility : abilityBase
 {
     public GameObject mirrorPrefab;
-    public GameObject firePoint;
-    public GameObject playerObject;
     public playerController playerController;
     public jumpController jumpController;
     private bool burdened;
@@ -14,8 +12,8 @@ public class mirrorAbility : abilityBase
 
     public override void Activate(GameObject parent)
     {
-        firePoint = GameObject.Find("FirePoint");
         playerObject = GameObject.Find("Player");
+        firePoint = GameObject.Find("FirePoint");
         playerController = playerObject.GetComponent<playerController>();
         jumpController = playerObject.GetComponent<jumpController>();
         Vector3 spawnPos = new Vector3(firePoint.transform.position.x, firePoint.transform.position.y, -1f);

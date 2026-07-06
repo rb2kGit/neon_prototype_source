@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1054d0a2eb726f24cb0de773a8988f73, type: 3}
+  m_Name: Mirror
+  m_EditorClassIdentifier: Assembly-CSharp::mirrorAbility
+  abilityName: Mirror
+  cooldownTime: 3
+  activeTime: 3
+  color: 2
+  mirrorPrefab: {fileID: 649944247487207804, guid: 1f8196b2f2136ff46a90dcf85e1cab89, type: 3}
+  firePoint: {fileID: 0}
+  playerObject: {fileID: 0}
+  playerController: {fileID: 0}
+  jumpController: {fileID: 0}

@@ -4,8 +4,6 @@ using UnityEngine;
 public class shelfAbility : abilityBase
 {
     public GameObject shelfPrefab;
-    public GameObject firePoint;
-
     public override void Activate(GameObject parent)
     {
         firePoint = GameObject.Find("FirePoint");

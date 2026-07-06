@@ -1,6 +1,9 @@
+//using Microsoft.Unity.VisualStudio.Editor;
 using Mono.Cecil;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class timerManager : MonoBehaviour
 {
@@ -13,6 +16,11 @@ public class timerManager : MonoBehaviour
     public bool canMemoryJump; //Jump memory boolean.
     private float groundMemory; //Coyote time timer.
     public bool canCoyoteJump; //Coyote time boolean.
+    [SerializeField]
+    private float maxCombinerTime;
+    private float combinerTimer;
+    private bool combinerCountdown;
+    [SerializeField] private Image combinerImage;
 
     void Awake()
     {
@@ -25,7 +33,7 @@ public class timerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        restartCombinerTimer();
     }
 
     // Update is called once per frame
@@ -33,6 +41,11 @@ public class timerManager : MonoBehaviour
     {
         countdownJMemoryTimer(); //Countdown the jumpMemoryTimer;
         countdownGMemoryTimer(); //Countdown the coyote time timer;
+
+        if (combinerCountdown)
+        {
+            countDownCombinerTimer(); //Coutndown the combiner timer;
+        }
         
     }
 
@@ -53,7 +66,7 @@ public class timerManager : MonoBehaviour
 
     public void startJMemoryTimer()
     {
-        jumpMemory = 0.25f;
+        jumpMemory = 0.1f;
         canMemoryJump = true;
     }
 
@@ -85,6 +98,51 @@ public class timerManager : MonoBehaviour
     public bool checkGroundMemory()
     {
         return canCoyoteJump;
+    }
+
+    //Combiner Timer Methods
+    public void startCombinerCountdown()
+    {
+        combinerTimer = maxCombinerTime;
+        combinerCountdown = true;
+    }
+
+    public void stopCombinerCountdown()
+    {
+        combinerCountdown = false;
+        restartCombinerTimer();
+    }
+
+    public void countDownCombinerTimer()
+    {
+        if (combinerTimer <= 0)
+        {
+            stopCombinerCountdown();
+            combinerImage.fillAmount = 1f;
+        }
+        else
+        {    
+            combinerTimer = combinerTimer - Time.deltaTime;
+            combinerImage.fillAmount = 0f + (combinerTimer / maxCombinerTime);
+        }
+    }
+
+    public void restartCombinerTimer()
+    {
+        combinerTimer = maxCombinerTime;
+        combinerImage.fillAmount = 1f;
+    }
+
+    public bool checkCombinerTimer()
+    {
+        if (combinerCountdown)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
