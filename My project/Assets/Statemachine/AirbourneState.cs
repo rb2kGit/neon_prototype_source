@@ -29,8 +29,8 @@ public class AirbourneState : State
     {
         //Initialize air movement variables.
         float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
-        float airDampening = playerInput.accelSpeed * 0.5f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
-        float stillAirDampening = playerInput.accelSpeed * 0.1f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
+        float airDampening = playerInput.accelSpeed * 0.75f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
+        float stillAirDampening = playerInput.accelSpeed * 0.5f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
 
         //If the player presses jump whole aibourne, call the jumphandler ot check it.
         if(playerInput.jumpInput)

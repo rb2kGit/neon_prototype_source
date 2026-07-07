@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using Unity.VisualScripting;
+using System;
 
 public class playerController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class playerController : MonoBehaviour
     private bool facingRight;
     public bool isDashing;
     public bool canDash;
+    private RaycastHit2D myPlatform;
     
     //Input Variables
     public float xInput { get; private set; } //xInput will be a property to allow the states to use it.
@@ -43,6 +45,7 @@ public class playerController : MonoBehaviour
 
     //Level Variables
     public LayerMask groundLayer;
+    public LayerMask groundLayers;
     public LayerMask platformLayer;
 
     //Raycasting variables.
@@ -145,6 +148,7 @@ public class playerController : MonoBehaviour
         //Raycast a box to detect a collision with the ground or platform layer. 
         if(Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, groundLayer, 0, 0 ) || Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, platformLayer, 0, 0 ))
         {
+            myPlatform = Physics2D.BoxCast(transform.position, boxCastSize, 0, -transform.up, boxCastDistance, groundLayers, 0, 0 );
             timerScript.resetGMemoryTimer();
 
             return true;
@@ -154,6 +158,11 @@ public class playerController : MonoBehaviour
             return false;
         }
 
+    }
+
+    public RaycastHit2D getMyPlatform()
+    {
+        return myPlatform;
     }
 
     /*private void updateTimers()
