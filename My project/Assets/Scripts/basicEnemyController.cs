@@ -16,7 +16,7 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private float reaquireDelay;
     [SerializeField] private float accelSpeed;
     private ThisState currentState;
-    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, samePlatform;
+    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable;
     private Boolean flyer = false;
     private Boolean targetAcquired;
     private RaycastHit2D platformCollider;
@@ -83,7 +83,10 @@ public class basicEnemyController : MonoBehaviour
             case ThisState.Idle:
                 //Play idle animation.
                 acquireTarget();
-                if (targetAcquired)
+
+                defenseModeMove();
+
+                if (targetAcquired && playerReachable)
                 {
                     isMoving = true;
                 }
@@ -121,6 +124,10 @@ public class basicEnemyController : MonoBehaviour
         if (!isGrounded)
         {
             currentState = ThisState.Airbourne;
+        }
+        else if (isGrounded && !playerReachable)
+        {
+            currentState = ThisState.Idle;
         }
         else if (isMoving && isGrounded)
         {
@@ -171,13 +178,21 @@ public class basicEnemyController : MonoBehaviour
         float accelerationCap = accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
 
         //While the enemy is in the moving state start moving towards the player character if the gap checking boxcast does not hit ground on either side.
-        if  (!Physics2D.BoxCast(new Vector3(gapCheckerL.position.x, gapCheckerL.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ) || 
-                !Physics2D.BoxCast(new Vector3(gapCheckerR.position.x, gapCheckerR.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ))
+        if  (gapChecker())
         {
-            thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, -playerDirection.x * moveSpeed, accelerationCap ), thisRig.linearVelocity.y);
+            //thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, -playerDirection.x * moveSpeed, accelerationCap ), thisRig.linearVelocity.y);
+            
+            //Check to see if player is within range.
+            //[insert function here]
+            //Go into attack state if player is within range.
+            //isAttacking = true;
+
+            //Set moving to false to get out of the moving state.
+            isMoving = false;
+
 
         }
-        else if(samePlatform)
+        else
         {
             //Apply new position.
             thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerDirection.x * moveSpeed, accelerationCap ), thisRig.linearVelocity.y);
@@ -199,14 +214,39 @@ public class basicEnemyController : MonoBehaviour
         if (playerPlatform.collider == platformCollider.collider)
         {
             Debug.Log("Same Platform");
-            samePlatform = true;
+            playerReachable = true;
         }
         else
         {
-            samePlatform = false;
+            playerReachable = false;
         }
 
         return false;
+    }
+
+    private void defenseModeMove() //<----- What happens if enemy is defensively moving away and comes to a ledge?
+    {
+        //Set a slower move speed.
+        float defenseMoveSpeed = (float)moveSpeed * 0.25f;
+
+        //Initialize local variables.
+        float currentVelocity = thisRig.linearVelocity.x; //Create a reference variable for the current velocity.
+        float accelerationCap = accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
+
+        thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, -playerDirection.x * defenseMoveSpeed, accelerationCap ), thisRig.linearVelocity.y);
+    }
+
+    private bool gapChecker() //<--- will need to modify this to also account for a player jumping, so the enemy doesn't go into defense mode immediately when the player is jumping.
+    {
+        if  (!Physics2D.BoxCast(new Vector3(gapCheckerL.position.x, gapCheckerL.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ) || 
+                !Physics2D.BoxCast(new Vector3(gapCheckerR.position.x, gapCheckerR.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void OnDrawGizmos()
