@@ -4416,8 +4416,8 @@ PlatformEffector2D:
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
+  m_UseSideBounce: 1
+  m_SideArc: 90
 --- !u!1 &1055251730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,8 +6089,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 25, y: 0.048656464}
-      - {x: -25, y: 0.048656464}
+    - - {x: 25.84878, y: 0.07437706}
+      - {x: -25.43725, y: 0.048656464}
       - {x: 0, y: -30}
   m_UseDelaunayMesh: 0
 --- !u!50 &1177348271

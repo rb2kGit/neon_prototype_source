@@ -16,10 +16,11 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private float reaquireDelay;
     [SerializeField] private float accelSpeed;
     private ThisState currentState;
-    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable;
+    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable, leftGap, rightGap;
     private Boolean flyer = false;
     private Boolean targetAcquired;
     private RaycastHit2D platformCollider;
+    private float patrolX;
 
     //Grounded Check Variables
     [SerializeField] private Vector2 boxCastSize;
@@ -75,6 +76,7 @@ public class basicEnemyController : MonoBehaviour
         updateMyPosition();
         groundedCheck();
         comparePlatforms();
+        gapChecker();
         stateSelector();
 
         switch (currentState)
@@ -84,22 +86,21 @@ public class basicEnemyController : MonoBehaviour
                 //Play idle animation.
                 acquireTarget();
 
+                //Call move script.
                 defenseModeMove();
 
-                if (targetAcquired && playerReachable)
-                {
-                    isMoving = true;
-                }
                 break;
             case ThisState.Moving:
                 //Debug.Log("Moving");
                 moveToPlayer();
+
                 break;
             case ThisState.Attacking:
                 //Attacking logic and animations
                 break;
             case ThisState.Airbourne:
                 //Airbourne 
+
                 break;
 
         }
@@ -121,26 +122,51 @@ public class basicEnemyController : MonoBehaviour
 
     private void stateSelector()
     {
-        if (!isGrounded)
+
+        //Check enemy conditions and select a new state if previousState isn't already what the new state would be.
+        if (!isGrounded && isAirbourne != true)
         {
+            isMoving = false;
+            isIdle = false;
+            isAttacking = false;
+            isAirbourne = true;
+
+
+            Debug.Log("Airbourne");
             currentState = ThisState.Airbourne;
         }
-        else if (isGrounded && !playerReachable)
+        else if (isGrounded && !playerReachable && isIdle != true)
         {
+            isMoving = false;
+            isAttacking = false;
+            isAirbourne = false;
+            isIdle = true;
+
+            Debug.Log("Idle state.");
+            patrolX = -playerDirection.x;
             currentState = ThisState.Idle;
         }
-        else if (isMoving && isGrounded)
+        else if (isGrounded && playerReachable && isMoving != true)
         {
+            isIdle = false;
+            isAttacking = false;
+            isAirbourne = false;
+            isMoving = true;
+
+            Debug.Log("Moving");
             currentState = ThisState.Moving;
         }
-        else if (isAttacking && isGrounded)
+        else if (isAttacking && isGrounded && isAttacking != true)
         {
+            isMoving = false;
+            isIdle = false;
+            isAirbourne = false;
+            isAttacking = true;
+
+            Debug.Log("Atacking");
             currentState = ThisState.Attacking;
         }
-        else
-        {
-            currentState = ThisState.Idle;
-        }
+        
     }
 
     private void groundedCheck()
@@ -171,33 +197,22 @@ public class basicEnemyController : MonoBehaviour
         targetAcquired = true;
     }
 
-    private void moveToPlayer() //<------------------------------- Make the basic enemy "go on patrol" when it cannot reach the player.
+    private void moveToPlayer()
     {
         //Initialize local variables.
         float currentVelocity = thisRig.linearVelocity.x; //Create a reference variable for the current velocity.
         float accelerationCap = accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
 
-        //While the enemy is in the moving state start moving towards the player character if the gap checking boxcast does not hit ground on either side.
-        if  (gapChecker())
+        if (rightGap || leftGap == true)
         {
-            //thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, -playerDirection.x * moveSpeed, accelerationCap ), thisRig.linearVelocity.y);
-            
-            //Check to see if player is within range.
-            //[insert function here]
-            //Go into attack state if player is within range.
-            //isAttacking = true;
-
-            //Set moving to false to get out of the moving state.
-            isMoving = false;
-
-
+            thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerDirection.x * 0, accelerationCap ), thisRig.linearVelocity.y);
         }
         else
         {
-            //Apply new position.
             thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerDirection.x * moveSpeed, accelerationCap ), thisRig.linearVelocity.y);
-            //thisRig.linearVelocity = new Vector2(0, 0);
         }
+
+
     }
 
     private void getPlayerPlatform()
@@ -213,7 +228,6 @@ public class basicEnemyController : MonoBehaviour
 
         if (playerPlatform.collider == platformCollider.collider)
         {
-            Debug.Log("Same Platform");
             playerReachable = true;
         }
         else
@@ -224,7 +238,7 @@ public class basicEnemyController : MonoBehaviour
         return false;
     }
 
-    private void defenseModeMove() //<----- What happens if enemy is defensively moving away and comes to a ledge?
+    private void defenseModeMove() //<----- Still some weird behavior if the
     {
         //Set a slower move speed.
         float defenseMoveSpeed = (float)moveSpeed * 0.25f;
@@ -233,19 +247,35 @@ public class basicEnemyController : MonoBehaviour
         float currentVelocity = thisRig.linearVelocity.x; //Create a reference variable for the current velocity.
         float accelerationCap = accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
 
-        thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, -playerDirection.x * defenseMoveSpeed, accelerationCap ), thisRig.linearVelocity.y);
+
+        if (leftGap) //If one of the gap checkers finds a gap. Set the patrol direction the oppostie way.
+        {
+            patrolX = 1;
+        }
+        else if (rightGap)
+        {
+            patrolX = -1;
+        }
+
+        thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, patrolX * defenseMoveSpeed, accelerationCap ), thisRig.linearVelocity.y);
+        
+
     }
 
-    private bool gapChecker() //<--- will need to modify this to also account for a player jumping, so the enemy doesn't go into defense mode immediately when the player is jumping.
+    private void gapChecker()
     {
-        if  (!Physics2D.BoxCast(new Vector3(gapCheckerL.position.x, gapCheckerL.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ) || 
-                !Physics2D.BoxCast(new Vector3(gapCheckerR.position.x, gapCheckerR.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ))
+        if  (!Physics2D.BoxCast(new Vector3(gapCheckerL.position.x, gapCheckerL.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ))
         {
-            return true;
+            leftGap = true;
+        }
+        else if  (!Physics2D.BoxCast(new Vector3(gapCheckerR.position.x, gapCheckerR.position.y, 0), new Vector2(gapCheckBoxSize.x/2, gapCheckBoxSize.x/2), 0, -transform.up, boxCastDistance, groundLayers, 0, 0 ))
+        {
+            rightGap = true;
         }
         else
         {
-            return false;
+            leftGap = false;
+            rightGap = false;
         }
     }
 
