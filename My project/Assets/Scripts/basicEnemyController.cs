@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class basicEnemyController : MonoBehaviour
 {
-    //---------- VARBIALES ----------
+    //---------- VARBIALES ----------//
 
     //Enemy Variables
     [SerializeField] private Transform thisTransform;
@@ -17,8 +17,7 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private float accelSpeed;
     private ThisState currentState;
     private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable, leftGap, rightGap;
-    private Boolean flyer = false;
-    private Boolean targetAcquired;
+    //private Boolean flyer = false;
     private RaycastHit2D platformCollider;
     private float patrolX;
 
@@ -28,6 +27,7 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private Vector2 gapCheckBoxSize;
     [SerializeField] private Transform gapCheckerL;
     private Vector3 gapCheckerPositionL;
+
     [SerializeField] private Transform gapCheckerR;
     private Vector3 gapCheckerPositionR;
 
@@ -50,7 +50,7 @@ public class basicEnemyController : MonoBehaviour
         Airbourne,
     };
 
-    //---------- VARBIALES ----------
+    //---------- VARBIALES ----------//
 
 
     //---------- LOGIC ----------
@@ -84,7 +84,6 @@ public class basicEnemyController : MonoBehaviour
             //Action tree switch.
             case ThisState.Idle:
                 //Play idle animation.
-                acquireTarget();
 
                 //Call move script.
                 defenseModeMove();
@@ -192,11 +191,6 @@ public class basicEnemyController : MonoBehaviour
         }
     }
 
-    private void acquireTarget()
-    {
-        targetAcquired = true;
-    }
-
     private void moveToPlayer()
     {
         //Initialize local variables.
@@ -238,7 +232,7 @@ public class basicEnemyController : MonoBehaviour
         return false;
     }
 
-    private void defenseModeMove() //<----- Still some weird behavior if the
+    private void defenseModeMove()
     {
         //Set a slower move speed.
         float defenseMoveSpeed = (float)moveSpeed * 0.25f;

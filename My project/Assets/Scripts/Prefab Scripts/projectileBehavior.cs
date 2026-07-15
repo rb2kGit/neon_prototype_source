@@ -13,10 +13,13 @@ public class projectileBehavior : MonoBehaviour
     public float projectileSpeed;
     public float lifeSpan;
     public Vector2 initialVelocity;
+    [SerializeField] private int damageValue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        initializeDamgeValue();
+
         playerObj = GameObject.Find("Player");
         playerRight = playerObj.transform.right;
         
@@ -44,8 +47,19 @@ public class projectileBehavior : MonoBehaviour
         rig.linearVelocity = initialVelocity * Time.fixedDeltaTime;
     }
 
+    private void initializeDamgeValue()
+    {
+        damageValue = 10;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "enemy")
+        {
+            Debug.Log("Blim blim blam.");
+            collision.gameObject.GetComponent<enemyHealthManager>().damage(damageValue);
+        }
+
         Destroy(gameObject);
     }
 

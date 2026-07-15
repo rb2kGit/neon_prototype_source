@@ -9,7 +9,7 @@ public class platformLogic : MonoBehaviour
     //Platformv ariables.
     private GameObject thisPlatform;
     private SpriteRenderer sprite;
-    private BoxCollider2D collider;
+    private BoxCollider2D thisCollider;
     private Color platFormColor;
     private Color originalPlatformColor;
     private float platformOpacity;
@@ -27,7 +27,7 @@ public class platformLogic : MonoBehaviour
     {
         thisPlatform = this.gameObject;
         sprite = thisPlatform.GetComponentInChildren<SpriteRenderer>();
-        collider = thisPlatform.GetComponentInChildren<BoxCollider2D>();
+        thisCollider = thisPlatform.GetComponentInChildren<BoxCollider2D>();
         originalPlatformColor = sprite.color;
         platFormColor = sprite.color;
 
@@ -75,7 +75,7 @@ public class platformLogic : MonoBehaviour
         //Destroy(gameObject);
         respawning = true;
         sprite.enabled = false;
-        collider.enabled = false;
+        thisCollider.enabled = false;
     }
 
     private void platformTimerUpdate()
@@ -101,7 +101,7 @@ public class platformLogic : MonoBehaviour
         respawning = false;
         respawnTimer = maxRespawnTimer;
         sprite.enabled = true;
-        collider.enabled = true;
+        thisCollider.enabled = true;
         sprite.color = originalPlatformColor;
     }
 

@@ -6,7 +6,6 @@ public class lowerPlatformLogic : MonoBehaviour
     //Platformv ariables.
     private GameObject thisPlatform;
     private SpriteRenderer sprite;
-    private BoxCollider2D collider;
     private Color platFormColor;
     private Color originalPlatformColor;
     private float platformOpacity;
@@ -15,8 +14,6 @@ public class lowerPlatformLogic : MonoBehaviour
     [SerializeField] private float maxPlatformTimer;
     [SerializeField] private float maxRespawnTimer;
     private float platformTimer;
-    private float respawnTimer;
-    private bool respawning;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,12 +21,8 @@ public class lowerPlatformLogic : MonoBehaviour
     {
         thisPlatform = this.gameObject;
         sprite = thisPlatform.GetComponentInChildren<SpriteRenderer>();
-        collider = thisPlatform.GetComponentInChildren<BoxCollider2D>();
         originalPlatformColor = sprite.color;
         platFormColor = sprite.color;
-
-        respawning = false;
-        respawnTimer = maxRespawnTimer;
     }
 
     // Update is called once per frame
