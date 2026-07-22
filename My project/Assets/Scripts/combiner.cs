@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -136,10 +137,6 @@ public class combiner : MonoBehaviour
             abilityHolder.prep();
             currentlyPrepped.Add(abilityHolder);
             abilityUI.moveToCombiner(abilityHolder, uiCombiner);
-        }
-        else
-        {
-            //abilityUI.moveToPlace(abilityHolder);
         }
     }
 

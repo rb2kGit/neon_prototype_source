@@ -459,6 +459,7 @@
 "Assets/Scripts/combinerParser.cs"
 "Assets/Scripts/dashAbility.cs"
 "Assets/Scripts/deathwall.cs"
+"Assets/Scripts/enemyAttack.cs"
 "Assets/Scripts/enemyHealthManager.cs"
 "Assets/Scripts/gameplayManager.cs"
 "Assets/Scripts/jumpController.cs"

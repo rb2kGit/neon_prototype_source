@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2834813830638162418}
   - component: {fileID: 2105750538561892678}
   - component: {fileID: 7810500311044626647}
+  - component: {fileID: 7961370332811162658}
   m_Layer: 6
   m_Name: Slowguy
   m_TagString: enemy
@@ -112,7 +113,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -177,6 +178,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 0
+  spriteRenderer: {fileID: 8156270179052256158}
+  damagedSprite: {fileID: 2397119945145415388, guid: d5f702e25fb438b4c9b9dcb6e58ab0dd, type: 3}
+--- !u!114 &7961370332811162658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673689358213665119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92b6a3fa6233324a8077fbff11af281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6456657685963173876
 GameObject:
   m_ObjectHideFlags: 0

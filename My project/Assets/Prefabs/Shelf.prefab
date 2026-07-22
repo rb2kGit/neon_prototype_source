@@ -209,10 +209,10 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: f6ed891987cd3a64a96482b36bbe83c4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -258,5 +258,5 @@ MonoBehaviour:
   thisObject: {fileID: 8975295083841348930}
   playerController: {fileID: 0}
   rig: {fileID: 0}
-  lifeSpan: 3
+  lifeSpan: 5
   direction: 0

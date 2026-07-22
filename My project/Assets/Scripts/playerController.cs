@@ -160,6 +160,11 @@ public class playerController : MonoBehaviour
 
     }
 
+    public Vector2 getPlayerPosition()
+    {
+        return transform.position;
+    }
+
     public RaycastHit2D getMyPlatform()
     {
         return myPlatform;

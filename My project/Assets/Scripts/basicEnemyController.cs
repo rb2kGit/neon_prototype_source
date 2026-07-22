@@ -65,7 +65,7 @@ public class basicEnemyController : MonoBehaviour
         gapCheckerPositionR.x = gapCheckerR.localPosition.x;
         gapCheckerPositionR.x = gapCheckerR.localPosition.y;
 
-
+        moveSpeed = UnityEngine.Random.Range(7, 10);
     }
 
     // Update is called once per frame
@@ -130,8 +130,6 @@ public class basicEnemyController : MonoBehaviour
             isAttacking = false;
             isAirbourne = true;
 
-
-            Debug.Log("Airbourne");
             currentState = ThisState.Airbourne;
         }
         else if (isGrounded && !playerReachable && isIdle != true)
@@ -141,7 +139,6 @@ public class basicEnemyController : MonoBehaviour
             isAirbourne = false;
             isIdle = true;
 
-            Debug.Log("Idle state.");
             patrolX = -playerDirection.x;
             currentState = ThisState.Idle;
         }
@@ -152,7 +149,6 @@ public class basicEnemyController : MonoBehaviour
             isAirbourne = false;
             isMoving = true;
 
-            Debug.Log("Moving");
             currentState = ThisState.Moving;
         }
         else if (isAttacking && isGrounded && isAttacking != true)
@@ -162,7 +158,6 @@ public class basicEnemyController : MonoBehaviour
             isAirbourne = false;
             isAttacking = true;
 
-            Debug.Log("Atacking");
             currentState = ThisState.Attacking;
         }
         

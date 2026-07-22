@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class platformLogic : MonoBehaviour
 {
-    //Platformv ariables.
+    //Platform variables.
     private GameObject thisPlatform;
     private SpriteRenderer sprite;
     private BoxCollider2D thisCollider;
@@ -20,6 +20,7 @@ public class platformLogic : MonoBehaviour
     private float platformTimer;
     private float respawnTimer;
     private bool respawning;
+    private int numberOfEnemies;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,9 +52,12 @@ public class platformLogic : MonoBehaviour
     {
         int layer = collision.gameObject.layer;
         
-        if (!countingDown && layer == 3)
+        if (!countingDown && layer == 3 || !countingDown && numberOfEnemies >= 5)
         {
             startPlatformCountdown();
+        }
+        else if (!countingDown && layer == 6){
+            numberOfEnemies = numberOfEnemies + 1;
         }
     }
 
@@ -68,6 +72,7 @@ public class platformLogic : MonoBehaviour
         countingDown = false;
         respawning = true;
         respawnTimer = maxRespawnTimer;
+        numberOfEnemies = 0;
     }
 
     private void disablePlatform()
