@@ -486,6 +486,7 @@
 "Assets/Scripts/ryT2Ability.cs"
 "Assets/Scripts/ryyT3Ability.cs"
 "Assets/Scripts/shelfAbility.cs"
+"Assets/Scripts/slowguyAttack.cs"
 "Assets/Scripts/spawnManager.cs"
 "Assets/Scripts/testT2Holder.cs"
 "Assets/Scripts/timerManager.cs"

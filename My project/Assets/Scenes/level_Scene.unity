@@ -4596,6 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf00ceffe67cbe74cbce7040abaa7948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnRate: 0
   enemyPrefab: {fileID: 4673689358213665119, guid: db3da2c558eec454292526e0e9f86132, type: 3}
 --- !u!1 &1060086795
 GameObject:

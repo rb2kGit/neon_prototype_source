@@ -21,6 +21,9 @@ public class basicEnemyController : MonoBehaviour
     private RaycastHit2D platformCollider;
     private float patrolX;
 
+    //Enemy attack variables.
+    [SerializeField] private enemyAttack attackScript;
+
     //Grounded Check Variables
     [SerializeField] private Vector2 boxCastSize;
     [SerializeField] private float boxCastDistance;
@@ -95,6 +98,7 @@ public class basicEnemyController : MonoBehaviour
 
                 break;
             case ThisState.Attacking:
+                attackStance();
                 //Attacking logic and animations
                 break;
             case ThisState.Airbourne:
@@ -142,6 +146,15 @@ public class basicEnemyController : MonoBehaviour
             patrolX = -playerDirection.x;
             currentState = ThisState.Idle;
         }
+        else if (isGrounded && playerReachable && attackScript.checkPlayerInRange())
+        {
+            isMoving = false;
+            isIdle = false;
+            isAirbourne = false;
+            isAttacking = true;
+
+            currentState = ThisState.Attacking;
+        }
         else if (isGrounded && playerReachable && isMoving != true)
         {
             isIdle = false;
@@ -150,15 +163,6 @@ public class basicEnemyController : MonoBehaviour
             isMoving = true;
 
             currentState = ThisState.Moving;
-        }
-        else if (isAttacking && isGrounded && isAttacking != true)
-        {
-            isMoving = false;
-            isIdle = false;
-            isAirbourne = false;
-            isAttacking = true;
-
-            currentState = ThisState.Attacking;
         }
         
     }
@@ -250,6 +254,14 @@ public class basicEnemyController : MonoBehaviour
         
 
     }
+
+    private void attackStance()
+    {
+        //Set a slower move speed.
+        float attackMoveSpeed = (float)moveSpeed * 0.1f;
+        //Debug.Log("Atack Stance");
+        thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(thisRig.linearVelocity.x, playerDirection.x * attackMoveSpeed, accelSpeed * Time.fixedDeltaTime), thisRig.linearVelocity.y);
+    } 
 
     private void gapChecker()
     {

@@ -10,7 +10,7 @@ public class spawnManager : MonoBehaviour
     private Transform[] spawnPoints;
 
     //Interval variables.
-    private float SpawnRate;
+    [SerializeField] private float SpawnRate;
     private float startTime;
     private float lastSpawn;
 
@@ -32,7 +32,7 @@ public class spawnManager : MonoBehaviour
 
         startTime = Time.time;
         lastSpawn = Time.time;
-        SpawnRate = 0.75f;
+        SpawnRate = 1f;
 
     }
 

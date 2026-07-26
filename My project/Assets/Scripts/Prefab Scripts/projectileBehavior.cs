@@ -56,7 +56,6 @@ public class projectileBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
-            Debug.Log("Blim blim blam.");
             collision.gameObject.GetComponent<enemyHealthManager>().damage(damageValue);
         }
 
