@@ -7,8 +7,9 @@ using Vector2 = UnityEngine.Vector2;
 
 public class enemyAttack : MonoBehaviour
 {
-
+    //Enemy obect variables.
     [SerializeField] protected Transform attackPos;
+    [SerializeField] protected basicEnemyController controllerScript;
 
     //Attack variables.
     private float attackRange;
@@ -17,6 +18,9 @@ public class enemyAttack : MonoBehaviour
     private float attackType;
     private float maxAttackDelay;
     private float attackTimer;
+    private float maxAttackChargeUp;
+    private float attackChargeUp;
+    private bool chargingUp;
     public bool canAttack;
     [SerializeField] private SpriteRenderer attackSprite;
     [SerializeField] private float spriteLingerTime;
@@ -34,7 +38,7 @@ public class enemyAttack : MonoBehaviour
     void Awake()
     {
         //Initialize enemy attack variables.
-        initVariables(1, 3);
+        initVariables(2, 3, 0.35f);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,18 +50,39 @@ public class enemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attackDelayCounter();
-
-
+        //Reaquire player information.
         playerPosition = playerController.getPlayerPosition();
         checkRange();
-        
 
-        if (isPlayerInRange && canAttack)
+        //Calculate the enemy attack cooldown.
+        if (attackTimer >= maxAttackDelay && !canAttack)
         {
-            attack();
+            canAttack = true;
+        }
+        else if(attackTimer < maxAttackDelay && !canAttack)
+        {
+            attackTimer = attackTimer + Time.deltaTime;
         }
 
+        //Check if the enemy can attack and is in the attack state;
+        if (canAttack && controllerScript.checkAttackStance() && !chargingUp)
+        {
+            //Start the attack charge up.
+            startAttackChargeUp();
+        }
+
+        //Calculate the enemy attack charge up time. Attack once charged up.
+        if (attackChargeUp >= maxAttackChargeUp && canAttack && chargingUp)
+        {
+            chargingUp = false;
+            attack();
+        }
+        else if(attackChargeUp < maxAttackChargeUp)
+        {
+            attackChargeUp = attackChargeUp + Time.deltaTime;
+        }
+
+        //Calculate the temporary sprite lingering timer.
         if (isLingering)
         {
             updateLingerTimer();
@@ -66,7 +91,7 @@ public class enemyAttack : MonoBehaviour
 
     }
 
-    public void attackDelayCounter()
+    /*public void attackDelayCounter()
     {
         if (attackTimer >= maxAttackDelay && !canAttack)
         {
@@ -76,7 +101,25 @@ public class enemyAttack : MonoBehaviour
         {
             attackTimer = attackTimer + Time.deltaTime;
         }
+    }*/
+
+    private void startAttackChargeUp()
+    {
+        attackChargeUp = 0;
+        chargingUp = true;
     }
+
+    /*private void attackChargeUpCounter()
+    {
+        if (attackChargeUp >= maxAttackChargeUp && canAttack)
+        {
+            attack();
+        }
+        else if(attackChargeUp < maxAttackChargeUp)
+        {
+            attackChargeUp = attackChargeUp + Time.deltaTime;
+        }
+    }*/
 
     public void restartAttackDelay()
     {
@@ -97,16 +140,20 @@ public class enemyAttack : MonoBehaviour
     }
 
     //Initialization functions.
-    private void initVariables(float newMaxAttackDelay, float newRange)
+    private void initVariables(float newMaxAttackDelay, float newRange, float newMaxAttackChargeUP)
     {
         //Attack timers.
         maxAttackDelay = newMaxAttackDelay;
-        attackTimer = maxAttackDelay;
+        attackTimer = 0;
+        maxAttackChargeUp = newMaxAttackChargeUP;
+        attackChargeUp = maxAttackChargeUp;
         canAttack = true;
+        chargingUp = false;
         //Attack range.
         attackRange = newRange;
         //Attack sprite.
         attackSprite.enabled = false;
+        lingerTimer = spriteLingerTime;
     }
 
     //Getter functions.

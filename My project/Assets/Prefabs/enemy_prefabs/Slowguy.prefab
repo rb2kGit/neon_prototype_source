@@ -182,6 +182,7 @@ MonoBehaviour:
   thisTransform: {fileID: 9055243505792859027}
   thisPosition: {x: 0, y: 0, z: 0}
   thisRig: {fileID: 5129926973164542839}
+  attackPos: {fileID: 2539431918002368429}
   moveSpeed: 8
   jumpForce: 0
   reaquireDelay: 0
@@ -227,9 +228,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 2539431918002368429}
+  controllerScript: {fileID: 2105750538561892678}
   canAttack: 0
   attackSprite: {fileID: 3263364557851408382}
-  spriteLingerTime: 1
+  spriteLingerTime: 0.5
 --- !u!1 &6456657685963173876
 GameObject:
   m_ObjectHideFlags: 0

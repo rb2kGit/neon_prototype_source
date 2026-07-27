@@ -1,5 +1,8 @@
 using System;
+using NUnit.Framework.Internal;
+using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -11,6 +14,7 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private Transform thisTransform;
     [SerializeField] private Vector3 thisPosition;
     [SerializeField] private Rigidbody2D thisRig;
+    [SerializeField] protected Transform attackPos;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float reaquireDelay;
@@ -77,6 +81,7 @@ public class basicEnemyController : MonoBehaviour
 
         //Update the position, grounded status and the state of the enemy;
         updateMyPosition();
+        flipHandler();
         groundedCheck();
         comparePlatforms();
         gapChecker();
@@ -121,6 +126,24 @@ public class basicEnemyController : MonoBehaviour
         playerDirection.x = playerPosition.x - thisPosition.x;
         playerDirection = playerDirection.normalized;
         //Debug.Log(playerDirection);
+    }
+
+    private void flipHandler()
+    {
+        Vector3 heading = thisPosition - playerPosition;
+        heading = heading.normalized;
+        Vector3 atkHeading = thisPosition - attackPos.position;
+        atkHeading = atkHeading.normalized;
+
+        if(heading.x >= 0 && atkHeading.x <= 0)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+        else if (heading.x < 0 && atkHeading.x > 0)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+        
     }
 
     private void stateSelector()
@@ -240,14 +263,21 @@ public class basicEnemyController : MonoBehaviour
         float currentVelocity = thisRig.linearVelocity.x; //Create a reference variable for the current velocity.
         float accelerationCap = accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
 
-
-        if (leftGap) //If one of the gap checkers finds a gap. Set the patrol direction the oppostie way.
+        if (leftGap && transform.right.x > 0) //If one of the gap checkers finds a gap. Set the patrol direction the oppostie way.
         {
             patrolX = 1;
         }
-        else if (rightGap)
+        else if (leftGap && transform.right.x < 0)
         {
             patrolX = -1;
+        }
+        else if (rightGap && transform.right.x > 0)
+        {
+            patrolX = -1;
+        }
+        else if (rightGap && transform.right.x < 0)
+        {
+            patrolX = 1;
         }
 
         thisRig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, patrolX * defenseMoveSpeed, accelerationCap ), thisRig.linearVelocity.y);
@@ -277,6 +307,18 @@ public class basicEnemyController : MonoBehaviour
         {
             leftGap = false;
             rightGap = false;
+        }
+    }
+
+    public bool checkAttackStance()
+    {
+        if (currentState == ThisState.Attacking)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
