@@ -57,4 +57,15 @@ public class playerCoroutines : MonoBehaviour
         Destroy(bullObject);
 
     }
+
+    public IEnumerator disablePlatformCollision(GameObject playerObject, GameObject platformObject)
+    {
+        
+        CapsuleCollider2D playerCollider = playerObject.GetComponent<CapsuleCollider2D>();
+        BoxCollider2D platformCollider = platformObject.GetComponent<BoxCollider2D>();
+
+        Physics2D.IgnoreCollision(playerCollider, platformCollider);
+        yield return new WaitForSeconds(0.25f);
+        Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
+    }
 }

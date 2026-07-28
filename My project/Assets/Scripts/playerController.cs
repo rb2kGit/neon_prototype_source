@@ -23,7 +23,9 @@ public class playerController : MonoBehaviour
     private bool facingRight;
     public bool isDashing;
     public bool canDash;
+    private bool isDroppingDown;
     private RaycastHit2D myPlatform;
+    private GameObject myPlatformObject;
     
     //Input Variables
     public float xInput { get; private set; } //xInput will be a property to allow the states to use it.
@@ -55,6 +57,7 @@ public class playerController : MonoBehaviour
     //Reference Scripts
     public timerManager timerScript;
     public jumpController jumpController;
+    [SerializeField] private playerCoroutines coroutines;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -116,7 +119,7 @@ public class playerController : MonoBehaviour
         }
 
         //Capture jump input.
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isDroppingDown)
         {
             jumpInput = true; //Record jump as true to be used in jump execution method.
             timerScript.startJMemoryTimer(); //Start the jump memory timer in the timer manager script.
@@ -130,6 +133,13 @@ public class playerController : MonoBehaviour
         else
         {
             jumpCut = false;
+        }
+
+        //Capture platform jump down input.
+        if (Input.GetKeyDown(KeyCode.S) && myPlatformObject != null && myPlatformObject.layer == 9)
+        {
+            isDroppingDown = true;
+            StartCoroutine(coroutines.disablePlatformCollision(this.gameObject, myPlatformObject));
         }
 
         //Capture down force input.
@@ -169,27 +179,6 @@ public class playerController : MonoBehaviour
     {
         return myPlatform;
     }
-
-    /*private void updateTimers()
-    {
-
-        //Decrement the basic attack timer.
-        if(battackTimer > 0)
-        {
-            battackTimer -= Time.deltaTime;
-        }
-        
-    }*/
-
-    /*public void attackHandler()
-    {
-        if(battackTimer <= 0)
-        {
-            basicProjectileShoot shootScript = GetComponent<basicProjectileShoot>();
-            shootScript.fireBasicProjectile();
-            battackTimer = 0.5f;
-        }
-    }*/
 
     public void flipHandler()
     {
@@ -251,6 +240,28 @@ public class playerController : MonoBehaviour
     public void falsifyJumpInput()
     {
         jumpInput = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+        {
+            isDroppingDown = false;
+        }
+
+        if (collision.gameObject.layer == 9)
+        {
+            myPlatformObject = collision.gameObject;
+        } 
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.layer == 9)
+        {
+            myPlatformObject = null;
+        }
     }
 
 }

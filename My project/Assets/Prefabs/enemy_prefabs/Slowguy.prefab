@@ -183,7 +183,6 @@ MonoBehaviour:
   thisPosition: {x: 0, y: 0, z: 0}
   thisRig: {fileID: 5129926973164542839}
   attackPos: {fileID: 2539431918002368429}
-  moveSpeed: 8
   jumpForce: 0
   reaquireDelay: 0
   accelSpeed: 5
@@ -211,10 +210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e6daf6f1d21774f81841f5b313357b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyController: {fileID: 2105750538561892678}
   currentHealth: 0
   maxHealth: 0
   spriteRenderer: {fileID: 8156270179052256158}
   damagedSprite: {fileID: 2397119945145415388, guid: d5f702e25fb438b4c9b9dcb6e58ab0dd, type: 3}
+  maxImmuneTime: 0
 --- !u!114 &4981255704434586511
 MonoBehaviour:
   m_ObjectHideFlags: 0

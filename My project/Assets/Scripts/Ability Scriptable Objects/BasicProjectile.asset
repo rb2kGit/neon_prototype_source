@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: BasicProjectile
   m_EditorClassIdentifier: 
   abilityName: Basic Projectile
-  cooldownTime: 0.3
+  cooldownTime: 0.4
   activeTime: 0
   color: 0
   redCount: 0
   yellowCount: 0
   blueCount: 0
-  projectilePrefab: {fileID: 6036381626072120043, guid: d2b8e7c4da550744396acb4fcad6cb17, type: 3}
+  tieredAbilityCode: 0
+  playerObject: {fileID: 0}
   firePoint: {fileID: 0}
+  abilityAmmo: 0
+  maxAbilityAmmo: 0
+  spriteCode: 0
+  uiSpriteCode: 0
+  projectilePrefab: {fileID: 6036381626072120043, guid: d2b8e7c4da550744396acb4fcad6cb17, type: 3}

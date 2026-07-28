@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XInput;
 
@@ -29,8 +30,10 @@ public class AirbourneState : State
     {
         //Initialize air movement variables.
         float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
+        float maxFallSpeed = 40f; //Max fall speed.
         float airDampening = playerInput.accelSpeed * 0.75f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
         float stillAirDampening = playerInput.accelSpeed * 0.5f * Time.deltaTime; //This varable will use the airDampening speed to create an airDempening cap in Mathf.MoveTowards, when combined with time.delta time.
+
 
         //If the player presses jump whole aibourne, call the jumphandler ot check it.
         if(playerInput.jumpInput)
@@ -56,19 +59,19 @@ public class AirbourneState : State
         //Movement controls in the air.
        if(playerInput.xInput == 0) //When the player is not pressing left or right in the air.
         {
-            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInputMemory * playerInput.moveSpeed, airDampening ), rig.linearVelocity.y);
+            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInputMemory * playerInput.moveSpeed, airDampening ), Mathf.Clamp(rig.linearVelocity.y, -maxFallSpeed, float.MaxValue));
             
         }
         else if(rig.linearVelocity.x < 0.5 * playerInput.moveSpeed && rig.linearVelocity.y > 0) //When the player is rising with a slow speed, heavily dampen x velocity. Will make standstill jumping feel more realistic.
         {
-            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInputMemory * playerInput.moveSpeed, stillAirDampening ), rig.linearVelocity.y);
+            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInputMemory * playerInput.moveSpeed, stillAirDampening ), Mathf.Clamp(rig.linearVelocity.y, -maxFallSpeed, float.MaxValue));
             playerInput.xInputMemory = playerInput.xInput;
             playerInput.directionalMemory = playerInput.xInput;
 
         }
         else //When the player is in the air.
         {   
-            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInput * playerInput.moveSpeed, airDampening ), rig.linearVelocity.y);
+            rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInput * playerInput.moveSpeed, airDampening ), Mathf.Clamp(rig.linearVelocity.y, -maxFallSpeed, float.MaxValue));
             playerInput.xInputMemory = playerInput.xInput;
             playerInput.directionalMemory = playerInput.xInput;
 

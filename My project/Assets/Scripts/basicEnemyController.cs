@@ -1,7 +1,9 @@
 using System;
+using NUnit.Framework;
 using NUnit.Framework.Internal;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -15,15 +17,18 @@ public class basicEnemyController : MonoBehaviour
     [SerializeField] private Vector3 thisPosition;
     [SerializeField] private Rigidbody2D thisRig;
     [SerializeField] protected Transform attackPos;
-    [SerializeField] private float moveSpeed;
+    private float maxMoveSpeed;
+    private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float reaquireDelay;
     [SerializeField] private float accelSpeed;
     private ThisState currentState;
-    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable, leftGap, rightGap;
+    private Boolean isGrounded, isAirbourne, isAttacking, isMoving, isIdle, playerReachable, leftGap, rightGap, isHit;
     //private Boolean flyer = false;
     private RaycastHit2D platformCollider;
     private float patrolX;
+    private float maxHitSlowTime;
+    private float hitSlowTime;
 
     //Enemy attack variables.
     [SerializeField] private enemyAttack attackScript;
@@ -72,7 +77,11 @@ public class basicEnemyController : MonoBehaviour
         gapCheckerPositionR.x = gapCheckerR.localPosition.x;
         gapCheckerPositionR.x = gapCheckerR.localPosition.y;
 
-        moveSpeed = UnityEngine.Random.Range(7, 10);
+        maxMoveSpeed = UnityEngine.Random.Range(7, 10);
+        moveSpeed = maxMoveSpeed;
+
+        maxHitSlowTime = .1f;
+        hitSlowTime = maxHitSlowTime;
     }
 
     // Update is called once per frame
@@ -80,6 +89,7 @@ public class basicEnemyController : MonoBehaviour
     {
 
         //Update the position, grounded status and the state of the enemy;
+        updateMoveSpeedTimer();
         updateMyPosition();
         flipHandler();
         groundedCheck();
@@ -320,6 +330,33 @@ public class basicEnemyController : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void stopMoveSpeed()
+    {
+        if (!isHit)
+        {
+            moveSpeed = 0f;
+            isHit = true;
+        }
+    }
+
+    private void updateMoveSpeedTimer()
+    {
+        if (isHit && hitSlowTime <= 0)
+        {
+            isHit = false;
+            resetMoveSpeed();
+        }
+        else if (isHit && hitSlowTime > 0)
+        {
+            hitSlowTime -= Time.deltaTime;
+        }
+    }
+
+    public void resetMoveSpeed()
+    {
+        moveSpeed = maxMoveSpeed;
     }
 
     private void OnDrawGizmos()

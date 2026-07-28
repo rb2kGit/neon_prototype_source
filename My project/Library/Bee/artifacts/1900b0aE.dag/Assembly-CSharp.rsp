@@ -468,6 +468,7 @@
 "Assets/Scripts/platformLogic.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/playerCoroutines.cs"
+"Assets/Scripts/playerHealthManager.cs"
 "Assets/Scripts/playerSprite.cs"
 "Assets/Scripts/playerSpriteManager.cs"
 "Assets/Scripts/playerTransformer.cs"

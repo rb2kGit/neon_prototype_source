@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class enemyHealthManager : MonoBehaviour
 {
+    [SerializeField] private  basicEnemyController enemyController;
     [SerializeField] private int currentHealth;
     [SerializeField] private int maxHealth;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite damagedSprite;
     private Boolean isImmune;
+    [SerializeField] private float maxImmuneTime;
     private float immuneTime;
     private float spawnTime;
 
@@ -16,7 +18,7 @@ public class enemyHealthManager : MonoBehaviour
     void Start()
     {
         spawnTime = Time.time;
-        immuneTime = 1.0f;
+        immuneTime = 1f;
 
         initializeMaxHealth();
     }
@@ -49,6 +51,7 @@ private void healthCheck()
         {
             //Play damage animation;
             currentHealth = currentHealth - damage;
+            enemyController.stopMoveSpeed();
         }
         else
         {
