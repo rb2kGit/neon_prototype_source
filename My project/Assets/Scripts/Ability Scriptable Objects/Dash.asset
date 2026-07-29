@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   abilityName: Dash
-  cooldownTime: 2
+  cooldownTime: 3
   activeTime: 0.15
   color: 1
-  dashSpeed: 45
+  redCount: 0
+  yellowCount: 0
+  blueCount: 0
+  tieredAbilityCode: 0
+  playerObject: {fileID: 0}
+  firePoint: {fileID: 0}
+  abilityAmmo: 0
+  maxAbilityAmmo: 0
+  spriteCode: 0
+  uiSpriteCode: 0
+  dashSpeed: 60

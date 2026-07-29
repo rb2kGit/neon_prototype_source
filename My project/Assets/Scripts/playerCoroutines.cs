@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Numerics;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class playerCoroutines : MonoBehaviour
     //Player variables.
     public playerController playerController;
     public Rigidbody2D rig;
+    [SerializeField] private SpriteRenderer playerSprite;
+    private Color originalColor;
+    private bool playerImmune;
 
     //Start function for the dash coroutines.
     public void startDash(float dashTime, float dashSpeed)
@@ -68,4 +72,41 @@ public class playerCoroutines : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
+
+    public IEnumerator immuneRecovery()
+    {
+        //Debug.Log("I AM IMMUNE");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int knockbackX = UnityEngine.Random.Range(0, 2) * 2 -1; //This formula will result in either -1 or 1 being selected because of multiplying by 2 and subtracting 1.
+
+        if (!playerImmune)
+        {
+            rig.linearVelocity = new Vector2(0, 0);
+            rig.AddForce(new Vector2(knockbackX, 1) * 20, ForceMode2D.Impulse);
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer);
+            playerImmune = true;
+            setPlayerAlpha(0.1f);
+            yield return new WaitForSeconds(3f);
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+            playerSprite.color = originalColor;
+            playerImmune = false;
+        }
+
+    }
+
+    private void setPlayerAlpha(float alphaValue)
+    {
+        Color currentColor = playerSprite.color; //Store the current color.
+        originalColor = playerSprite.color;
+
+        currentColor.a = Mathf.Clamp01(alphaValue); //Set the new color on the new variable.
+        playerSprite.color = currentColor;
+    }
+
+    public bool getImmuneStatus()
+    {
+        return playerImmune;
+    }
+
 }

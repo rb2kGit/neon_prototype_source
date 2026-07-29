@@ -113,7 +113,7 @@ public class combiner : MonoBehaviour
     {
         for (int i = 0; i < inputArray.Length; i++)
         {
-            if (inputArray[i] && !abilityArray[i].checkPrep() && currentlyPrepped.Count < 3)
+            if (inputArray[i] && !abilityArray[i].checkPrep() && currentlyPrepped.Count < 2)
             {
                 //Debug.Log("Prep");
                 prepAbility(abilityArray[i]);
@@ -179,7 +179,7 @@ public class combiner : MonoBehaviour
 
     public bool isCombinerFull()
     {
-        if (currentlyPrepped.Count < 3)
+        if (currentlyPrepped.Count < 2)
         {
             return false;
         }

@@ -499,6 +499,7 @@
 "Assets/Scripts/uiAbility6.cs"
 "Assets/Scripts/uiAbilityBasicSpriteManager.cs"
 "Assets/Scripts/uiCombiner.cs"
+"Assets/Scripts/uiScripts/shieldUI.cs"
 "Assets/Scripts/yyT2ability.cs"
 "Assets/Scripts/yyyT3Abilityy.cs"
 "Assets/Statemachine/AirbourneState.cs"

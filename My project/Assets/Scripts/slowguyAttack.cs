@@ -4,14 +4,21 @@ using Vector2 = UnityEngine.Vector2;
 
 public class slowguyAttack : enemyAttack
 {
-    //Enemy variables.
-    //[SerializeField] public Transform attackPos;
+    [SerializeField] private int attackValue; 
 
     public override void attack()
     {
         base.attack();
 
-        Collider2D playerToDamage = Physics2D.OverlapBox(attackPos.position, new Vector2 (2,3), 0f);
+        int layersToExclude = LayerMask.GetMask("Enemy", "Ground", "Platform", "SelfProjectiles");
+        int layerMask = ~layersToExclude;
+
+        Collider2D contactCollider = Physics2D.OverlapBox(attackPos.position, new Vector2 (2,3), 0f, layerMask);
+
+        if (contactCollider.gameObject.layer == 3)
+        {
+           contactCollider.gameObject.GetComponent<playerHealthManager>().damagePlayer(attackValue);
+        }
         //Debug.Log("Player hit at this positoin: " + playerToDamage.gameObject.transform.position);
 
         restartAttackDelay();

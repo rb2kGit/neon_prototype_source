@@ -29,6 +29,7 @@ public class basicEnemyController : MonoBehaviour
     private float patrolX;
     private float maxHitSlowTime;
     private float hitSlowTime;
+    private float stancebuffer;
 
     //Enemy attack variables.
     [SerializeField] private enemyAttack attackScript;
@@ -82,6 +83,8 @@ public class basicEnemyController : MonoBehaviour
 
         maxHitSlowTime = .1f;
         hitSlowTime = maxHitSlowTime;
+
+        stancebuffer = UnityEngine.Random.Range(0f, 1.75f);
     }
 
     // Update is called once per frame
@@ -133,7 +136,7 @@ public class basicEnemyController : MonoBehaviour
         //Update the known playerPosition;
         playerPosition = playerObject.transform.position;
         //Update the player direction.
-        playerDirection.x = playerPosition.x - thisPosition.x;
+        playerDirection.x = playerPosition.x - attackPos.position.x + stancebuffer;
         playerDirection = playerDirection.normalized;
         //Debug.Log(playerDirection);
     }

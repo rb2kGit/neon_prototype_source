@@ -232,7 +232,8 @@ MonoBehaviour:
   controllerScript: {fileID: 2105750538561892678}
   canAttack: 0
   attackSprite: {fileID: 3263364557851408382}
-  spriteLingerTime: 0.5
+  spriteLingerTime: 0.4
+  attackValue: 100
 --- !u!1 &6456657685963173876
 GameObject:
   m_ObjectHideFlags: 0
