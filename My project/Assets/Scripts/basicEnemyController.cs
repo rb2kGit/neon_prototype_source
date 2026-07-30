@@ -47,6 +47,7 @@ public class basicEnemyController : MonoBehaviour
     //Level Variables
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask platformLayer;
+    private spawnManager spawnManager;
 
     //Player Variables
     private GameObject playerObject;
@@ -67,6 +68,16 @@ public class basicEnemyController : MonoBehaviour
 
 
     //---------- LOGIC ----------
+    void Awake()
+    {
+        //Initialize the spawn manager.
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<spawnManager>();
+
+        //Add this enemy to the spawnManager list.
+        spawnManager.addMeToList(this.gameObject);
+
+    }
+
     void Start()
     {
         playerObject = GameObject.Find("Player");

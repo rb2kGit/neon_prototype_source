@@ -14,7 +14,7 @@ public class shieldUI : MonoBehaviour
     {
         shieldImages = new Image[shieldUIObject.transform.childCount];
 
-        for (int i = 0; i <= shieldUIObject.transform.childCount; i++)
+        for (int i = 0; i < shieldUIObject.transform.childCount; i++)
         {
             shieldImages[i] = shieldUIObject.transform.GetChild(i).GetComponent<Image>();
         }

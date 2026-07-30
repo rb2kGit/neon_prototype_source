@@ -12,7 +12,13 @@ public class enemyHealthManager : MonoBehaviour
     [SerializeField] private float maxImmuneTime;
     private float immuneTime;
     private float spawnTime;
+    private spawnManager spawnManager;
 
+    void Awake()
+    {
+        //Initialize the spawn manager.
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<spawnManager>();    
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +44,9 @@ private void healthCheck()
     {
         if (currentHealth <= 0)
         {
+            //Add this enemy to the spawnManager list.
+            spawnManager.removeMeFromList(this.gameObject);
+            
             Destroy(gameObject);
         }
         else if (currentHealth / maxHealth <= .5)
@@ -52,10 +61,6 @@ private void healthCheck()
             //Play damage animation;
             currentHealth = currentHealth - damage;
             enemyController.stopMoveSpeed();
-        }
-        else
-        {
-            Debug.Log("Immune");
         }
     }
 

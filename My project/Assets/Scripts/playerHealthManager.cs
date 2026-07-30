@@ -32,7 +32,7 @@ public class playerHealthManager : MonoBehaviour
         }
         else if (playerHitValue > 0 && regenTimer >= maxRegenTimer) //If the player is hit but the regen timer has fully counted down. Restore the shield health.
         {
-            Debug.Log("Shield Restored! " + playerShields + " remaining");
+            //Debug.Log("Shield Restored! " + playerShields + " remaining");
 
             regenTimer = 0;
             playerHitValue = 0;
@@ -42,7 +42,7 @@ public class playerHealthManager : MonoBehaviour
         }
         else if (playerHitValue > 2) //If the player takes hit with value greater than 3, then just straight up remove a shield.
         {
-            Debug.Log("Crushing Hit! Shield Lost! " + playerShields + " shields remaining!");
+            //Debug.Log("Crushing Hit! Shield Lost! " + playerShields + " shields remaining!");
 
             playerHitValue = 0;
             playerShields = playerShields - 1;
@@ -56,7 +56,7 @@ public class playerHealthManager : MonoBehaviour
         }
         else if (playerHitValue > 1 && shieldHealth < 2 && regenTimer > 0) //If the player is hit more than once and the shieldHealth is less than 2 and the regen timer is counting down. Lose a shield and acitvate immunity.
         {
-            Debug.Log("Shield Lost! " + playerShields + " remaining!");
+            //Debug.Log("Shield Lost! " + playerShields + " remaining!");
 
             playerHitValue = 0;
             playerShields = playerShields - 1;
@@ -79,7 +79,7 @@ public class playerHealthManager : MonoBehaviour
     public void damagePlayer(int damage)
     {
 
-        Debug.Log("PLAYER HIT!");
+        //Debug.Log("PLAYER HIT!");
 
         if (!coroutines.getImmuneStatus() && playerHitValue > 0 && damage > 0 && damage < 300)
         {

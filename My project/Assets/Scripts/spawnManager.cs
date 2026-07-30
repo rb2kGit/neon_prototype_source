@@ -14,6 +14,9 @@ public class spawnManager : MonoBehaviour
     private float startTime;
     private float lastSpawn;
 
+    //Enemy spawn list.
+    private List<GameObject> enemyObjectList = new List<GameObject>();
+
     //Prefab variables.
     [SerializeField] private GameObject enemyPrefab;
 
@@ -39,7 +42,8 @@ public class spawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Spawner Logic
+
+        //Spawner Logic.
         if (Time.time - lastSpawn >= SpawnRate)
         {
             //Debug.Log("Spawn");
@@ -47,5 +51,17 @@ public class spawnManager : MonoBehaviour
 
             Instantiate(enemyPrefab, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].position, spawnManagerObj.transform.rotation);
         }
+
     }
+
+    public void addMeToList(GameObject enemyObject)
+    {
+        enemyObjectList.Add(enemyObject);
+    }
+
+    public void removeMeFromList(GameObject enemyObject)
+    {
+        enemyObjectList.Remove(enemyObject);
+    }
+
 }

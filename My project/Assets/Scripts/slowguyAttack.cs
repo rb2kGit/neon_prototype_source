@@ -12,17 +12,21 @@ public class slowguyAttack : enemyAttack
 
         int layersToExclude = LayerMask.GetMask("Enemy", "Ground", "Platform", "SelfProjectiles");
         int layerMask = ~layersToExclude;
+        Collider2D contactCollider = null;
 
-        Collider2D contactCollider = Physics2D.OverlapBox(attackPos.position, new Vector2 (2,3), 0f, layerMask);
-
-        if (contactCollider.gameObject.layer == 3)
+        if (Physics2D.OverlapBox(attackPos.position, new Vector2 (2,3), 0f, layerMask) != null)
         {
-           contactCollider.gameObject.GetComponent<playerHealthManager>().damagePlayer(attackValue);
+            contactCollider = Physics2D.OverlapBox(attackPos.position, new Vector2 (2,3), 0f, layerMask);
         }
-        //Debug.Log("Player hit at this positoin: " + playerToDamage.gameObject.transform.position);
+
+        if (contactCollider != null && contactCollider.gameObject.layer == 3)
+        {
+            contactCollider.gameObject.GetComponent<playerHealthManager>().damagePlayer(attackValue);
+        }
 
         restartAttackDelay();
         startLingerTimer();
+        //Debug.Log("Player hit at this positoin: " + playerToDamage.gameObject.transform.position);
         
     }
 
