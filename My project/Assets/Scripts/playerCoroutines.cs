@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using Vector2 = UnityEngine.Vector2;
@@ -10,7 +11,9 @@ public class playerCoroutines : MonoBehaviour
     //Player variables.
     public playerController playerController;
     public Rigidbody2D rig;
+    [SerializeField] private GameObject playerObject;
     [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private GameObject dashPrefab;
     private Color originalColor;
     private bool playerImmune;
 
@@ -25,6 +28,7 @@ public class playerCoroutines : MonoBehaviour
         //Initialize routine varaibles.
         float originalGravity = rig.gravityScale;
         UnityEngine.Vector2 originalVelocity = new Vector2(playerController.directionalMemory * playerController.moveSpeed, 0f); //Capture the current x velocity.
+        Vector2 startingPlayerPosition = playerObject.transform.position;
 
         //Set tracking variables.
         playerController.canDash = false;
@@ -36,6 +40,18 @@ public class playerCoroutines : MonoBehaviour
 
         //Wait for a certain amount of seconds.
         yield return new WaitForSeconds(dashTime);
+
+        //Initialize new variables based on the player's new position.
+        Vector2 spawnPosition = playerObject.transform.position;
+        float prefabLength = dashPrefab.GetComponent<BoxCollider2D>().size.x;
+        float distanceTravelled = spawnPosition.x - startingPlayerPosition.x;
+        spawnPosition.x = spawnPosition.x - (prefabLength / 2) * playerObject.transform.right.x;
+
+        if (distanceTravelled > 0 && distanceTravelled >= (prefabLength * 0.5) || distanceTravelled < 0 && distanceTravelled <= (-prefabLength * 0.5))
+        { 
+            //Instantiate the damaging prefab.
+            Instantiate(dashPrefab, spawnPosition, playerObject.transform.rotation);
+        }
 
         //Reset dash and tracking variables.
         rig.gravityScale = originalGravity;

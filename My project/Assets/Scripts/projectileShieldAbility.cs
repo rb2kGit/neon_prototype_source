@@ -10,6 +10,14 @@ public class projectileShieldAbility : abilityBase
     {
         spawnPoint = GameObject.Find("Player");
         Vector3 spawnPosition = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, -1f);
-        Instantiate(pShieldPrefab, spawnPosition, spawnPoint.transform.rotation);
+        playerController playerController = spawnPoint.GetComponent<playerController>();
+
+        playerController = GameObject.Find("Player").GetComponent<playerController>();
+
+        if (!playerController.checkDrones())
+        {
+            playerController.setDrones();
+            Instantiate(pShieldPrefab, spawnPosition, spawnPoint.transform.rotation);
+        }
     }
 }
