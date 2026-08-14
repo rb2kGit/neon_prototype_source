@@ -29,11 +29,30 @@ public class pShieldBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (droneList.Count <= 0 )
+        if (playerControllerScript.checkDrones() && playerControllerScript.replaceDroneCheck())
         {
-            playerControllerScript.setDrones();
             Destroy(gameObject);
+            playerControllerScript.setDrones(false);
         }
+        else if (droneList.Count <= 0)
+        {
+            playerControllerScript.setDrones(false);
+            Destroy(gameObject);
+            Debug.Log("Drones destroyed.");
+        }
+
+        /*//When to destroy drones.
+        if (droneList.Count <= 0 || !playerControllerScript.replaceDroneCheck())
+        {
+            playerControllerScript.setDrones(false);
+            Destroy(gameObject);
+            Debug.Log("Drones destroyed.");
+        }
+        else if (playerControllerScript.replaceDroneCheck())
+        {
+            Destroy(gameObject);
+            Debug.Log("Drones go bye bye.");
+        }*/
 
         playerPosition = GameObject.Find("Player").transform.position;
 

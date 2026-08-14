@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class enemyHealthManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class enemyHealthManager : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite damagedSprite;
-    private Boolean isImmune;
+    private Boolean isImmune, hasDOT, isSlowed, isRooted;
+    private List<debuffs> debuffList = new List<debuffs>();
     [SerializeField] private float maxImmuneTime;
     private float immuneTime;
     private float spawnTime;
@@ -61,6 +63,24 @@ private void healthCheck()
             //Play damage animation;
             currentHealth = currentHealth - damage;
             enemyController.stopMoveSpeed();
+        }
+    }
+
+    public void debuff(debuffs debuff)
+    {
+        //Assign the debuff type to use.
+        int debuffType = debuff.getDebuffType();
+
+        switch (debuffType)
+        {
+            case 1:
+                hasDOT = true;
+                debuffList.Add(debuff);
+                break;
+            case 2:
+                isSlowed = true;
+                debuffList.Add(debuff);
+                break;
         }
     }
 

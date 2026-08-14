@@ -5,6 +5,7 @@ public class dashDamagerBehavior : MonoBehaviour
     //Variables
     [SerializeField] private int damageNumber;
     [SerializeField] private float maxLifeSpan;
+    [SerializeField] private debuffs debuff;
     private float lifeTimer;
     
 
@@ -12,6 +13,7 @@ public class dashDamagerBehavior : MonoBehaviour
     void Start()
     {
         lifeTimer = 0;
+        debuff = new redDOT();
     }
 
     // Update is called once per frame
@@ -36,6 +38,10 @@ public class dashDamagerBehavior : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        collisionObject.GetComponent<enemyHealthManager>().damage(damageNumber);
+        //Apply dot.
+        debuff.applyMe(collisionObject);
+        //collisionObject.GetComponent<enemyHealthManager>().debuff(debuffs debuff);
+
+        //collisionObject.GetComponent<enemyHealthManager>().damage(damageNumber);
     }
 }

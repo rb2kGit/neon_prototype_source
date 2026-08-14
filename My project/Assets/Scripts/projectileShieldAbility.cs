@@ -14,10 +14,19 @@ public class projectileShieldAbility : abilityBase
 
         playerController = GameObject.Find("Player").GetComponent<playerController>();
 
-        if (!playerController.checkDrones())
+        if(playerController.checkDrones())
+        {
+            playerController.setReplaceDrones(true);
+        }
+
+        playerController.setDrones(true);
+        Instantiate(pShieldPrefab, spawnPosition, spawnPoint.transform.rotation);
+
+        Debug.Log("Drones created.");
+
+        /*else if (playerController.checkDrones())
         {
             playerController.setDrones();
-            Instantiate(pShieldPrefab, spawnPosition, spawnPoint.transform.rotation);
-        }
+        }*/
     }
 }

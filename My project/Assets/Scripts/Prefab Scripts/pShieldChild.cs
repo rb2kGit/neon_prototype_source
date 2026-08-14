@@ -22,10 +22,14 @@ public class pShieldChild : MonoBehaviour
         GameObject collisionObject = collision.gameObject;
         pShieldBehavior pShieldScript = transform.parent.gameObject.GetComponent<pShieldBehavior>();
 
-        collisionObject.GetComponent<enemyHealthManager>().damage(damageNumber);
+        if (collisionObject.layer == 6)
+        {
+            
+            collisionObject.GetComponent<enemyHealthManager>().damage(damageNumber);
 
-        pShieldScript.removeMeFromList(gameObject);
+            pShieldScript.removeMeFromList(gameObject);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

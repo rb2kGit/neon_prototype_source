@@ -45,6 +45,7 @@ public class playerController : MonoBehaviour
     //Attack Variables
     public float battackTimer; 
     private bool hasDrones;
+    private bool replaceDrones;
 
     //Level Variables
     public LayerMask groundLayer;
@@ -81,6 +82,7 @@ public class playerController : MonoBehaviour
         directionalMemory = 1;
         canDash = true;
         hasDrones = false;
+        replaceDrones = false;
     }
 
     // Update is called once per frame
@@ -249,16 +251,19 @@ public class playerController : MonoBehaviour
         return hasDrones;
     }
 
-    public void setDrones()
+    public void setDrones(bool value)
     {
-        if (hasDrones)
-        {
-            hasDrones = false;
-        }
-        else if (!hasDrones)
-        {
-            hasDrones = true;
-        }
+        hasDrones = value;
+    }
+
+    public bool replaceDroneCheck()
+    {
+        return replaceDrones;
+    }
+
+    public void setReplaceDrones(bool value)
+    {
+        replaceDrones = value;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

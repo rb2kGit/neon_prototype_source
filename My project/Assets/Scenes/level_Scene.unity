@@ -5368,7 +5368,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 512
-  boxCastSize: {x: 1, y: 0.25}
+  boxCastSize: {x: 0.5, y: 0.25}
   boxCastDistance: 1
   timerScript: {fileID: 1063813323}
   jumpController: {fileID: 1063813324}
