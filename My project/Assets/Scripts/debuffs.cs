@@ -2,12 +2,15 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class debuffs : MonoBehaviour
+public class debuffs: ScriptableObject
 {
     private int myColor;
-    [SerializeField] private float maxDuration;
+    public bool active;
+    [SerializeField] public float maxDuration;
+    public float triggerTime;
+    public float triggerTimer;
+    public float remainingDuration;
     private int type;
-    private float remainingDuration;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +34,14 @@ public class debuffs : MonoBehaviour
         return type;
     }
 
-    public virtual void applyMe(GameObject targetObject){}
-    public virtual void refreshMe(GameObject targetObject){}
-    public virtual void removeMe(GameObject targetObject){}
+    public bool getDebuffStatus()
+    {
+        return active;
+    }
+
+    public virtual void applyMe(GameObject enemyObject){}
+    public virtual void triggerMe(){}
+    public virtual void refreshMe(){}
+    public virtual void removeMe(){}
+    public virtual void timer(){}
 }

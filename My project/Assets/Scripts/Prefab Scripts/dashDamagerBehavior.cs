@@ -5,7 +5,7 @@ public class dashDamagerBehavior : MonoBehaviour
     //Variables
     [SerializeField] private int damageNumber;
     [SerializeField] private float maxLifeSpan;
-    [SerializeField] private debuffs debuff;
+    [SerializeField] private redDOT debuff;
     private float lifeTimer;
     
 
@@ -13,7 +13,7 @@ public class dashDamagerBehavior : MonoBehaviour
     void Start()
     {
         lifeTimer = 0;
-        debuff = new redDOT();
+        //debuff = new redDOT();
     }
 
     // Update is called once per frame
@@ -37,10 +37,12 @@ public class dashDamagerBehavior : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collisionObject = collision.gameObject;
+        redDOT redDOTDebuff = ScriptableObject.CreateInstance<redDOT>();
 
+        collisionObject.GetComponent<enemyHealthManager>().debuff(redDOTDebuff);
         //Apply dot.
-        debuff.applyMe(collisionObject);
-        //collisionObject.GetComponent<enemyHealthManager>().debuff(debuffs debuff);
+
+        //debuff.applyMe(collisionObject);
 
         //collisionObject.GetComponent<enemyHealthManager>().damage(damageNumber);
     }

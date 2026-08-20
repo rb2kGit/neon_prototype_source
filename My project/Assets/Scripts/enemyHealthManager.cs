@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class enemyHealthManager : MonoBehaviour
@@ -39,6 +41,23 @@ public class enemyHealthManager : MonoBehaviour
             isImmune = false;
         }
 
+        if (hasDOT)
+        {
+            foreach(debuffs redDOT in debuffList)
+            {
+                //Debug.Log(redDOT.getDebuffType());
+                redDOT.timer();
+                hasDOT = redDOT.getDebuffStatus();
+            }
+        }
+        else if (!hasDOT && debuffList.Count > 0)
+        {
+            debuffs debuff = debuffList.Find(dBuff => dBuff.getDebuffType() == 1); //Since only 1 of each debuff can be applied, we can search directly for the timer() override for each.
+            debuff.removeMe();
+            debuffList.Remove(debuff);
+            Debug.Log(debuffList.Count);
+        }
+
         healthCheck();
     }
 
@@ -74,11 +93,43 @@ private void healthCheck()
         switch (debuffType)
         {
             case 1:
-                hasDOT = true;
-                debuffList.Add(debuff);
+                if (!hasDOT)
+                {
+                    hasDOT = true;
+                    debuff.applyMe(this.gameObject);
+                    debuffList.Add(debuff);
+                    
+                    Debug.Log("Dot'd" + " " + UnityEngine.Random.Range(0f, 10f));
+                }
+                else
+                {
+                    debuff.refreshMe();
+                }
                 break;
             case 2:
                 isSlowed = true;
+                debuffList.Add(debuff);
+                break;
+        }
+    }
+
+    public void clearDebuff(debuffs debuff)
+    {
+        //Assign the debuff type to use.
+        int debuffType = debuff.getDebuffType();
+
+        debuffList.Remove(debuff);
+        Debug.Log(debuffList.Count);
+
+
+        switch (debuffType)
+        {
+            case 1:
+                hasDOT = false;
+                Debug.Log(hasDOT);
+                break;
+            case 2:
+                isSlowed = false;
                 debuffList.Add(debuff);
                 break;
         }

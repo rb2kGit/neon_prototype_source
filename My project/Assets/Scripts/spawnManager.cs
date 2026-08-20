@@ -44,7 +44,7 @@ public class spawnManager : MonoBehaviour
     {
 
         //Spawner Logic.
-        if (Time.time - lastSpawn >= SpawnRate)
+        if (Time.time - lastSpawn >= SpawnRate && enemyObjectList.Count < 2)
         {
             //Debug.Log("Spawn");
             lastSpawn = Time.time;

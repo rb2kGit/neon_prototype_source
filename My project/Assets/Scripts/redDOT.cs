@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
+[CreateAssetMenu]
 public class redDOT : debuffs
 {
-    private int damageAmount;
+    public int damageAmount;
+    private GameObject theAfflicted;
+    public int testNumber;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        //Set the damage amount to be dealt every second.
-        damageAmount = 5;
-        //Set the debuff type.
-        setDebuffType(1);
+        testNumber = UnityEngine.Random.Range(0, 10);
+        active = true;
     }
 
     // Update is called once per frame
@@ -19,13 +22,79 @@ public class redDOT : debuffs
         
     }
 
-    public override void applyMe(GameObject targetObject)
+    //Cosntructor definition.
+    public redDOT()
     {
-        base.applyMe(targetObject);
+        //Set the damage amount to be dealt every second.
+        damageAmount = 10;
+        //Set the debuff type.
+        setDebuffType(1);
 
-        if (targetObject.layer == 6)
+        maxDuration = 10f;
+        remainingDuration = maxDuration;
+
+        triggerTime = 1f;
+        triggerTimer = 0f;
+
+        //testNumber = UnityEngine.Random.Range(0, 10);
+    }
+
+    public override void timer()
+    {
+        if (active && remainingDuration <= 0)
         {
-            targetObject.GetComponent<enemyHealthManager>().debuff(this);
+            active = false;
+            remainingDuration = maxDuration;
+            Debug.Log("Remove me.");
+        }
+        else if (active && triggerTimer >= triggerTime)
+        {
+            triggerTimer = 0;
+            triggerMe();
+        }
+        else if (active && remainingDuration > 0)
+        {
+            remainingDuration -= Time.deltaTime;//Count down the duration timer.
+            triggerTimer += Time.deltaTime;//Count up the trigger timer.
+        }
+    }
+
+    //How to apply the debuff?
+    //Instantiate a scriptable object and pass it to the enemyHealthController.
+
+    //How to affect the enemy.
+    //During the timer trigger the effect.
+
+    //How to remove the debuff?
+    //Destroy the scriptable object.
+
+    public override void applyMe(GameObject enemyObject)
+    {
+        base.applyMe(enemyObject);
+
+        if (enemyObject.layer == 6)
+        {
+            theAfflicted = enemyObject.gameObject;
+        }
+    }
+
+    public override void triggerMe()
+    {
+        theAfflicted.GetComponent<enemyHealthManager>().damage(damageAmount);
+    }
+
+    /*public override void refreshMe()
+    {
+        base.refreshMe();
+
+        remainingDuration = maxDuration;
+    }*/
+
+    public override void removeMe()
+    {
+        if (!active)
+        {
+            Destroy(this);
         }
     }
 }
