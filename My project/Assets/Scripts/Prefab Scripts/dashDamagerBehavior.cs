@@ -34,7 +34,7 @@ public class dashDamagerBehavior : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collisionObject = collision.gameObject;
         redDOT redDOTDebuff = ScriptableObject.CreateInstance<redDOT>();

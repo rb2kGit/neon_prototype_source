@@ -26,7 +26,7 @@ public class redDOT : debuffs
     public redDOT()
     {
         //Set the damage amount to be dealt every second.
-        damageAmount = 10;
+        damageAmount = 2;
         //Set the debuff type.
         setDebuffType(1);
 
@@ -41,22 +41,28 @@ public class redDOT : debuffs
 
     public override void timer()
     {
-        if (active && remainingDuration <= 0)
-        {
-            active = false;
-            remainingDuration = maxDuration;
-            Debug.Log("Remove me.");
-        }
-        else if (active && triggerTimer >= triggerTime)
+        //Manage the effect trigger timer.
+        if (active && triggerTimer >= triggerTime)
         {
             triggerTimer = 0;
             triggerMe();
         }
+        else if (active && triggerTimer < triggerTime)
+        {
+            triggerTimer += Time.deltaTime;//Count up the trigger timer.
+        }
+
+        if (active && remainingDuration <= 0)
+        {
+            active = false;
+            remainingDuration = maxDuration;
+            removeMe();
+        }
         else if (active && remainingDuration > 0)
         {
             remainingDuration -= Time.deltaTime;//Count down the duration timer.
-            triggerTimer += Time.deltaTime;//Count up the trigger timer.
         }
+
     }
 
     //How to apply the debuff?
@@ -96,5 +102,10 @@ public class redDOT : debuffs
         {
             Destroy(this);
         }
+    }
+
+    public override void refreshMe()
+    {
+        remainingDuration = maxDuration;
     }
 }

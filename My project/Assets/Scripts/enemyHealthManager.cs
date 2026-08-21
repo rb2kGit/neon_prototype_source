@@ -17,6 +17,7 @@ public class enemyHealthManager : MonoBehaviour
     private float immuneTime;
     private float spawnTime;
     private spawnManager spawnManager;
+    [SerializeField] ParticleSystem redDOTFX;
 
     void Awake()
     {
@@ -55,13 +56,13 @@ public class enemyHealthManager : MonoBehaviour
             debuffs debuff = debuffList.Find(dBuff => dBuff.getDebuffType() == 1); //Since only 1 of each debuff can be applied, we can search directly for the timer() override for each.
             debuff.removeMe();
             debuffList.Remove(debuff);
-            Debug.Log(debuffList.Count);
+            redDOTFX.Stop();
         }
 
         healthCheck();
     }
 
-private void healthCheck()
+    private void healthCheck()
     {
         if (currentHealth <= 0)
         {
@@ -75,6 +76,7 @@ private void healthCheck()
             changeSprite();
         }
     }
+
     public void damage(int damage)
     {
         if (!isImmune)
@@ -97,13 +99,17 @@ private void healthCheck()
                 {
                     hasDOT = true;
                     debuff.applyMe(this.gameObject);
+                    debuff.triggerMe();
                     debuffList.Add(debuff);
-                    
-                    Debug.Log("Dot'd" + " " + UnityEngine.Random.Range(0f, 10f));
+                    redDOTFX.Play();
                 }
                 else
                 {
-                    debuff.refreshMe();
+                    foreach(debuffs redDOT in debuffList)
+                    {
+                        //Debug.Log(redDOT.getDebuffType());
+                        redDOT.refreshMe();
+                    }
                 }
                 break;
             case 2:
