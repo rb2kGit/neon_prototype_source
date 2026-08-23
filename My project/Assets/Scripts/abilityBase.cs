@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -16,6 +17,8 @@ public class abilityBase : ScriptableObject
     public int tieredAbilityCode; 
     public GameObject playerObject;
     public GameObject firePoint;
+    public GameObject basicProjectileObject;
+    public Boolean followUpInput;
 
     //T2 ability variables.
     public float abilityAmmo;

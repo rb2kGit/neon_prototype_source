@@ -467,6 +467,7 @@
 "Assets/Scripts/jumpController.cs"
 "Assets/Scripts/lowerPlatformLogiic.cs"
 "Assets/Scripts/mirrorAbility.cs"
+"Assets/Scripts/penatratorLaser.cs"
 "Assets/Scripts/platformLogic.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/playerCoroutines.cs"

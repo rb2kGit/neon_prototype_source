@@ -3336,7 +3336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d275529ff5adea24ebc86b0156fffd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 58c936e9198a519428c0df5b164b9ba3, type: 2}
+  ability: {fileID: 11400000, guid: b50724cc80fafdc47a66982d9d13ce27, type: 2}
   cooldownTime: 0
   playerController: {fileID: 1063813321}
   inputManager: {fileID: 1920223020}

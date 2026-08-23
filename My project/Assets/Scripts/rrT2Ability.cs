@@ -29,6 +29,8 @@ public class rrT2Ability : abilityBase
         firePoint.transform.localPosition = new Vector2(1, 0);
 
         playerPos = playerObject.transform.position;
+
+        abilityAmmo = 1;
         
     }
 

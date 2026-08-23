@@ -6,8 +6,9 @@ public class abilityHolder4 : abilityHolder
     void Update()
     {
         abilityInput = inputManager.getAbility4Input();
+        lClickInput = inputManager.getAbility1Input();
 
-        abilityStateUpdate(abilityInput);
+        abilityStateUpdate(abilityInput, lClickInput);
 
         inputManager.setAbility4Input(returnInput());
     }

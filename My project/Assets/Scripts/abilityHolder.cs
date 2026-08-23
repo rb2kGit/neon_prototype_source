@@ -15,6 +15,7 @@ public abstract class abilityHolder : MonoBehaviour
     float activeTime;
     public playerController playerController;
     protected bool abilityInput;
+    protected bool lClickInput;
 
     public abilityInputManager inputManager;
     public GameObject abilityImageObject;
@@ -23,6 +24,9 @@ public abstract class abilityHolder : MonoBehaviour
     [SerializeField]
     private bool prepped = false;
     [SerializeField] public uiAbility abilityUI;
+
+    //Variable to indicate if the ability requires a folloq up input.
+    public bool needsFollowUpInput;
 
     //Create a variable group that will help manage the state of the ability in this ability holder.
     public enum AbilityState
@@ -35,7 +39,7 @@ public abstract class abilityHolder : MonoBehaviour
 
     AbilityState state = AbilityState.ready;
 
-    public void abilityStateUpdate(bool abilityInput)
+    public void abilityStateUpdate(bool abilityInput, bool leftClick)
     {
         switch (state)
         {
@@ -52,6 +56,16 @@ public abstract class abilityHolder : MonoBehaviour
 
                 break;
             case AbilityState.active: //While state = Abilitystate.active countdown the ability timer, otherwise move to the next state and initialize cooldown time from the abilty.s
+                
+                if (leftClick && ability.followUpInput)
+                {
+                    ability.Fire(gameObject);
+                    ability.Deactivate(gameObject);
+                    activeTime = ability.activeTime;
+                    cooldownTime = ability.cooldownTime;
+                    maxCooldown = ability.cooldownTime;
+                    state = AbilityState.cooldown;
+                }
 
                 if (activeTime > 0)
                 {
