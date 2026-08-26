@@ -9,6 +9,7 @@ public class penetratorBehaviour : MonoBehaviour
     private Vector2 velocity;
     [SerializeField] private float lifeSpan;
     [SerializeField] private int maxPenValue;
+    private int damageValue;
     private int penValue;
 
     //Player variables.
@@ -32,7 +33,7 @@ public class penetratorBehaviour : MonoBehaviour
         transform.right = direction;
         transform.rotation = Quaternion.Euler(0, 0, angle);
         
-        
+        damageValue = 40;
         penValue = maxPenValue;
 
         velocity = new Vector2(direction.x, direction.y).normalized * projectileSpeed;
@@ -53,16 +54,18 @@ public class penetratorBehaviour : MonoBehaviour
         rig.linearVelocity = velocity * Time.fixedDeltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hitObject = collision.gameObject;
 
-
-        penValue --;
+        if (hitObject.layer == 6)
+        {
+            hitObject.GetComponent<enemyHealthManager>().damage(damageValue);
+            penValue --;
+        }
 
         if (penValue <= 0 || hitObject.layer == 8)
         {
-            penValue = maxPenValue;
             Destroy(gameObject);
         }
     }

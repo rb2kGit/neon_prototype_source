@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class abilityInputManager : MonoBehaviour
 {
-    public bool aInput1, aInput1Auto, aInput2, aInput3, aInput4, aInput5, aInput6, aInputX;
+    public bool aInput1, aInput1Auto, aInput2, aInput3, aInput4, aInput5, aInput6, aInputX, aInputEsc, keyPressed;
     public bool[] combinerArray = new bool[5];
     [SerializeField] private playerTransformer playerTransformer;
 
@@ -56,41 +56,67 @@ public class abilityInputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject() && playerTransformer.getTransformedFlag())
         {
             aInput1 = true;
+            keyPressed = true;
         }
         else if(Input.GetKey(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject() && !playerTransformer.getTransformedFlag())
         {
             aInput1 = true;
+            keyPressed = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             aInput2 = true;
+            keyPressed = true;
         }
         
         if (Input.GetKeyDown(KeyCode.E))
         {
             aInput3 = true;
+            keyPressed = true;
         }
         
         if (Input.GetKeyDown(KeyCode.R))
         {
             aInput4 = true;
+            keyPressed = true;
         }
         
         if (Input.GetKeyDown(KeyCode.F))
         {
             aInput5 = true;
+            keyPressed = true;
         }
         
         if (Input.GetKeyDown(KeyCode.C))
         {
             aInput6 = true;
+            keyPressed = true;
         }
         
         if (Input.GetKeyDown(KeyCode.X))
         {
             aInputX = true;
+            keyPressed = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            aInputEsc = true;
+            keyPressed = true;
+        }
+    }
+
+    //Getter for the keyPressed indicator.
+    public bool getKeyPressed()
+    {
+        return keyPressed;
+    }
+
+    //Getter for the Escape Input.
+    public bool getEscPressed()
+    {
+        return aInputEsc;
     }
 
     //Getters for each ability slot.
@@ -149,27 +175,39 @@ public class abilityInputManager : MonoBehaviour
     public void setAbility2Input(bool abilityInput)
     {
         aInput2 = abilityInput;
+        keyPressed = false;
     }
     public void setAbility3Input(bool abilityInput)
     {
         aInput3 = abilityInput;
+        keyPressed = false;
     }
     public void setAbility4Input(bool abilityInput)
     {
         aInput4 = abilityInput;
+        keyPressed = false;
     }
     public void setAbility5Input(bool abilityInput)
     {
         aInput5 = abilityInput;
+        keyPressed = false;
     }
     public void setAbility6Input(bool abilityInput)
     {
         aInput6 = abilityInput;
+        keyPressed = false;
     }
 
     public void setAbilityXInput(bool abilityInput)
     {
         aInputX = abilityInput;
+        keyPressed = false;
+    }
+
+    public void setAbilityEscInput(bool abilityInput)
+    {
+        aInputEsc = abilityInput;
+        keyPressed = false;
     }
 
     public void setCombinerInput2()

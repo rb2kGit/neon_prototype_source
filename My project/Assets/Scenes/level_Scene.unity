@@ -1346,6 +1346,7 @@ MonoBehaviour:
   abilityImage: {fileID: 199627300}
   prepped: 0
   abilityUI: {fileID: 557358214}
+  needsFollowUpInput: 0
 --- !u!1 &451625825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3345,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1602990130}
   prepped: 0
   abilityUI: {fileID: 194109806}
+  needsFollowUpInput: 0
 --- !u!1 &557358212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,7 +4118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03755782, b: 0.03755782, a: 0.7294118}
+  m_Color: {r: 0.4433962, g: 0.006274463, b: 0.006274463, a: 0.7294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4293,6 +4295,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1447873784}
   prepped: 0
   abilityUI: {fileID: 769225305}
+  needsFollowUpInput: 0
 --- !u!1 &814736467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4698,6 +4701,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1767246119}
   prepped: 0
   abilityUI: {fileID: 0}
+  needsFollowUpInput: 0
 --- !u!1 &952989561
 GameObject:
   m_ObjectHideFlags: 0
@@ -8690,7 +8694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5552917921258352638, guid: b99d9f648fc914840a562f8e57abd4e9, type: 3}
+  m_Sprite: {fileID: -915834995833281203, guid: 40747bb42d7e31c46b74315d9ce5c223, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10323,6 +10327,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1225512135}
   prepped: 0
   abilityUI: {fileID: 952989563}
+  needsFollowUpInput: 0
 --- !u!1 &1895309888
 GameObject:
   m_ObjectHideFlags: 0
@@ -11179,6 +11184,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1189507069}
   prepped: 0
   abilityUI: {fileID: 1830593279}
+  needsFollowUpInput: 0
 --- !u!1 &2030808108
 GameObject:
   m_ObjectHideFlags: 0
@@ -11595,6 +11601,7 @@ MonoBehaviour:
   abilityImage: {fileID: 1447873784}
   prepped: 0
   abilityUI: {fileID: 769225305}
+  needsFollowUpInput: 0
 --- !u!1 &2099910014
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.72, y: 0.111, z: -0.109269224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4625, y: 1.5125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3311281189178701152}
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 6510227870992662322}
-  projectileSpeed: 4500
-  lifeSpan: 2
-  maxPenValue: 3
+  projectileSpeed: 2500
+  lifeSpan: 3
+  maxPenValue: 5
   firePoint: {fileID: 0}
 --- !u!1 &7755830909732565525
 GameObject:

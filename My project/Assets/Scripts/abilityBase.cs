@@ -18,6 +18,7 @@ public class abilityBase : ScriptableObject
     public GameObject playerObject;
     public GameObject firePoint;
     public GameObject basicProjectileObject;
+    public GameObject basicProjectileObjectUI;
     public Boolean followUpInput;
 
     //T2 ability variables.
@@ -31,11 +32,6 @@ public class abilityBase : ScriptableObject
     public virtual void Deactivate(GameObject parent) { }
     public virtual void Fire(GameObject parent) { }
     public virtual void subtractAmmo(GameObject parent) { }
-
-    public void Awake()
-    {
-        
-    }
 
     public int getColor()
     {

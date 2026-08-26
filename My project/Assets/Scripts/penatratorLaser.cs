@@ -22,8 +22,11 @@ public class pentratorLaser : abilityBase
         //Initlialize the camera reference for converting the mouse cursor -> world space.
         cam = Camera.main;
         //Initialize and disable the basic projectile object. This ability will wait for the next mouse click.
-        basicProjectileObject = GameObject.Find("Ability1");
+        basicProjectileObject = GameObject.Find("PlayerAbilities").transform.Find("Ability1").gameObject;
         basicProjectileObject.SetActive(false);
+        basicProjectileObjectUI = GameObject.Find("AbilityHotbar").transform.Find("Ability1").gameObject;
+        basicProjectileObjectUI.SetActive(false);
+        
         //Initialize status boolean for follow up input requirement.
         followUpInput = true;
 
@@ -35,6 +38,7 @@ public class pentratorLaser : abilityBase
     {
         //Reacitvate the basic projectile ability again.
         basicProjectileObject.SetActive(true);
+        basicProjectileObjectUI.SetActive(true);
     }
 
     public override void Fire(GameObject parent)
@@ -45,8 +49,6 @@ public class pentratorLaser : abilityBase
         //cam = Camera.main;
         //Set the mousePos variable with the postions of the mouse cursor.
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        Debug.Log(playerController);
 
         //turn the player towards the mouse aimer when firing.
         if (playerController.getFacingRight() && mousePos.x < playerObject.transform.position.x)

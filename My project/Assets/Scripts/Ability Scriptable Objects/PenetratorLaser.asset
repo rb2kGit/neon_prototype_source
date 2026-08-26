@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: PenetratorLaser
   cooldownTime: 2
-  activeTime: 2
+  activeTime: 0
   color: 1
   redCount: 1
   yellowCount: 0
@@ -23,7 +23,8 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   firePoint: {fileID: 0}
   basicProjectileObject: {fileID: 0}
-  abilityAmmo: 1
+  followUpInput: 1
+  abilityAmmo: -42
   maxAbilityAmmo: 1
   spriteCode: 1
   uiSpriteCode: 1

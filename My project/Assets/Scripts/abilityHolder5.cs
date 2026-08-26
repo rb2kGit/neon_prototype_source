@@ -7,7 +7,7 @@ public class abilityHolder5 : abilityHolder
     {
         abilityInput = inputManager.getAbility5Input();
 
-        abilityStateUpdate(abilityInput, lClickInput);
+        abilityStateUpdate(abilityInput);
 
         inputManager.setAbility5Input(returnInput());
     }
