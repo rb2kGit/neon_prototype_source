@@ -19,7 +19,7 @@ public class abilityHolder4 : abilityHolder
         else if (awaitingFollowUpInput && inputManager.getAbility1Input())
         {
             abilityInput = inputManager.getAbility1Input();
-            inputManager.setAbility1Input(false);
+            //inputManager.setAbility1Input(false);
             abilityStateUpdate(abilityInput);
         }
         else

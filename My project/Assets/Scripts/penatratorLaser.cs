@@ -10,13 +10,14 @@ public class pentratorLaser : abilityBase
     private Camera cam;
     private Vector3 mousePos;
     [SerializeField] private GameObject prefab;
+    private abilityHolder1 basicProjectileHolder;
 
 
     public override void Activate(GameObject parent)
     {
         Debug.Log("Activate penetrator.");
         //Initialize the firing point object;
-        firePoint = GameObject.Find("Player").transform.Find("FirePoint").gameObject;
+        firePoint = GameObject.Find("Player").transform.Find("FirePoint2").gameObject;
         //Initlialzie the character controller reference for flipping the player according to the mouse.
         playerController = GameObject.Find("Player").GetComponent<playerController>();
         //Initlialize the camera reference for converting the mouse cursor -> world space.
@@ -32,6 +33,9 @@ public class pentratorLaser : abilityBase
 
         //Initialize references for the base class.
         playerObject = GameObject.Find("Player");
+
+        //Initialize reference to the abilityHolderScript;
+        basicProjectileHolder = basicProjectileObject.GetComponent<abilityHolder1>();
     }
 
     public override void Deactivate(GameObject parent)
@@ -39,6 +43,7 @@ public class pentratorLaser : abilityBase
         //Reacitvate the basic projectile ability again.
         basicProjectileObject.SetActive(true);
         basicProjectileObjectUI.SetActive(true);
+        basicProjectileHolder.renableAbility();
     }
 
     public override void Fire(GameObject parent)
@@ -63,9 +68,15 @@ public class pentratorLaser : abilityBase
         //Set the spawn position of the projectile.
         Vector3 spawnPos = new Vector3(firePoint.transform.position.x, firePoint.transform.position.y, -1f);
 
+        //Stop the player's movement.
+        
+
         //Instantiate the projectile at the firepoint.
         Instantiate(prefab, spawnPos, firePoint.transform.rotation);
         //Instantiate(localPrefab, playerPos, playerObject.transform.rotation);
+
+        //Put the abiilty holder in the disabled state.
+        basicProjectileHolder.disableAbility();
         
         //Decrement the ability ammo.
         abilityAmmo -= 1;

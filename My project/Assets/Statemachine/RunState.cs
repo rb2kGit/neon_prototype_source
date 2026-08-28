@@ -49,6 +49,15 @@ public class RunState : State
 
     }
 
+    public void stopMovement()
+    {
+        //Initialize local variables.
+        float currentVelocity = rig.linearVelocity.x; //Create a reference variable for the current velocity.
+        float accelerationCap = playerInput.accelSpeed * Time.fixedDeltaTime; //This varable will use the accelaration speed to create an accelartion cap in Mathf.MoveTowards, when combined with time.delta time.
+
+        rig.linearVelocity = new Vector2(Mathf.MoveTowards(currentVelocity, playerInput.xInput * 0, accelerationCap ), rig.linearVelocity.y);
+    }
+
     public override void Exit()
     {
         

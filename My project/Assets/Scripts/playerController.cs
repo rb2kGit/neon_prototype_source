@@ -46,6 +46,7 @@ public class playerController : MonoBehaviour
     public float battackTimer; 
     private bool hasDrones;
     private bool replaceDrones;
+    private bool isHolding;
 
     //Level Variables
     public LayerMask groundLayer;
@@ -177,6 +178,11 @@ public class playerController : MonoBehaviour
     public Vector2 getPlayerPosition()
     {
         return transform.position;
+    }
+
+    public void setIsHolding(bool holding)
+    {
+        isHolding = holding;
     }
 
     public RaycastHit2D getMyPlatform()

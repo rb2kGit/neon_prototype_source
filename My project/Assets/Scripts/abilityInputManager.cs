@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class abilityInputManager : MonoBehaviour
 {
-    public bool aInput1, aInput1Auto, aInput2, aInput3, aInput4, aInput5, aInput6, aInputX, aInputEsc, keyPressed;
+    public bool aInput1, aInput1Auto, aInput2, aInput3, aInput4, aInput5, aInput6, aInputX, aInputEsc, keyPressed, followUpFire;
     public bool[] combinerArray = new bool[5];
     [SerializeField] private playerTransformer playerTransformer;
 
@@ -30,7 +30,6 @@ public class abilityInputManager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Q))
             {
                 setCombinerInput2();
-                //ombinerArray[0] = true;
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
@@ -53,10 +52,13 @@ public class abilityInputManager : MonoBehaviour
         }
 
         //Capture ability inputs.
-        if (Input.GetKeyDown(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject() && playerTransformer.getTransformedFlag())
+        if (Input.GetKeyDown(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject())
         {
             aInput1 = true;
             keyPressed = true;
+            followUpFire = true;
+
+            Debug.Log(followUpFire);
         }
         else if(Input.GetKey(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject() && !playerTransformer.getTransformedFlag())
         {
@@ -131,6 +133,11 @@ public class abilityInputManager : MonoBehaviour
             return aInput1;
         }
     }
+
+    public bool getFollowUpInput()
+    {
+        return followUpFire;
+    }
     public bool getAbility2Input()
     {
         return aInput2;
@@ -171,6 +178,7 @@ public class abilityInputManager : MonoBehaviour
     {
         aInput1 = abilityInput;
         aInput1Auto = abilityInput;
+        followUpFire = abilityInput;
     }
     public void setAbility2Input(bool abilityInput)
     {

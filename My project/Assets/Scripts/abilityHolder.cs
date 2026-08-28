@@ -29,6 +29,7 @@ public abstract class abilityHolder : MonoBehaviour
     //Variable to indicate if the ability requires a folloq up input.
     protected bool awaitingFollowUpInput;
     protected bool cancelHold;
+    protected bool enableAbility;
 
     //Create a variable group that will help manage the state of the ability in this ability holder.
     public enum AbilityState
@@ -37,6 +38,7 @@ public abstract class abilityHolder : MonoBehaviour
         holding,
         active,
         cooldown,
+        disabled,
 
     }
 
@@ -65,6 +67,7 @@ public abstract class abilityHolder : MonoBehaviour
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
+                    inputManager.setAbility1Input(false);
                     
                 }
 
@@ -76,11 +79,12 @@ public abstract class abilityHolder : MonoBehaviour
                     cancelHold = false;
                     state = AbilityState.ready;
                 }
-                else if (abilityInput)
+                else if (abilityInput && inputManager.getFollowUpInput())
                 {
                     ability.Fire(gameObject);
                     state = AbilityState.active;
                     awaitingFollowUpInput = false;
+                    inputManager.setAbility1Input(false);
                 }
 
                 break;
@@ -126,6 +130,14 @@ public abstract class abilityHolder : MonoBehaviour
                 }
 
                 break;
+            case AbilityState.disabled:
+                if (enableAbility)
+                {
+                    cooldownTime = ability.cooldownTime;
+                    maxCooldown = ability.cooldownTime;
+                    state = AbilityState.cooldown;
+                }
+                break;
         }
     }
 
@@ -158,6 +170,17 @@ public abstract class abilityHolder : MonoBehaviour
         cooldownTime = ability.cooldownTime;
         maxCooldown = ability.cooldownTime;
         state = AbilityState.cooldown;
+    }
+
+    public void disableAbility()
+    {
+        enableAbility = false;
+        state = AbilityState.disabled;
+    }
+
+    public void renableAbility()
+    {
+        enableAbility = true;
     }
 
     public bool checkPrep()
