@@ -65,7 +65,7 @@ public class dropSign : abilityBase
         }
 
         //Set the spawn position of the projectile.
-        Vector3 spawnPos = new Vector3(firePoint.transform.position.x, firePoint.transform.position.y, -1f);
+        Vector3 spawnPos = new Vector3(mousePos.x, mousePos.y, -1f);
 
         //Stop the player's movement.
         

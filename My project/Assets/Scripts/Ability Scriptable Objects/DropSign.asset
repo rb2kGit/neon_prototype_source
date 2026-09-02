@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DropSign
   m_EditorClassIdentifier: 
   abilityName: Sign Drop
-  cooldownTime: 15
+  cooldownTime: 2
   activeTime: 30
   color: 2
   redCount: 0
@@ -24,9 +24,9 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   basicProjectileObject: {fileID: 0}
   basicProjectileObjectUI: {fileID: 0}
-  followUpInput: 0
-  abilityAmmo: 1
+  followUpInput: 1
+  abilityAmmo: -117
   maxAbilityAmmo: 1
   spriteCode: 0
   uiSpriteCode: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 7494317321913133121, guid: 6d6e52511605d1143bbf35e5d8bfec3e, type: 3}
