@@ -1,10 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu]
-public class pentratorLaser : abilityBase
+public class dropSign : abilityBase
 {
+    
     private Vector2 firepointPOS;
     private playerController playerController;
     private Camera cam;
@@ -15,10 +14,13 @@ public class pentratorLaser : abilityBase
 
     public override void Activate(GameObject parent)
     {
+        //Initialize references for the base class.
+        playerObject = GameObject.Find("Player");
+
         //Initialize the firing point object;
-        firePoint = GameObject.Find("Player").transform.Find("FirePoint2").gameObject;
+        firePoint = playerObject.transform.Find("FirePoint2").gameObject;
         //Initlialzie the character controller reference for flipping the player according to the mouse.
-        playerController = GameObject.Find("Player").GetComponent<playerController>();
+        playerController = playerObject.GetComponent<playerController>();
         //Initlialize the camera reference for converting the mouse cursor -> world space.
         cam = Camera.main;
         //Initialize and disable the basic projectile object. This ability will wait for the next mouse click.
@@ -30,8 +32,6 @@ public class pentratorLaser : abilityBase
         //Initialize status boolean for follow up input requirement.
         followUpInput = true;
 
-        //Initialize references for the base class.
-        playerObject = GameObject.Find("Player");
 
         //Initialize reference to the abilityHolderScript;
         basicProjectileHolder = basicProjectileObject.GetComponent<abilityHolder1>();
@@ -79,6 +79,5 @@ public class pentratorLaser : abilityBase
         
         //Decrement the ability ammo.
         abilityAmmo -= 1;
-
     }
 }

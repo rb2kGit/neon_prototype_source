@@ -57,8 +57,6 @@ public class abilityInputManager : MonoBehaviour
             aInput1 = true;
             keyPressed = true;
             followUpFire = true;
-
-            Debug.Log(followUpFire);
         }
         else if(Input.GetKey(KeyCode.Mouse0)  && !EventSystem.current.IsPointerOverGameObject() && !playerTransformer.getTransformedFlag())
         {
